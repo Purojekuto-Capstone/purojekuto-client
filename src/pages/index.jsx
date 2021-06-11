@@ -1,17 +1,17 @@
 import Head from "next/head";
-import Layout from "../common/components/Layout/Layout";
+import Layout from '../components/layout'
 
 export default function Home() {
   return (
-    <Layout>
+    <div className='container'>
       <Head>
         <title>PuroJekuto</title>
         <meta name="description" content="proyect manager" />
       </Head>
 
-      <div className='container'>
-        <h1>Welcome Team</h1>
-      </div>
-    </Layout>
+      <Layout>
+        <h1 className='title'>Welcome Team</h1>
+      </Layout>
+    </div>
   );
 }
