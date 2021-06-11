@@ -1,18 +1,19 @@
 import Head from "next/head";
-import Image from "next/image";
-import styles from "../styles/pages/index.module.css";
+import Layout from '../components/layout'
+
+
 
 export default function Home() {
   return (
-    <div className={styles.container}>
+    <div className='container'>
       <Head>
         <title>PuroJecuto -- proyect manager</title>
         <meta name="description" content="proyect manager" />
       </Head>
 
-      <main className={styles.main}>
-        <h1 className={styles.title}>Welcome Team</h1>
-      </main>
+      <Layout>
+        <h1 className='title'>Welcome Team</h1>
+      </Layout>
     </div>
   );
 }
