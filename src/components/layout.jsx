@@ -3,7 +3,6 @@
 export default function Layout({children}) {
     return (
       <>     
-          
           <header>
               <h3>Header</h3>
           </header>
@@ -12,6 +11,6 @@ export default function Layout({children}) {
           <h3>footer</h3>
           </footer>
       </>
-    );
+    )
   }
   
