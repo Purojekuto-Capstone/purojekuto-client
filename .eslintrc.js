@@ -4,10 +4,7 @@ module.exports = {
     es2021: true,
     node: true,
   },
-  extends: [
-    'plugin:react/recommended',
-    'airbnb',
-  ],
+  extends: ['plugin:react/recommended', 'airbnb', 'prettier'],
   parserOptions: {
     ecmaFeatures: {
       jsx: true,
@@ -15,9 +12,7 @@ module.exports = {
     ecmaVersion: 12,
     sourceType: 'module',
   },
-  plugins: [
-    'react',
-  ],
+  plugins: ['react'],
   rules: {
     'prefer-promise-reject-errors': ['off'],
     'react/jsx-filename-extension': ['off'],
@@ -26,11 +21,11 @@ module.exports = {
     'global-require': ['off'],
     'no-multi-assign': ['warn'],
     'no-empty': ['warn'],
-        'react/no-danger': ['off'],
+    'react/no-danger': ['off'],
     'no-shadow': ['off'],
     'react/forbid-prop-types': ['off'],
     'react/jsx-props-no-spreading': ['off'],
     'react/react-in-jsx-scope': ['off'],
-    "ignoreDestructuring": true
+    ignoreDestructuring: true,
   },
 };
