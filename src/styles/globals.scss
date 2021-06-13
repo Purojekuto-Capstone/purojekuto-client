@@ -4,14 +4,17 @@
 @import "./components/layout.scss";
 @import "./components/headerLayout.scss";
 
-  body {
-  padding: 0;
-  margin: 0;
-  background-color: #f0f4f9 ;
-  
-}
-
 * {
   margin: 0;
   padding: 0;
 }
+
+.app__wrapper{
+  min-height: 100vh;
+  min-width: 100vw;
+  @include themify($themes) { 
+    background: themed('background');
+  }
+}
+
+

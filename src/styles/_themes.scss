@@ -1,11 +1,14 @@
+$white: #F0F4F9;
+$black: #070608;
+
 $themes: (
     light: (
-        background: white,
-        text-color: black
+        background: $white,
+        text-color: $black
     ),
     dark: (
-        background: black,
-        text-color: white
+        background: $black,
+        text-color: $white
     ),
 );
 

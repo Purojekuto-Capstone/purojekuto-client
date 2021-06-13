@@ -1,12 +1,12 @@
 import React, {useState} from 'react';
 import Document, { Html, Head, Main, NextScript } from 'next/document';
+import {store} from '../context/store'
 
 class MyDocument extends Document {
   static async getInitialProps(ctx) {
     const initialProps = await Document.getInitialProps(ctx);
     return { ...initialProps };
   }
-
 
   render() {
     return (
@@ -31,10 +31,10 @@ class MyDocument extends Document {
           />
           <link rel="manifest" href="favicon/site.webmanifest" />
         </Head>
-
+        
         <body>
           <Main/>
-          <div id="modal" />
+          <div id="modal"/>
           <NextScript />
         </body>
       </Html>

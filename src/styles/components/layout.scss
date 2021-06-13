@@ -1,11 +1,16 @@
 
 .layout{
-
   display: grid;
   grid-template-columns: 200px auto;
   grid-template-rows: 20px auto 50px;
   height: 100vh;
   min-height: 500px;
+
+  @include themify($themes) { 
+    background: themed('background');
+  }
+  
+
 
   /*  &__header, &__leftNav, &__footer{
     box-shadow: 1px 1px 6px 0px rgba(0,0,0,0.5);
