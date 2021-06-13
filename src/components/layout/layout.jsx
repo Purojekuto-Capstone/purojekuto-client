@@ -5,11 +5,11 @@ import LeftNavLayout from './leftNavLayout';
 export default function Layout({children}) {
   return (
     <div className="layout">
-      
       <LeftNavLayout />
       <main className="layout__content">
-      <Header />
-         {children} </main>
+        <Header />
+        {children}
+      </main>
       <Footer />
     </div>
   );
