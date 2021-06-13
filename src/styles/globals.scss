@@ -1,9 +1,15 @@
 
 @import './themes';
-//pages
-// @import './pages/index.scss';
-//components
-// @import './components/Layout.scss';
+@import "./pages/index.scss";
+@import "../styles/components/layout.scss";
+@import "../styles/components/headerLayout.scss";
+
+  body {
+  padding: 0;
+  margin: 0;
+  background-color: #f0f4f9 ;
+  
+}
 
 * {
   margin: 0;
