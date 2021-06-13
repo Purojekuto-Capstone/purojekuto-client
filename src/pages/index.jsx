@@ -1,16 +1,18 @@
 import Head from 'next/head';
-import Layout from '../components/layout';
+import Layout from '../components/layout/layout';
 
 export default function Home() {
   return (
-    <div className="container">
+    <div className="layout__main">
       <Head>
         <title>PuroJecuto -- proyect manager</title>
         <meta name="description" content="proyect manager" />
       </Head>
 
       <Layout>
-        <h1 className="title">Welcome Team</h1>
+        <div>
+        <h1>Projects</h1>
+        </div>
       </Layout>
     </div>
   );

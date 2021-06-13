@@ -1,8 +1,11 @@
 @import "./pages/index.scss";
-
-body {
+@import "../styles/components/layout.scss";
+@import "../styles/components/headerLayout.scss";
+     body {
   padding: 0;
   margin: 0;
+  background-color: #f0f4f9 ;
+  
 }
 
 * {
