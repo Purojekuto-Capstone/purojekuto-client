@@ -3,7 +3,6 @@
 export default function Layout({children}) {
     return (
       <>     
-          
           <header>
               <h3>Header</h3>
           </header>
