@@ -3,6 +3,10 @@ import { store } from '../../context/store'
 import { faMoon, faSun } from '@fortawesome/free-regular-svg-icons';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 
+import logoForDark from '../../assets/images/Purojekuto-dark.svg'
+import logoForLight from '../../assets/images/Purojekuto-light.svg'
+
+
 const headerLayout = () => {
   const {dispatch, state} = useContext(store)
   const { theme } = state;
@@ -16,7 +20,9 @@ const headerLayout = () => {
   return (
     <header className="layout__header">
       <div>
-      <h1 className="layout__header--logo"><strong>^_^Puro</strong>jecuto</h1>
+      <div className="logo__container">
+        <img className={'logo'} src={theme === 'dark' ? logoForDark : logoForLight} alt='Purojekto'/>
+      </div>
       </div>
       
       <nav >
