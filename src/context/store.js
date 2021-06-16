@@ -2,7 +2,8 @@ import React, { createContext, useReducer } from 'react';
 
 const initialState = {
   isOpen: false,
-  theme: 'dark'
+  theme: 'dark',
+  mainClass: '',
 };
 
 const store = createContext(initialState);
@@ -17,9 +18,14 @@ const ContextProvider = ({ children }) => {
           isOpen: !state.isOpen,
         };
       case 'THEME__TRIGGER':
-        return { 
-          ...state, 
-          theme: action.payload
+        return {
+          ...state,
+          theme: action.payload,
+        };
+      case 'MAIN_TRIGGER':
+        return {
+          ...state,
+          mainClass: action.payload,
         };
       default:
         return state;

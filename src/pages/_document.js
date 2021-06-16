@@ -1,6 +1,6 @@
-import React, {useState} from 'react';
+import React, { useState } from 'react';
 import Document, { Html, Head, Main, NextScript } from 'next/document';
-import {store} from '../context/store'
+import { store } from '../context/store';
 
 class MyDocument extends Document {
   static async getInitialProps(ctx) {
@@ -31,10 +31,10 @@ class MyDocument extends Document {
           />
           <link rel="manifest" href="favicon/site.webmanifest" />
         </Head>
-        
+
         <body>
-          <Main/>
-          <div id="modal"/>
+          <Main />
+          <div id="modal" />
           <NextScript />
         </body>
       </Html>
