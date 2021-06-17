@@ -1,13 +1,15 @@
+@import '../_vars';
+
 .sideBar{
   grid-column: 1;
   grid-row: 1/4;
-display: flex;
-margin: 0 auto;
-align-items: center;
+  display: flex;
+  margin: 0 auto;
+  align-items: center;
 }
 
 .navIcon {
-  background-color: #fbc663 ;
+  background-color: $icon-color;
   padding: 20px;
   border-radius: 50%;
 }
@@ -19,6 +21,7 @@ navbar {
   left: 0;
   height: 6em;
   display: flex;
+  color: $text-color ;
  
   .navbar__icon {
     margin: 40px 0 auto 28px;
@@ -26,7 +29,7 @@ navbar {
     transition: transform 1s;
   }
   .navbar__icon:hover {
-    background-color: #fbc663 ;
+    background-color: $icon-color ;
     border-radius: 35px;
     transform: rotate(360deg);
     padding: 20px;
@@ -42,7 +45,6 @@ aside {
   top: 80px;
   left: 0;
   bottom: 0;
-  /* background-color: #2d2d2d; */
   transition: width 0.5s ease-in-out;
   ul {
     list-style: none;
@@ -61,8 +63,8 @@ aside {
     }
     li:hover {
       transform: translateX(5px);
-      color: black !important;
-      border-left: 5px solid black;
+      color: $secondary-text-color !important;
+      border-left: 5px solid $secondary-text-color;
     }
   }
 }

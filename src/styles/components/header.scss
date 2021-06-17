@@ -1,3 +1,4 @@
+@import '../_vars';
 
   .layout__header{
     grid-column: 2;
@@ -6,7 +7,7 @@
     display: flex;
     justify-content: space-between;
     align-items: center;
-    border-bottom: 5px solid #f0f4f9 ;
+    border-bottom: 5px solid $bg-light;
 
     .layout__header--logo{
         max-width: 200px;
@@ -26,7 +27,7 @@
             align-items: center;
             
             .layout__header--user{
-                background-color: #fbc663 ;
+                background-color: $icon-color ;
                 border-radius: 50%;
                 padding: 10px;
                 align-items: center;
