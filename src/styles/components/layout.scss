@@ -9,18 +9,7 @@
     background: themed('background');
   }
   
-  &__header{
 
-    grid-column: 2;
-    grid-row: 1;
-    padding: 0.25rem;
-  
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    border-bottom: 5px solid #f0f4f9 ;
-  }
- 
   &__content{
     grid-column: 2;
     grid-row: 2;

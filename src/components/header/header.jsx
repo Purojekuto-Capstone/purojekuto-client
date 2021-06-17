@@ -1,6 +1,6 @@
 import React, { useContext } from 'react';
 import { store } from '../../context/store';
-import { faMoon, faSun } from '@fortawesome/free-regular-svg-icons';
+import { faMoon, faSun, faBell,faUser } from '@fortawesome/free-regular-svg-icons';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 
 import logoForDark from '../../assets/images/Purojekuto-dark.svg';
@@ -21,7 +21,7 @@ const headerLayout = () => {
       <div>
         <div className="logo__container">
           <img
-            className={'logo'}
+            className={'layout__header--logo'}
             src={theme === 'dark' ? logoForDark : logoForLight}
             alt="Purojekto"
           />
@@ -29,13 +29,12 @@ const headerLayout = () => {
       </div>
 
       <nav>
-        <ul className="nav">
+        <ul >
           <li onClick={() => handleThemeTrigger()}>
             <FontAwesomeIcon icon={theme === 'dark' ? faSun : faMoon} />
           </li>
-          <li>🔉</li>
-          <li>😎</li>
-          <li>Username</li>
+          <li><FontAwesomeIcon  icon={faBell} /></li>
+          <li><FontAwesomeIcon className="layout__header--user" icon={faUser} /><span>Username</span></li>
         </ul>
       </nav>
     </header>

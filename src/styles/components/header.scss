@@ -1,0 +1,39 @@
+
+  .layout__header{
+    grid-column: 2;
+    grid-row: 1;
+    padding: 0.25rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border-bottom: 5px solid #f0f4f9 ;
+
+    .layout__header--logo{
+        max-width: 200px;
+    }
+    
+    ul {
+        display: flex;
+        align-items: center;
+        list-style: none;
+        
+         li{
+            margin: 10px;
+            color: gray;
+            font-weight: 600;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            
+            .layout__header--user{
+                background-color: #fbc663 ;
+                border-radius: 50%;
+                padding: 10px;
+                align-items: center;
+                
+            }
+        }
+    
+    }
+  }
+
