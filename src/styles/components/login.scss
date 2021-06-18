@@ -1,0 +1,72 @@
+
+.main__container {
+    display: grid;
+    grid-template-columns: 1fr 478px 1fr ;
+    grid-template-rows:  50px 653px 50px;
+    background:#F0F4F9;font-family: 'Poppins', sans-serif;
+}
+
+.login__container {
+    display: grid;
+    grid-column-start: 2;
+    grid-row-start: 2;   
+   /* width: 478px;
+    height: 653px; */
+    border-radius: 48px;
+    background:#FFFFFF ;
+    box-shadow: 2px 4px 4px #9D9D9D1A;
+    opacity: 1;
+}
+
+.login__container--h1 {
+    margin-top: 20px;
+    color: #F89F26;
+    justify-self: center;
+    font-size: 57px;
+}
+.input__container {  
+display:flex;
+flex-direction: column;
+justify-self: center;
+/*background-color: #F89F26; */
+}
+
+.login__container--p {
+    justify-self: left;
+    font-weight: bold;
+    margin-bottom: 5px;
+}
+
+.login__container--input { 
+    width: 400px;
+    height: 55px;  
+    font-size: 24px;  
+    justify-self: center; 
+    border: 1px solid #F89F26;
+    border-radius: 13px;
+}
+
+.login__container--btn{  
+    height: 55px ;
+    width: 400px ;
+    justify-self: center;
+    cursor: pointer;
+    background: #F89F26 ;
+    color: #FFFFFF;
+    border-style: none;
+    border-radius: 39px;
+    opacity: 1;
+}
+
+.login__container--p2 { 
+    
+    font-size: 16px;
+    font-family: 'Poppins';
+    font-weight:lighter ;
+    color: #838383;
+    text-align: left;
+    margin-left: 20px;
+}
+.login__container--p2 span {
+    font-weight: bold;
+}
