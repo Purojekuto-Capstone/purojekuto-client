@@ -1,0 +1,84 @@
+@import '../_vars';
+
+.sideBar{
+  grid-column: 1;
+  grid-row: 1/4;
+  display: flex;
+  margin: 0 auto;
+  align-items: center;
+}
+
+.navIcon {
+  background-color: $icon-color;
+  padding: 20px;
+  border-radius: 50%;
+}
+
+navbar {
+  width: 90px;
+  position: absolute;
+  right: 0;
+  left: 0;
+  height: 6em;
+  display: flex;
+  color: $text-color ;
+ 
+  .navbar__icon {
+    margin: 40px 0 auto 28px;
+    padding: 15px;
+    transition: transform 1s;
+  }
+  .navbar__icon:hover {
+    background-color: $icon-color ;
+    border-radius: 35px;
+    transform: rotate(360deg);
+    padding: 20px;
+    
+  }
+ 
+}
+
+aside {
+  overflow-x: hidden;
+  width: 0;
+  position: absolute;
+  top: 80px;
+  left: 0;
+  bottom: 0;
+  transition: width 0.5s ease-in-out;
+  ul {
+    list-style: none;
+    padding-top: 20px;
+    li {
+      display: flex;
+      align-items: center;
+      color: grey;
+      padding: 12px 0 12px 22px;
+      font-weight: 400;
+      transition: transform 1s;
+      cursor: pointer;
+      span{
+        margin-left: 14px;
+      }
+    }
+    li:hover {
+      transform: translateX(5px);
+      color: $secondary-text-color !important;
+      border-left: 5px solid $secondary-text-color;
+    }
+  }
+}
+.drawerMin {
+  width: 90px;
+}
+.drawerOpen {
+  width: 240px;
+}
+
+.mainMin {
+  grid-template-columns: 80px auto;
+  
+}
+.mainOpen {
+  grid-template-columns: 200px auto;
+}
