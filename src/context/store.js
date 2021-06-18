@@ -2,7 +2,7 @@ import React, { createContext, useReducer } from 'react';
 
 const initialState = {
   isOpen: false,
-  theme: 'dark',
+  theme: 'light',
   mainClass: '',
 };
 
