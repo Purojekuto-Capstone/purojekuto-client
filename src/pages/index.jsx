@@ -1,10 +1,10 @@
 import Head from 'next/head';
 import { useContext } from 'react';
 import Layout from '../components/layout/layout';
-import { store } from '../context/store'
+import { store } from '../context/store';
 
 export default function Home() {
-  const { state } = useContext(store)
+  const { state } = useContext(store);
   const { theme } = state;
 
   return (
@@ -16,7 +16,19 @@ export default function Home() {
 
       <Layout>
         <div>
+          <h1>Projects</h1>
+          <h1>Projects</h1>
+          <h1>Projects</h1>
+          <h1>Projects</h1>
+          <h1>Projects</h1>
+          <h1>Projects</h1>
+          <h1>Projects</h1>
+          <h1>Projects</h1>
+          {/* <h1>Projects</h1>
         <h1>Projects</h1>
+        <h1>Projects</h1>
+        <h1>Projects</h1>
+        <h1>Projects</h1> */}
         </div>
       </Layout>
     </>
