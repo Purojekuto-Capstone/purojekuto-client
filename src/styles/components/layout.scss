@@ -1,60 +1,13 @@
+@import '../themes';
 
-.layout{
-  display: grid;
-  grid-template-columns: 200px auto;
-  grid-template-rows: 20px auto 50px;
-  height: 100vh;
-  min-height: 500px;
+.app__wrapper{
+  transition: ease .8s;
+
+  min-width: 100vw;
+  min-height: 100vh;
 
   @include themify($themes) { 
     background: themed('background');
-  }
-  
-
-
-  /*  &__header, &__leftNav, &__footer{
-    box-shadow: 1px 1px 6px 0px rgba(0,0,0,0.5);
-  } */
-
-  &__header{
-    /* background-color: rgba(5,9,43,0.9);  */
-    grid-column: 2;
-    grid-row: 1;
-    padding: 0.25rem;
-    /* margin: 0rem 0rem 0rem 0rem; */
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    border-bottom: 5px solid #f0f4f9 ;
-   /*  border-radius: 5px; */
-    /* background-color: #f0f4f9 ; */
-  }
-  &__leftNav{
-    grid-column: 1;
-    grid-row: 1/4;
-    background-color:#f0f4f9 ;
-  }
-  &__content{
-    grid-column: 2;
-    grid-row: 2;
-    padding: 1rem;
-    margin: 1rem;
-    background-color: #fff;
-    border-radius: 30px;
-    box-shadow: 1px 1px 12px 1px rgba(0,0,0,0.1) ;
-
-  }
-  
-  &__footer{
-    grid-column: 2;
-    grid-row: 3;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    padding: 0.25rem;
-    /* margin: 0 0rem 0rem 0rem; */
-    /* border-radius: 5px; */
-    background-color: #f0f4f9 ;
+    color: themed('text-color');
   }
 }
-
