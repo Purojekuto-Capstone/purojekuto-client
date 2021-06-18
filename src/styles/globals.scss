@@ -3,7 +3,8 @@
 @import "./pages/index.scss";
 @import "./components/layout.scss";
 @import "./components/headerLayout.scss";
-
+@import "../styles/components/login.scss";
+@import "../styles/components/signup.scss";
 * {
   margin: 0;
   padding: 0;
