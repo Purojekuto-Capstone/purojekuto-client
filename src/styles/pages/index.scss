@@ -1,0 +1,19 @@
+.container{
+    &__button{
+        display: flex;
+        justify-content: space-around;
+        margin: 20px;
+    }
+
+    &__content{
+        border: 2px solid grey;
+        border-radius: 20px;
+        width: 90%;
+        margin: 0 auto;
+        display: flex;
+        justify-content: space-around;
+        h1{
+            padding: 20px;
+        }
+    }
+}
