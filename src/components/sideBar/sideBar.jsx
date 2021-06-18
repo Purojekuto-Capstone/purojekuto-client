@@ -50,7 +50,7 @@ const leftNavLayout = () => {
         <ul>
           <li>
             <FontAwesomeIcon className="navIcon" icon={faFolderOpen} />
-            <span> Folder</span>
+            <span>Folder</span>
           </li>
           <li>
             <FontAwesomeIcon className="navIcon" icon={faChartBar} />
