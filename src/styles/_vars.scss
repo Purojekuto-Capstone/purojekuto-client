@@ -1,8 +1,12 @@
+// font
+$heading-font: 'Zilla Slab', sans-serif;
+$text-font: 'Montserrat', sans-serif;
 
 //color light mode
 $text-color: #707070;
 $secondary-text-color: #000002;
 $icon-color:#F89F26;
+$icon-text-color: #FFFFFF;
 $bg-light: #F0F4F9;
 $container-color: #FFFFFF;
 $component-color: #F1F5FB;
@@ -21,6 +25,15 @@ $icon-dark-color:#F8C826;
 $component-dark-color: #2D2D31;
 $container-color-color: #1F1E25;
 $text-dark-color:#FFFFFF;
+
+//shadow
+$shadow: 0px 30px 40px rgba(0, 0, 0, 0.1);
+
+// media Querys
+$galaxy: 320px;
+$iphone8: 375px;
+$iphoneX: 414px;
+$tablet: 768px;
 
 
 

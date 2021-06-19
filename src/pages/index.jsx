@@ -16,7 +16,7 @@ export default function Home() {
     <>
       <Head>
         <title>PuroJekuto</title>
-        <meta name="description" content="proyect manager" />
+        <meta name="descriptio" content="proyect manager" />
       </Head>
 
       <Layout>
