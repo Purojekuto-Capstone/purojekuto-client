@@ -1,5 +1,5 @@
 import Head from 'next/head';
-import { useContext, useState } from 'react';
+import { useContext, useState, useEffect } from 'react';
 import Layout from '../components/layout/layout';
 import { store } from '../context/store';
 import Button from '../components/button/button';
@@ -10,7 +10,11 @@ import Loading from '../components/loading/loading';
 export default function Home() {
   const { state } = useContext(store);
   const { theme } = state;
-  const [isLoading,setLoading] = useState(false)
+  const [isLoading,setLoading] = useState(true)
+
+  useEffect(() => {
+    setLoading(false)
+  },[])
 
   return (
     <>
@@ -33,14 +37,14 @@ export default function Home() {
             ? <Loading />
             : <>
             <div className='container__content'>
-            <h1>Project1</h1>
-            <h1>Detail</h1>
-          </div>  
+              <h1>Project1</h1>
+              <h1>Detail</h1>
+            </div>  
 
-          <div className='container__content'>
-            <h1>Project2</h1>
-            <h1>Detail</h1>
-          </div>
+            <div className='container__content'>
+              <h1>Project2</h1>
+              <h1>Detail</h1>
+            </div>
             </>
           }
 
