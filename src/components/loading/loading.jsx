@@ -1,9 +1,15 @@
 import React from 'react'
+import { Loader } from 'react-bulma-components'
  
 
 const loading = () => {
     return (
-        <Loader> Cargando... </Loader>
+        <Loader className='columns is-centered' style= {{
+            with: 100,
+            height: 100,
+        }}
+        
+        > Cargando... </Loader>
     )
 }
 

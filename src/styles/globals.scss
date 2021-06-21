@@ -6,10 +6,15 @@
 @import "./components/sidebar.scss";
 @import "./vars";
 @import './Button';
+@import './input';
 @import "./calendar.scss";
 @import "../styles/components/login.scss";
 @import "../styles/components/signup.scss";
+<<<<<<< HEAD
 @import "../styles/components/newProject.scss";
+=======
+@import "../styles/pages/newProyect.scss";
+>>>>>>> 87adcf7ba9650f8a2f4f7edfc5a76a92977976fc
 
 :root {
   font-family: $text-font;
@@ -19,6 +24,19 @@
 * {
   margin: 0;
   padding: 0;
+}
+h1,
+h2,
+h3,
+h5,
+h6 {
+    color: $text-color;
+}
+h1 {
+  font-family: $heading-font;
+  font-weight: 400;
+  font-size: 3.15rem;
+  line-height: 4rem;
 }
 
 .app__wrapper{

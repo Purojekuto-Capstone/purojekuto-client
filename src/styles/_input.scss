@@ -1,0 +1,41 @@
+@import './vars';
+
+.input,textarea {
+    display: block;
+    padding: .5rem .75rem;
+    width: 100%;
+    font-size: 1rem;
+    line-height: 1.25;
+    color: #55595c;
+    background-image: none;
+    background-clip: padding-box;
+    border-top: 0;
+    border-right: 0;
+    border-bottom: 1px solid $container-color ;
+    border-left: 0;
+    border-radius: 3px;
+    transition: all 0.25s cubic-bezier(0.4, 0, 1, 1);
+
+    &__container {
+        margin-top: 1rem;
+        padding: 0;
+        border: 0;
+    }
+
+    &__label {
+        display: inline-block;
+        margin-bottom: .5rem;
+        font-size: .75rem;
+        text-transform: uppercase;
+        touch-action: manipulation;
+    }
+
+    &:focus {
+        outline: 0;
+        border-bottom-color: $icon-color;
+    }
+
+    &::placeholder {
+        color: $text-color;
+    }
+}
