@@ -1,0 +1,22 @@
+@import '../vars';
+  
+  form {
+    padding: 2rem;
+    margin-top: 2rem;
+    margin-right: auto;
+    margin-left: auto;
+    max-width: 23.75rem;
+    border-radius: 3px;
+    box-shadow: $shadow;
+  }
+  
+   h1 {
+    margin-top: 0;
+    margin-bottom: 3.236rem;
+    text-align: center;
+  }
+   
+  textarea {
+    resize: vertical;
+  }
+  
