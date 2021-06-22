@@ -3,18 +3,22 @@
   form {
     padding: 2rem;
     margin-top: 2rem;
-    /* margin-right: auto;
-    margin-left: auto; */
     max-width: 23.75rem;
     border-radius: 3px;
-    /* box-shadow: $shadow; */
   }
   
    h1 {
     margin-top: 0;
-    margin-bottom: 3.236rem;
-    text-align: center;
+    margin-bottom:.5rem;
+  
   }
+  h4{
+    margin-bottom: 35px;
+  }
+  a{
+    font-size: 12px;
+    font-weight: bold;
+}
    
   textarea {
     resize: vertical;

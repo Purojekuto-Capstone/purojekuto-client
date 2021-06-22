@@ -2,18 +2,16 @@
 
 .input,textarea {
     display: block;
-    padding: .5rem .75rem;
+    padding: 1rem .75rem;
     width: 100%;
+    margin-bottom: 15px;
     font-size: 1rem;
     line-height: 1.25;
     color: #55595c;
     background-image: none;
     background-clip: padding-box;
-    border-top: 0;
-    border-right: 0;
-    border-bottom: 1px solid $container-color ;
-    border-left: 0;
-    border-radius: 3px;
+    border: 1px solid $icon-color ;
+    border-radius: 10px;
     transition: all 0.25s cubic-bezier(0.4, 0, 1, 1);
 
     &__container {
@@ -25,8 +23,6 @@
     &__label {
         display: inline-block;
         margin-bottom: .5rem;
-        font-size: .75rem;
-        text-transform: uppercase;
         touch-action: manipulation;
     }
 

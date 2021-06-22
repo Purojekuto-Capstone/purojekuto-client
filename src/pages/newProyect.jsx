@@ -6,7 +6,10 @@ const newProyect = () => {
     return (
        <Layout>
             <form className='react-form' /* onSubmit={this.handleSubmit} */>
-    <h1>New proyect</h1>
+    <a>←Back</a>
+    <h1>New project</h1>
+    <h4>Let’s get started by naming your project.</h4>
+    
 
     <fieldset className='input__container'>
      <label htmlFor='formName' className='input__label' title='Nome:' >Proyect name</label>
@@ -28,7 +31,7 @@ const newProyect = () => {
     </fieldset>
 
     <div className='input__container'>
-     <input id='formButton' className='btn btn-primary' type='submit' placeholder='Send message' />
+     <input id='formButton' value="Next" className='btn btn-primary' type='submit' placeholder='Send message' />
     </div>
    </form>
        </Layout>

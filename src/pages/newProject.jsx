@@ -10,7 +10,7 @@ export default function Login() {
 
 <Layout>
     <div className='container'>
-            <a>Back</a>
+            <a>←Back</a>
             <h1 className='container__h1'>New Project</h1>
             <h4>New set up a calendar</h4> 
                 <p>What kind of project is it?</p>
