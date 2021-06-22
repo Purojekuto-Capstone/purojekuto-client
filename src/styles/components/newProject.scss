@@ -6,20 +6,25 @@
     font-size: 12px;
     font-weight: bold;
 }
-.container h1 {
-margin-bottom: 10px;
+.container__h1 {
+    display: flex;
+    color: #000;
+    font-family: 'Poppins';
+    font-size: 50px;
+    margin-bottom: 5px;
 }
 .container h4 {
     font-weight: lighter;
     color: rgb(194, 194, 194);
-    margin-bottom: 40px;
+    margin-bottom: 35px;
 }
 
 .container p {
     font-weight:500;
+    margin-bottom: 3px;
 }
 .login__container--input{
-    margin-bottom: 50px;
+    margin-bottom: 35px;
 }
 
 .btn-primary{
