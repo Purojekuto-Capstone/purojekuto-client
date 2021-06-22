@@ -31,9 +31,9 @@ const headerLayout = () => {
       <nav>
         <ul >
           <li onClick={() => handleThemeTrigger()}>
-            <FontAwesomeIcon icon={theme === 'dark' ? faSun : faMoon} />
+            <FontAwesomeIcon className="layout__header--icon" icon={theme === 'dark' ? faSun : faMoon} />
           </li>
-          <li><FontAwesomeIcon  icon={faBell} /></li>
+          <li><FontAwesomeIcon className="layout__header--icon" icon={faBell} /></li>
           <li><FontAwesomeIcon className="layout__header--user" icon={faUser} /><span>Username</span></li>
         </ul>
       </nav>

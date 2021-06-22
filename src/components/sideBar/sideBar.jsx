@@ -48,7 +48,7 @@ const leftNavLayout = () => {
       </navbar>
       <aside className={drawerClass.join(' ')}>
         <ul>
-          <li>
+          <li className="firs">
             <FontAwesomeIcon className="navIcon" icon={faFolderOpen} />
             <span>Folder</span>
           </li>

@@ -10,7 +10,7 @@
     border-bottom: 5px solid $bg-light;
 
     .layout__header--logo{
-        max-width: 200px;
+        max-width: 230px;
     }
     
     ul {
@@ -19,9 +19,9 @@
         list-style: none;
         
          li{
-            margin: 10px;
+             
+            margin: 15px;
             color: gray;
-            font-weight: 600;
             cursor: pointer;
             display: flex;
             align-items: center;
@@ -31,7 +31,13 @@
                 border-radius: 50%;
                 padding: 10px;
                 align-items: center;
+                font-size: 32px;
+                margin-right: 10px;
                 
+            }
+            .layout__header--icon{
+                font-size: 32px;
+            
             }
         }
     
