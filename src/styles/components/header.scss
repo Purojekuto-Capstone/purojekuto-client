@@ -20,7 +20,9 @@
         list-style: none;
         
          li{
-             
+            @include themify($themes) { 
+                color: themed('text-color');
+              }
             margin: 15px;
             color: gray;
             cursor: pointer;

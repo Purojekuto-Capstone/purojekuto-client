@@ -10,7 +10,9 @@
    h1 {
     margin-top: 0;
     margin-bottom:.5rem;
-  
+    @include themify($themes) { 
+      color: themed('text-color');
+    } 
   }
   h4{
     margin-bottom: 35px;

@@ -1,15 +1,19 @@
-$white: #F0F4F9;
+@import './vars';
+
 $black: #070608;
 
 $themes: (
     light: (
-        background: $white,
-        text-color: $black
+        background: $bg-light,
+        text-color: $text-color,
+        backgroundMain: $icon-text-color,
     ),
     dark: (
-        background: $black,
-        text-color: $white
+        background: $bg-dark-color,
+        text-color: $icon-text-color,
+        backgroundMain:$container-color-color ,
     ),
+
 );
 
 @mixin themify($themes: $themes) {

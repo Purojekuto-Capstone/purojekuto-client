@@ -15,7 +15,7 @@ export default function Layout({ children }) {
     <div className={`${theme === 'light' ? 'light-theme' : 'dark-theme'}`}>
       <div className={`layout ${mainClass}`}>
         <Sidebar />
-        <main className="layout__content">
+        <main className={`layout__content red-theme`}>
           <Header />
           {children}
         </main>
