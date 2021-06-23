@@ -9,14 +9,16 @@ import ListProyect from '../components/listProyect/listProyect';
 import { async } from 'q';
 import { useRouter } from 'next/router'
 import Redirect from '../components/redirect/redirect'
+import { useLocalStorage } from '../hooks/useLocalStorage'
+
 
 
 export default function Home() {
-  const { state } = useContext(store);
-  const { isAuth } = state;
   const [isLoading,setIsLoading] = useState(true);
   const [proyects,setProyects] = useState([]);
   const router = useRouter()
+
+  const [authenticated, setAuthenticated] = useLocalStorage('authenticated');
 
   useEffect(() => {
     async function loadProyects (){
@@ -30,7 +32,7 @@ export default function Home() {
     loadProyects()
   },[])
 
-  if(isAuth) {
+  if(authenticated) {
     return (
       <>
         <Head>

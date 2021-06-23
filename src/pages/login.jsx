@@ -2,14 +2,15 @@ import React, {useContext} from 'react'
 import {useRouter} from 'next/router'
 import { store } from '../context/store.js'
 import RedirectPage from '../components/redirect/redirect.jsx'
+import { useLocalStorage } from '../hooks/useLocalStorage.jsx'
 
 export default function Login() {
     const router = useRouter()
-    const { state } = useContext(store)
-    const { isAuth } = state
+    const [authenticated, setAuthenticated] = useLocalStorage('authenticated');
 
-    if(isAuth) {
-        <RedirectPage path='/'/>
+
+    if(authenticated) {
+        return <RedirectPage path='/'/>
     } else {
         return (
             <div className="main__container">
