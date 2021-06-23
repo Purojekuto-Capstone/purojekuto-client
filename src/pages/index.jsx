@@ -31,7 +31,7 @@ export default function Home() {
     loadProyects();
   }, []);
 
-  return (
+ /*  return (
     <>
       <Head>
         <title>PuroJekuto</title>
@@ -55,7 +55,7 @@ export default function Home() {
         </div>
       </Layout>
     </>
-  );
+  ); */
   if(isAuth) {
     return (
       <>
