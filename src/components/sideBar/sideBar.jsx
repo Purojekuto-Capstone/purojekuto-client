@@ -37,7 +37,7 @@ const leftNavLayout = () => {
 
   return (
     <div>
-      <navbar className="navbar">
+      <nav className="navbar">
         {' '}
         <FontAwesomeIcon
           className="navbar__icon"
@@ -46,21 +46,27 @@ const leftNavLayout = () => {
         >
           menu
         </FontAwesomeIcon>
-      </navbar>
+      </nav>
       <aside className={drawerClass.join(' ')}>
         <ul>
+        <Link href="/">
           <li>
             <FontAwesomeIcon className="navIcon" icon={faFolderOpen} />
             <span>Folder</span>
           </li>
+          </Link>
+          <Link href="/statistics">
           <li>
             <FontAwesomeIcon className="navIcon" icon={faChartBar} />
             <span>Statistics</span>
           </li>
+          </Link>
+          <Link href="/calendar">
           <li>
             <FontAwesomeIcon className="navIcon" icon={faCalendarAlt} />
             <span>Calendar</span>
           </li>
+          </Link>
         </ul>
       </aside>
     </div>

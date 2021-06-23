@@ -1,4 +1,5 @@
 import React, { useContext } from 'react';
+import Link from 'next/link';
 import { store } from '../../context/store';
 import { useLocalStorage } from '../../hooks/useLocalStorage';
 import {
@@ -38,11 +39,13 @@ const headerLayout = () => {
     <header className="layout__header">
       <div>
         <div className="logo__container">
-          <img
-            className={'layout__header--logo'}
-            src={theme === 'dark' ? logoForDark : logoForLight}
-            alt="Purojekto"
-          />
+          <Link rel="stylesheet" href="/">
+            <img
+              className={'layout__header--logo'}
+              src={theme === 'dark' ? logoForDark : logoForLight}
+              alt="Purojekto"
+            />
+          </Link>
         </div>
       </div>
 

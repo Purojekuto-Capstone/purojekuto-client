@@ -30,7 +30,8 @@
     opacity: 1;
 }
 
-.login__container--h1 {
+.login__container svg {
+    margin-left: 25px;
     margin-top: 20px;
     color: #F89F26; /*TODO: @Antonn remember that we use vars, try to use it */
     justify-self: center;
