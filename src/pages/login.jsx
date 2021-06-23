@@ -5,7 +5,9 @@ export default function Login() {
 
 <div className="main__container">
     <div className="login__container">
-        <h1 className="login__container--h1"> ジPurojekuto </h1>
+        <svg xmlns="http://www.w3.org/2000/svg" width="376" height="80" viewBox="0 0 376 80">
+            <text id="ジPurojekuto_" data-name="ジPurojekuto " transform="translate(0 60)" fill="#f89f26" font-size="57" font-family="PingFangSC-Semibold, PingFang SC" font-weight="600"><tspan x="0" y="0">ジ</tspan><tspan y="0" font-family="Poppins-SemiBold, Poppins">Puroj</tspan><tspan y="0" font-family="Poppins-Light, Poppins" font-weight="300">ekuto </tspan></text>
+        </svg>
         <div className='input__container'>
             <p className="login__container--p">Email</p>
             <input className="login__container--input" type="email" placeholder="  mail@mail.com" />

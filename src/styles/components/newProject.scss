@@ -1,11 +1,14 @@
+
 .container{
     margin-top: 40px;
     margin-left: 10px;
 }
+
 .container a{
     font-size: 12px;
     font-weight: bold;
 }
+
 .container__h1 {
     display: flex;
     color: #000;
@@ -13,6 +16,7 @@
     font-size: 50px;
     margin-bottom: 5px;
 }
+
 .container h4 {
     font-weight: lighter;
     color: rgb(194, 194, 194);
@@ -23,6 +27,7 @@
     font-weight:500;
     margin-bottom: 3px;
 }
+
 .login__container--input{
     margin-bottom: 35px;
 }
