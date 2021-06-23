@@ -5,7 +5,7 @@ const initialState = {
   theme: 'light',
   mainClass: '',
   isAuth: false,
-  userId: null
+  userId: null,
 };
 
 const store = createContext(initialState);

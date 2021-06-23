@@ -4,7 +4,7 @@ import { store } from '../../context/store';
 
 export default function loginAuthRedirect(props) {
   const { state, dispatch } = useContext(store);
-  const { isAuth, userId } = state;
+  const { isAuth } = state;
   const router = useRouter()
   const {token} = router.query
 
@@ -14,8 +14,10 @@ export default function loginAuthRedirect(props) {
       router.push('/')
     } else {
       if(token){
-        dispatch({ type: 'SET_USER', payload: token})
-        router.push('/')
+        setTimeout(() => {
+          dispatch({ type: 'SET_USER', payload: token})
+          router.push('/')
+        }, 800);
       }
     }
   }, [token])

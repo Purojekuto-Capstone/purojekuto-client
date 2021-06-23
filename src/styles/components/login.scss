@@ -4,9 +4,21 @@
     grid-template-columns: 1fr 478px 1fr ;
     grid-template-rows:  50px 653px 50px;
     background:#F0F4F9;font-family: 'Poppins', sans-serif;
+
+    // TODO: @Antonn you need to set a full width and height to your main component, you can use min-height and min-width properties
+
+    // TODO: @Antonn this component is very simple, maybe there is no need to use grid, you could du something like this =>
+
+    // display: flex;
+    // justify-content: center;
+    // align-items: center;
+    // min-width: 100vw;
+    // min-height: 100vh;
 }
 
 .login__container {
+    // TODO: @Antonn same here, think if it is worth to use grid instead of flexbox
+
     display: grid;
     grid-column-start: 2;
     grid-row-start: 2;   
@@ -20,7 +32,7 @@
 
 .login__container--h1 {
     margin-top: 20px;
-    color: #F89F26;
+    color: #F89F26; /*TODO: @Antonn remember that we use vars, try to use it */
     justify-self: center;
     font-size: 57px;
 }
