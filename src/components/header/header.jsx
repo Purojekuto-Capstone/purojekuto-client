@@ -1,6 +1,12 @@
 import React, { useContext } from 'react';
+import Link from 'next/link';
 import { store } from '../../context/store';
-import { faMoon, faSun, faBell,faUser } from '@fortawesome/free-regular-svg-icons';
+import {
+  faMoon,
+  faSun,
+  faBell,
+  faUser,
+} from '@fortawesome/free-regular-svg-icons';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 
 import logoForDark from '../../assets/images/Purojekuto-dark.svg';
@@ -20,21 +26,31 @@ const headerLayout = () => {
     <header className="layout__header">
       <div>
         <div className="logo__container">
-          <img
-            className={'layout__header--logo'}
-            src={theme === 'dark' ? logoForDark : logoForLight}
-            alt="Purojekto"
-          />
+          <Link rel="stylesheet" href="/">
+            <img
+              className={'layout__header--logo'}
+              src={theme === 'dark' ? logoForDark : logoForLight}
+              alt="Purojekto"
+            />
+          </Link>
         </div>
       </div>
 
       <nav>
-        <ul >
+        <ul>
           <li onClick={() => handleThemeTrigger()}>
-            <FontAwesomeIcon className="layout__header--icon" icon={theme === 'dark' ? faSun : faMoon} />
+            <FontAwesomeIcon
+              className="layout__header--icon"
+              icon={theme === 'dark' ? faSun : faMoon}
+            />
           </li>
-          <li><FontAwesomeIcon className="layout__header--icon" icon={faBell} /></li>
-          <li><FontAwesomeIcon className="layout__header--user" icon={faUser} /><span>Username</span></li>
+          <li>
+            <FontAwesomeIcon className="layout__header--icon" icon={faBell} />
+          </li>
+          <li>
+            <FontAwesomeIcon className="layout__header--user" icon={faUser} />
+            <span>Username</span>
+          </li>
         </ul>
       </nav>
     </header>

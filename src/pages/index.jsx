@@ -3,32 +3,29 @@ import { useContext, useState, useEffect } from 'react';
 import Layout from '../components/layout/layout';
 import { store } from '../context/store';
 import Loading from '../components/loading/loading';
-import Proyects from '../data/proyects.json'
-import {getProyects} from '../utils/services';
+import Proyects from '../data/proyects.json';
+import { getProyects } from '../utils/services';
 import ListProyect from '../components/listProyect/listProyect';
+import Link from 'next/link';
 import { async } from 'q';
-
-
-
 
 export default function Home() {
   const { state } = useContext(store);
   const { theme } = state;
-  const [isLoading,setIsLoading] = useState(true);
-  const [proyects,setProyects] = useState([]);
+  const [isLoading, setIsLoading] = useState(true);
+  const [proyects, setProyects] = useState([]);
 
   useEffect(() => {
-    async function loadProyects (){
-      const response = await getProyects()
-      
-      if (response.status === 200){
-        setProyects(response.data)
-      }
-      setIsLoading(false)
-    } 
-    loadProyects()
-  },[])
+    async function loadProyects() {
+      const response = await getProyects();
 
+      if (response.status === 200) {
+        setProyects(response.data);
+      }
+      setIsLoading(false);
+    }
+    loadProyects();
+  }, []);
 
   return (
     <>
@@ -38,26 +35,19 @@ export default function Home() {
       </Head>
 
       <Layout>
-        <div className='container'>
-          <div className='container__button'>
-            <h1>Projects</h1>  <button className= 'btn btn-primary'>New</button>
+        <div className="container">
+          <div className="container__button">
+            <h1>Projects</h1>
+            <Link href="/newProyect">
+              <button className="btn btn-primary">New</button>
+            </Link>
           </div>
 
-          {
-             isLoading && <Loading />
-          }
-          {
-            !isLoading && !proyects.length && (
-              'You dont have proyect, add new proyect'
-            )
-          }
-          {
-            !isLoading && proyects.length && <ListProyect proyects={proyects} />
-          }
-
-    
-       
-
+          {isLoading && <Loading />}
+          {!isLoading &&
+            !proyects.length &&
+            'You dont have proyect, add new proyect'}
+          {!isLoading && proyects.length && <ListProyect proyects={proyects} />}
         </div>
       </Layout>
     </>
