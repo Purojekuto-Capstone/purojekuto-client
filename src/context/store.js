@@ -1,5 +1,7 @@
 import React, { createContext, useReducer } from 'react';
 
+// TODO: @Anthony find a way to persist data on application
+
 const initialState = {
   isOpen: false,
   theme: 'light',
