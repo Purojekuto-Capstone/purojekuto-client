@@ -1,9 +1,9 @@
 [
     {
       "id": "1",
-      "name": "Capstone Proyect",
+      "name": "Capstone Project",
       "type": "software",
-      "deahtline": "05/07/2020",
+      "deahtline": "deahtline",
       "description": "practical projects that will help your students get creative while enhancing their",
       "date_Start": "01/07/2020"
     },
@@ -11,15 +11,15 @@
         "id": "2",
         "name": "app create",
         "type": "software",
-        "deahtline": "05/07/2020",
+        "deahtline": "deahtline",
         "description": "practical projects that will help your students get creative while enhancing their",
-        "date_Start": "01/07/2020"
+        "date_Start": "deahtline"
     },
     {
-        "id": "1",
+        "id": "3",
         "name": "read a book",
         "type": "personal",
-        "deahtline": "05/07/2020",
+        "deahtline": "deahtline",
         "description": "practical projects that will help your students get creative while enhancing their",
         "date_Start": "01/07/2020"
     }

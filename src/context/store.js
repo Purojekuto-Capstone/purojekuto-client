@@ -4,6 +4,8 @@ const initialState = {
   isOpen: false,
   theme: 'light',
   mainClass: '',
+  isAuth: false,
+  userId: null,
 };
 
 const store = createContext(initialState);
@@ -26,6 +28,18 @@ const ContextProvider = ({ children }) => {
         return {
           ...state,
           mainClass: action.payload,
+        };
+      case 'SET_USER':
+        return {
+          ...state,
+          isAuth: true,
+          userId: action.payload,
+        };
+      case 'CLEAN_USER':
+        return {
+          ...state,
+          isAuth: false,
+          userId: null,
         };
       default:
         return state;

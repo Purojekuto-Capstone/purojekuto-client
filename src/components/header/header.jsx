@@ -1,6 +1,11 @@
 import React, { useContext } from 'react';
 import { store } from '../../context/store';
-import { faMoon, faSun, faBell,faUser } from '@fortawesome/free-regular-svg-icons';
+import {
+  faMoon,
+  faSun,
+  faBell,
+  faUser,
+} from '@fortawesome/free-regular-svg-icons';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 
 import logoForDark from '../../assets/images/Purojekuto-dark.svg';
@@ -16,6 +21,10 @@ const headerLayout = () => {
       : dispatch({ type: 'THEME__TRIGGER', payload: 'dark' });
   };
 
+  let HandleSignOut = () => {
+    dispatch({ type: 'CLEAN_USER' });
+  };
+
   return (
     <header className="layout__header">
       <div>
@@ -29,12 +38,20 @@ const headerLayout = () => {
       </div>
 
       <nav>
-        <ul >
+        <ul>
           <li onClick={() => handleThemeTrigger()}>
-            <FontAwesomeIcon icon={theme === 'dark' ? faSun : faMoon} />
+            <FontAwesomeIcon
+              className="layout__header--icon"
+              icon={theme === 'dark' ? faSun : faMoon}
+            />
           </li>
-          <li><FontAwesomeIcon  icon={faBell} /></li>
-          <li><FontAwesomeIcon className="layout__header--user" icon={faUser} /><span>Username</span></li>
+          <li>
+            <FontAwesomeIcon className="layout__header--icon" icon={faBell} />
+          </li>
+          <li onClick={() => HandleSignOut()}>
+            <FontAwesomeIcon className="layout__header--user" icon={faUser} />
+            <span>Username</span>
+          </li>
         </ul>
       </nav>
     </header>

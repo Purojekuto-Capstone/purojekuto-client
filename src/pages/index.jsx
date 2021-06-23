@@ -4,17 +4,19 @@ import Layout from '../components/layout/layout';
 import { store } from '../context/store';
 import Loading from '../components/loading/loading';
 import Proyects from '../data/proyects.json'
-import {getProyects} from '../utils/services'
+import {getProyects} from '../utils/services';
+import ListProyect from '../components/listProyect/listProyect';
 import { async } from 'q';
-
-
+import { useRouter } from 'next/router'
+import Redirect from '../components/redirect/redirect'
 
 
 export default function Home() {
   const { state } = useContext(store);
-  const { theme } = state;
+  const { isAuth } = state;
   const [isLoading,setIsLoading] = useState(true);
   const [proyects,setProyects] = useState([]);
+  const router = useRouter()
 
   useEffect(() => {
     async function loadProyects (){
@@ -28,42 +30,41 @@ export default function Home() {
     loadProyects()
   },[])
 
-  return (
-    <>
-      <Head>
-        <title>PuroJekuto</title>
-        <meta name="descriptio" content="proyect manager" />
-      </Head>
-
-      <Layout>
-        <div className='container'>
-          <div className='container__button'>
-            <h1>Projects</h1>  <button className= 'btn btn-primary'>New</button>
+  if(isAuth) {
+    return (
+      <>
+        <Head>
+          <title>PuroJekuto</title>
+          <meta name="descriptio" content="proyect manager" />
+        </Head>
+  
+        <Layout>
+          <div className='container'>
+            <div className='container__button'>
+              <h1>Projects</h1>  <button className= 'btn btn-primary'>New</button>
+            </div>
+  
+            {
+              isLoading && <Loading />
+            }
+            {
+              !isLoading && !proyects.length && (
+                'You dont have proyect, add new proyect'
+              )
+            }
+            {
+              !isLoading && proyects.length && <ListProyect proyects={proyects} />
+            }
           </div>
-
-          
-
-          
-          {
-            
-            isLoading
-            ? <Loading />
-            :(!proyects.length)
-              ?'You dont have proyect, add new proyect'
-              : <>
-                  <div className='container__content'>
-                    <h1>Project1</h1>
-                    <h1>Detail</h1>
-                  </div>  
-                  <div className='container__content'>
-                    <h1>Project2</h1>
-                    <h1>Detail</h1>
-                  </div>
-                </>   
-          }
-
-        </div>
-      </Layout>
-    </>
-  );
+        </Layout>
+      </>
+    );
+  } else {
+    return (
+      <>
+        <Redirect path={'/login'}/>
+      </>
+    )
+  }
+  
 }

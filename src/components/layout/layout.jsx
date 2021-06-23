@@ -1,13 +1,15 @@
 import Header from '../header/header';
 import Sidebar from '../sideBar/sideBar';
 import { store } from '../../context/store';
-import { useContext } from 'react';
+import { useContext, useEffect } from 'react';
 
 export default function Layout({ children }) {
   const { state } = useContext(store);
-  const { theme, mainClass } = state;
+  const { theme, mainClass, isAuth, userId } = state;
 
-  function handleClick() {}
+  useEffect(() => {
+    console.log(isAuth, userId);
+  }, [isAuth])
 
   return (
     <div className={`${theme === 'light' ? 'light-theme' : 'dark-theme'}`}>
