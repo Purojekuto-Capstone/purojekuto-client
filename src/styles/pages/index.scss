@@ -9,13 +9,16 @@
 
     &__content{
         font-size: 32px;
-        color: $text-color;
+        /* color: $text-color; */
         border-radius: 35px;
         width: 95%;
         margin: 0 auto;
         display: grid;
         grid-template-columns: 10% 30% 55% 5%;
         align-items: center; 
+        @include themify($themes) { 
+            color: themed('text-color');
+          }
 
     }
    

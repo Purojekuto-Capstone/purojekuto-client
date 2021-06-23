@@ -31,31 +31,6 @@ export default function Home() {
     loadProyects();
   }, []);
 
- /*  return (
-    <>
-      <Head>
-        <title>PuroJekuto</title>
-        <meta name="descriptio" content="proyect manager" />
-      </Head>
-
-      <Layout>
-        <div className="container">
-          <div className="container__button">
-            <h1>Projects</h1>
-            <Link href="/newProyect">
-              <button className="btn btn-primary">New</button>
-            </Link>
-          </div>
-
-          {isLoading && <Loading />}
-          {!isLoading &&
-            !proyects.length &&
-            'You dont have proyect, add new proyect'}
-          {!isLoading && proyects.length && <ListProyect proyects={proyects} />}
-        </div>
-      </Layout>
-    </>
-  ); */
   if(isAuth) {
     return (
       <>
@@ -67,7 +42,10 @@ export default function Home() {
         <Layout>
           <div className='container'>
             <div className='container__button'>
-              <h1>Projects</h1>  <button className= 'btn btn-primary'>New</button>
+              <h1>Projects</h1>
+              <Link href="/newProyect">
+                <button className= 'btn btn-primary'>New</button>
+              </Link>
             </div>
   
             {
