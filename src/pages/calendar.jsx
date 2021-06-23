@@ -1,7 +1,7 @@
 import React from 'react';
 import Head from 'next/head';
 import Layout from '../components/layout/layout';
-/*import Calendar from '@ericz1803/react-google-calendar';*/
+// import Calendar from '@ericz1803/react-google-calendar';
 
 const API_KEY = 'AIzaSyDUa0GypAaUF8xz3BTqY_p3l_5ykcHLywo';
 let calendars = [
@@ -19,7 +19,8 @@ export default function CalendarContainer(props) {
       </Head>
 
       <Layout>
-        <Calendar apiKey={API_KEY} calendars={calendars} language="ES" />
+        {/* <Calendar apiKey={API_KEY} calendars={calendars} language='ES'/> */}
+        aqui tengo que hacer un calendario por semana xd
       </Layout>
     </>
   );

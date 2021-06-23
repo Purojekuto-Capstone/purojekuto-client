@@ -1,3 +1,7 @@
+import React, { useState, useContext } from 'react';
+import Link from 'next/link'
+import { store } from '../../context/store';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import {
   faCalendarAlt,
   faChartBar,
@@ -5,10 +9,7 @@ import {
   faFolderOpen,
   faAlignJustify,
 } from '@fortawesome/free-solid-svg-icons';
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import React, { useState } from 'react';
-import { store } from '../../context/store';
-import { useContext } from 'react';
+
 
 const leftNavLayout = () => {
   const [drawerPos, SetDrawerPos] = useState(1);
@@ -36,7 +37,7 @@ const leftNavLayout = () => {
 
   return (
     <div>
-      <navbar className="navbar">
+      <nav className="navbar">
         {' '}
         <FontAwesomeIcon
           className="navbar__icon"
@@ -45,21 +46,27 @@ const leftNavLayout = () => {
         >
           menu
         </FontAwesomeIcon>
-      </navbar>
+      </nav>
       <aside className={drawerClass.join(' ')}>
         <ul>
-          <li className="firs">
+        <Link href="/">
+          <li>
             <FontAwesomeIcon className="navIcon" icon={faFolderOpen} />
             <span>Folder</span>
           </li>
+          </Link>
+          <Link href="/statistics">
           <li>
             <FontAwesomeIcon className="navIcon" icon={faChartBar} />
             <span>Statistics</span>
           </li>
+          </Link>
+          <Link href="/calendar">
           <li>
             <FontAwesomeIcon className="navIcon" icon={faCalendarAlt} />
             <span>Calendar</span>
           </li>
+          </Link>
         </ul>
       </aside>
     </div>

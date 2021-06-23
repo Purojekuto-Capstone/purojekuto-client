@@ -22,6 +22,10 @@ const headerLayout = () => {
       : dispatch({ type: 'THEME__TRIGGER', payload: 'dark' });
   };
 
+  let HandleSignOut = () => {
+    dispatch({ type: 'CLEAN_USER' });
+  };
+
   return (
     <header className="layout__header">
       <div>
@@ -47,7 +51,7 @@ const headerLayout = () => {
           <li>
             <FontAwesomeIcon className="layout__header--icon" icon={faBell} />
           </li>
-          <li>
+          <li onClick={() => HandleSignOut()}>
             <FontAwesomeIcon className="layout__header--user" icon={faUser} />
             <span>Username</span>
           </li>
