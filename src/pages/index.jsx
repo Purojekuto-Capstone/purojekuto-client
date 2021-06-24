@@ -15,6 +15,8 @@ import { useLocalStorage } from '../hooks/useLocalStorage'
 
 
 export default function Home() {
+  const { state } = useContext(store)
+  const { isAuth } = state
   const [isLoading,setIsLoading] = useState(true);
   const [proyects,setProyects] = useState([]);
   const router = useRouter()
@@ -33,7 +35,7 @@ export default function Home() {
     loadProyects();
   }, []);
 
-  if(authenticated) {
+  if(isAuth) {
     return (
       <>
         <Head>

@@ -16,23 +16,24 @@ import {useRouter} from 'next/router';
 
 const headerLayout = () => {
   const { dispatch, state } = useContext(store);
-  const { theme } = state;
   const router = useRouter()
+
+  const { theme } = state;
+  
+  const [themeLS, setThemeLS] = useLocalStorage('theme');
   const [authenticated, setAuthenticated] = useLocalStorage('authenticated');
   const [token, setToken] = useLocalStorage('token');
 
-
   let handleThemeTrigger = () => {
-    theme === 'dark'
-      ? dispatch({ type: 'THEME__TRIGGER', payload: 'light' })
-      : dispatch({ type: 'THEME__TRIGGER', payload: 'dark' });
+    if(theme === 'dark') {
+      dispatch({ type: 'THEME__TRIGGER', payload: 'light' })
+    } else {
+      dispatch({ type: 'THEME__TRIGGER', payload: 'dark' })
+    }
   };
 
   let HandleSignOut = () => {
     dispatch({ type: 'CLEAN_USER' });
-    setAuthenticated(false)
-    setToken('')
-    router.push('/login')
   };
 
   return (

@@ -6,10 +6,12 @@ import { useLocalStorage } from '../hooks/useLocalStorage.jsx'
 
 export default function Login() {
     const router = useRouter()
+    const { state } = useContext(store)
+    const { isAuth } = state
     const [authenticated, setAuthenticated] = useLocalStorage('authenticated');
 
 
-    if(authenticated) {
+    if(isAuth) {
         return <RedirectPage path='/'/>
     } else {
         return (

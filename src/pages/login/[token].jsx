@@ -7,20 +7,15 @@ export default function loginAuthRedirect(props) {
   const { state, dispatch } = useContext(store);
   const { isAuth } = state;
   const router = useRouter()
-  const {token} = router.query
-  const [authenticated, setAuthenticated] = useLocalStorage('authenticated', isAuth);
-  const [t, setT] = useLocalStorage('token', '');
-
+  const { token } = router.query
 
   useEffect(() => {
-    console.log(token);
-    if(authenticated === true) {
+    if(isAuth) {
       router.push('/')
     } else {
       if(token){
         setTimeout(() => {
-          setAuthenticated(true)
-          setT(token)
+          dispatch({ type: 'SET_USER', payload: token })
           router.push('/')
         }, 800);
       }
