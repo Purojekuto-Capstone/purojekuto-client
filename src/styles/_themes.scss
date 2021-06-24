@@ -1,17 +1,18 @@
 @import './vars';
 
-$black: #070608;
 
 $themes: (
     light: (
         background: $bg-light,
         text-color: $text-color,
         backgroundMain: $icon-text-color,
+        backgroundInput: $container-color
     ),
     dark: (
         background: $bg-dark-color,
         text-color: $icon-text-color,
         backgroundMain:$container-color-color ,
+        backgroundInput: $component-dark-color,
     ),
 
 );

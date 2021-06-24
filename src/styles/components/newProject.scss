@@ -25,10 +25,15 @@
 .container p {
     font-weight:500;
     margin-bottom: 3px;
+    @include themify($themes) { 
+        color: themed('text-color');
+      }
+
 }
 
 .login__container--input{
     margin-bottom: 35px;
+    
 }
 
 .btn-primary{

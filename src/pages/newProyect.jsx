@@ -1,6 +1,6 @@
 import React from 'react';
 import Layout from '../components/layout/layout';
-import Link from 'next/link'
+import Link from 'next/link';
 
 const newProyect = () => {
   return (

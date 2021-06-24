@@ -3,7 +3,11 @@
     display: grid;
     grid-template-columns: 1fr 478px 1fr ;
     grid-template-rows:  50px 653px 50px;
-    background:#F0F4F9;font-family: 'Poppins', sans-serif;
+    background:#F0F4F9;
+    font-family: 'Poppins', sans-serif;
+    @include themify($themes) { 
+        background-color: themed('background') ;
+      }
 
     // TODO: @Antonn you need to set a full width and height to your main component, you can use min-height and min-width properties
 
@@ -25,7 +29,11 @@
    /* width: 478px;
     height: 653px; */
     border-radius: 48px;
-    background:#FFFFFF ;
+    @include themify($themes) { 
+        color: themed('text-color');
+        background: themed('backgroundMain') ;
+      }
+    /* background:#FFFFFF ; */
     box-shadow: 2px 4px 4px #9D9D9D1A;
     opacity: 1;
 }
@@ -57,6 +65,10 @@ justify-self: center;
     justify-self: center; 
     border: 1px solid #F89F26;
     border-radius: 13px;
+    @include themify($themes) { 
+        color: themed('text-color');
+        background: themed('backgroundInput') ;
+      }
 }
 
 .login__container--btn{  

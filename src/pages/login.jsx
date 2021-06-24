@@ -1,11 +1,29 @@
-import React from 'react'
+/* import React from 'react' */
 import {useRouter} from 'next/router'
+import { store } from '../context/store';
+import { useContext } from 'react';
+import { faMoon,faSun } from '@fortawesome/free-regular-svg-icons';
+  import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 
 export default function Login() {
     const router = useRouter()
+    const { dispatch, state } = useContext(store);
+    const { theme  } = state;
+
+    let handleThemeTrigger = () => {
+        theme === 'dark'
+          ? dispatch({ type: 'THEME__TRIGGER', payload: 'light' })
+          : dispatch({ type: 'THEME__TRIGGER', payload: 'dark' });
+      };
 
     return (
-        <div className="main__container">
+        <div className={`main__container ${theme === 'light' ? 'light-theme' : 'dark-theme'}`}>
+            <div onClick={() => handleThemeTrigger()}>
+            <FontAwesomeIcon
+              className="layout__header--icon"
+              icon={theme === 'dark' ? faSun : faMoon}
+            />
+            </div>
             <div className="login__container">
                 <h1 className="login__container--h1"> ジPurojekuto </h1>
 
