@@ -1,6 +1,7 @@
 import React, { useContext } from 'react';
 import Link from 'next/link';
 import { store } from '../../context/store';
+import { useLocalStorage } from '../../hooks/useLocalStorage';
 import {
   faMoon,
   faSun,
@@ -11,15 +12,24 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 
 import logoForDark from '../../assets/images/Purojekuto-dark.svg';
 import logoForLight from '../../assets/images/Purojekuto-light.svg';
+import {useRouter} from 'next/router';
 
 const headerLayout = () => {
   const { dispatch, state } = useContext(store);
+  const router = useRouter()
+
   const { theme } = state;
+  
+  const [themeLS, setThemeLS] = useLocalStorage('theme');
+  const [authenticated, setAuthenticated] = useLocalStorage('authenticated');
+  const [token, setToken] = useLocalStorage('token');
 
   let handleThemeTrigger = () => {
-    theme === 'dark'
-      ? dispatch({ type: 'THEME__TRIGGER', payload: 'light' })
-      : dispatch({ type: 'THEME__TRIGGER', payload: 'dark' });
+    if(theme === 'dark') {
+      dispatch({ type: 'THEME__TRIGGER', payload: 'light' })
+    } else {
+      dispatch({ type: 'THEME__TRIGGER', payload: 'dark' })
+    }
   };
 
   let HandleSignOut = () => {

@@ -1,17 +1,23 @@
 import React, { createContext, useReducer } from 'react';
+import { useLocalStorage } from '../hooks/useLocalStorage';
 
 const initialState = {
   isOpen: false,
-  theme: 'light',
+  theme: typeof window !== 'undefined' && JSON.parse(localStorage.getItem('theme')) || 'light',
   mainClass: '',
-  isAuth: false,
-  userId: null,
+  isAuth: typeof window !== 'undefined' && JSON.parse(localStorage.getItem('authenticated')) || false,
+  userId: typeof window !== 'undefined' && JSON.parse(localStorage.getItem('token')) || '',
 };
 
 const store = createContext(initialState);
 const { Provider } = store;
 
+
 const ContextProvider = ({ children }) => {
+  const [theme, setTheme] = useLocalStorage('theme');
+  const [authenticated, setAuthenticated] = useLocalStorage('authenticated');
+  const [token, setToken] = useLocalStorage('token');
+
   const [state, dispatch] = useReducer((state, action) => {
     switch (action.type) {
       case 'MODAL_TRIGGER':
@@ -20,6 +26,7 @@ const ContextProvider = ({ children }) => {
           isOpen: !state.isOpen,
         };
       case 'THEME__TRIGGER':
+        setTheme(action.payload)
         return {
           ...state,
           theme: action.payload,
@@ -30,12 +37,16 @@ const ContextProvider = ({ children }) => {
           mainClass: action.payload,
         };
       case 'SET_USER':
+        setAuthenticated(true)
+        setToken(action.payload)
         return {
           ...state,
           isAuth: true,
           userId: action.payload,
         };
       case 'CLEAN_USER':
+        setAuthenticated(false)
+        setToken('')
         return {
           ...state,
           isAuth: false,
