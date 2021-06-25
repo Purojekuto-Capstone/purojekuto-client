@@ -1,12 +1,35 @@
-import React from 'react'
 import {useRouter} from 'next/router'
+import { store } from '../context/store';
+import React, {useContext} from 'react'
+import { faMoon,faSun } from '@fortawesome/free-regular-svg-icons';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import RedirectPage from '../components/redirect/redirect.jsx'
+import { useLocalStorage } from '../hooks/useLocalStorage.jsx'
 
 
 export default function Login() {
     const router = useRouter()
+    const { dispatch, state } = useContext(store);
+    const { theme, isAuth  } = state;
+    const [authenticated, setAuthenticated] = useLocalStorage('authenticated');
 
-    return (
-        <div className="main__container">
+    let handleThemeTrigger = () => {
+        theme === 'dark'
+          ? dispatch({ type: 'THEME__TRIGGER', payload: 'light' })
+          : dispatch({ type: 'THEME__TRIGGER', payload: 'dark' });
+      };
+
+      if(isAuth) {
+        return <RedirectPage path='/'/>
+    } else {
+      return (
+        <div className={`main__container ${theme === 'light' ? 'light-theme' : 'dark-theme'}`}>
+            <div onClick={() => handleThemeTrigger()}>
+            <FontAwesomeIcon
+              className="layout__header--icon"
+              icon={theme === 'dark' ? faSun : faMoon}
+            />
+            </div>
             <div className="login__container">
                 <svg xmlns="http://www.w3.org/2000/svg" width="376" height="80" viewBox="0 0 376 80">
                     <text class="login__container--h1" id="ジPurojekuto_" data-name="ジPurojekuto " transform="translate(0 60)" fill="#f89f26" font-size="57" font-family="PingFangSC-Semibold, PingFang SC" font-weight="600"><tspan x="0" y="0">ジ</tspan><tspan y="0" font-family="Poppins-SemiBold, Poppins">Puroj</tspan><tspan y="0" font-family="Poppins-Light, Poppins" font-weight="300">ekuto </tspan></text>
@@ -37,3 +60,7 @@ export default function Login() {
     )
 }
 
+              
+        
+    
+}

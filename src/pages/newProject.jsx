@@ -1,12 +1,16 @@
 import React from 'react';
 import Layout from '../components/layout/layout';
+import Link from 'next/link';
+
 
 
 export default function Login() {
   return (
     <Layout>
       <div className="container">
+      <Link href="/" >
         <a>←Back</a>
+        </Link>
         <h1 className="container__h1">New Project</h1>
         <h4>New set up a calendar</h4>
         <p>What kind of project is it?</p>

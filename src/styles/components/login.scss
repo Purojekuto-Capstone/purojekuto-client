@@ -49,6 +49,10 @@ justify-self: center;
     justify-self: center; 
     border: 1px solid $icon-color;
     border-radius: 13px;
+    @include themify($themes) { 
+        color: themed('text-color');
+        background: themed('backgroundInput') ;
+      }
 }
 
 .login__container--div{
