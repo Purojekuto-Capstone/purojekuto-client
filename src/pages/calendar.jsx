@@ -1,7 +1,10 @@
-import React from 'react';
+import React, { useState } from 'react';
 import Head from 'next/head';
 import Layout from '../components/layout/layout';
 // import Calendar from '@ericz1803/react-google-calendar';
+import WeekCalendar from 'react-week-calendar';
+import moment from 'moment';
+
 
 const API_KEY = 'AIzaSyDUa0GypAaUF8xz3BTqY_p3l_5ykcHLywo';
 let calendars = [
@@ -11,6 +14,8 @@ let calendars = [
 ];
 
 export default function CalendarContainer(props) {
+  const [events, setEvents] = useState([])
+  
   return (
     <>
       <Head>
@@ -19,8 +24,22 @@ export default function CalendarContainer(props) {
       </Head>
 
       <Layout>
-        {/* <Calendar apiKey={API_KEY} calendars={calendars} language='ES'/> */}
-        aqui tengo que hacer un calendario por semana xd
+        <WeekCalendar
+          startTime = {moment({h: 8, m: 0})}
+          endTime = {moment({h: 21, m: 0})}
+          scaleUnit ={60}
+          scaleHeaderTitle="Time"
+          cellHeight = {50}
+          numberOfDays= {7}
+          selectedIntervals = {events}
+          // onIntervalSelect = {this.handleSelect}
+          // onIntervalUpdate = {this.handleEventUpdate}
+          // onIntervalRemove = {this.handleEventRemove}
+          // headerCellComponent={CustomHeaderCell}
+          // dayCellComponent={CustomDayCell}
+          // modalComponent={CustomModal}
+          // eventComponent={CustomEvent}
+        />
       </Layout>
     </>
   );

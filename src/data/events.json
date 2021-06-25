@@ -1,0 +1,38 @@
+[
+  {
+      "id": 1,
+      "state": true,
+      "created_date": "2021-06-23",
+      "modified_date": "2021-06-23",
+      "deleted_date": "2021-06-23",
+      "activity_name": "llamar a francisco",
+      "is_recurrent": false,
+      "start_date": "2021-06-23",
+      "end_date": "2021-06-23",
+      "activity_category": 3
+  },
+  {
+      "id": 2,
+      "state": true,
+      "created_date": "2021-06-23",
+      "modified_date": "2021-06-23",
+      "deleted_date": "2021-06-23",
+      "activity_name": "ir al gimnasio",
+      "is_recurrent": false,
+      "start_date": "2021-06-23",
+      "end_date": "2021-06-23",
+      "activity_category": 1
+  },
+  {
+      "id": 3,
+      "state": true,
+      "created_date": "2021-06-23",
+      "modified_date": "2021-06-23",
+      "deleted_date": "2021-06-23",
+      "activity_name": "endpoint de proyectos",
+      "is_recurrent": false,
+      "start_date": "2021-06-23",
+      "end_date": "2021-06-23",
+      "activity_category": 1
+  }
+]

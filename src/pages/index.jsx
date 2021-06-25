@@ -31,6 +31,7 @@ export default function Home() {
       }
       setIsLoading(false);
     }
+    console.log(proyects)
     loadProyects();
   }, []);
 
