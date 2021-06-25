@@ -34,6 +34,7 @@ const headerLayout = () => {
 
   let HandleSignOut = () => {
     dispatch({ type: 'CLEAN_USER' });
+    router.push('/login')
   };
 
   return (
