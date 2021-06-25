@@ -3,7 +3,6 @@ import { useContext, useState, useEffect } from 'react';
 import Layout from '../components/layout/layout';
 import { store } from '../context/store';
 import Loading from '../components/loading/loading';
-import Proyects from '../data/proyects.json';
 import { getProyects } from '../utils/services';
 import ListProyect from '../components/listProyect/listProyect';
 import Link from 'next/link';
