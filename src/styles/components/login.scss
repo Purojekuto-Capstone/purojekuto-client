@@ -1,62 +1,58 @@
+@import url(https://fonts.googleapis.com/css?family=Roboto:500);
 
 .main__container {
-    display: grid;
-    grid-template-columns: 1fr 478px 1fr ;
-    grid-template-rows:  50px 653px 50px;
-    background:#F0F4F9;font-family: 'Poppins', sans-serif;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-width: 100vw;
+    min-height: 100vh;
+    background: $bg-light;font-family: 'Poppins', sans-serif; 
 
-    // TODO: @Antonn you need to set a full width and height to your main component, you can use min-height and min-width properties
-
-    // TODO: @Antonn this component is very simple, maybe there is no need to use grid, you could du something like this =>
-
-    // display: flex;
-    // justify-content: center;
-    // align-items: center;
-    // min-width: 100vw;
-    // min-height: 100vh;
 }
 
 .login__container {
-    // TODO: @Antonn same here, think if it is worth to use grid instead of flexbox
-
-    display: grid;
-    grid-column-start: 2;
-    grid-row-start: 2;   
-   /* width: 478px;
-    height: 653px; */
+    width: 478px;
+    height: 600px; 
+    margin-top: 30px;
     border-radius: 48px;
-    background:#FFFFFF ;
+    background: $container-color ;
     box-shadow: 2px 4px 4px #9D9D9D1A;
     opacity: 1;
 }
 
 .login__container svg {
-    margin-left: 25px;
+    margin-left: 60px;
     margin-top: 20px;
-    color: #F89F26; /*TODO: @Antonn remember that we use vars, try to use it */
-    justify-self: center;
+    color: $icon-color; 
+    margin-bottom: 45px;
     font-size: 57px;
 }
+
 .input__container {  
 display:flex;
 flex-direction: column;
 justify-self: center;
-/*background-color: #F89F26; */
 }
 
 .login__container--p {
     justify-self: left;
     font-weight: bold;
     margin-bottom: 5px;
+    margin-left: 40px;
 }
 
 .login__container--input { 
+    margin-left: 40px;
     width: 400px;
     height: 55px;  
     font-size: 24px;  
     justify-self: center; 
-    border: 1px solid #F89F26;
+    border: 1px solid $icon-color;
     border-radius: 13px;
+}
+
+.login__container--div{
+    margin-left: 20px;
 }
 
 .login__container--btn{  
@@ -64,22 +60,85 @@ justify-self: center;
     width: 400px ;
     justify-self: center;
     cursor: pointer;
-    background: #F89F26 ;
-    color: #FFFFFF;
+    background: $icon-color ;
+    color: $icon-text-color;
+    margin: 20px 0px 0px 5px;
     border-style: none;
     border-radius: 39px;
+    margin-left: 40px;
     opacity: 1;
 }
 
+.login__container--btn img{
+    display: inline-block;
+    margin-left: 60px;
+    margin-top: -5px;
+    width: 30px ;
+    height: 20px ;
+}
+.login__container--btn p {
+    display: inline-block;
+    font-size: 20px;
+    padding-left: 20px;
+    margin-right: 80px;
+    margin-bottom:1px ;
+}
+
 .login__container--p2 { 
-    
-    font-size: 16px;
+    font-size: 14px;
     font-family: 'Poppins';
     font-weight:lighter ;
     color: #838383;
     text-align: left;
-    margin-left: 20px;
+    margin-top: 65px;
+    margin-left: 50px;
 }
+.google-btn { 
+    width: 400px;
+    height: 55px;
+    background-color: $google-blue;
+    border-radius: 39px;
+    box-shadow: 0 3px 4px 0 rgba(0,0,0,.25);
+
+.google-icon-wrapper { 
+    position: absolute;
+    margin-top: 1px;
+    margin-left: 1px;
+    width: 53px;
+    height: 53px;
+    border-radius: 39px;
+    background-color: $white;
+}
+
+.google-icon {
+    position: absolute;
+    margin-top: 17px;
+    margin-left: -8px;
+    width: 18px;
+    height: 18px;
+}
+
+.btn-text {
+    float: right;
+    margin: 18px 120px 0 0;
+    color: $white;
+    font-size: 14px;
+    letter-spacing: 0.2px;
+    font-family: "Roboto";
+}
+
+&:hover {
+    box-shadow: 0 0 6px $google-blue;
+}
+&:active {
+    background: $button-active-blue;
+}
+
+}
+
 .login__container--p2 span {
     font-weight: bold;
 }
+
+
+
