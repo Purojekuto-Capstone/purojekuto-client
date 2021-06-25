@@ -2,7 +2,19 @@ import React from 'react';
 import Head from 'next/head';
 import Layout from '../components/layout/layout';
 import { BarChart, Bar, XAxis, YAxis, Tooltip, Legend, CartesianGrid } from 'recharts';
-const data = [{name: 'Proyectos', uv: 40, pv: 2400, amt: 2400}];
+const data = [{name: 'Proyecto 1', uv: 40, pv: 2400, amt: 2400}, 
+{
+  name: 'Proyecto 2',
+  uv: 30,
+  pv: 1398,
+  amt: 2210,
+},
+{
+  name: 'Proyecto 3',
+  uv: 20,
+  pv: 9800,
+  amt: 2290,
+},];
 
 export default function Statistics() {
   return (
