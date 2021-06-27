@@ -44,14 +44,21 @@ $headerSize: 70px;
 
   .weekCalendar__headerColumn{
     border: none;
-    border-bottom: 1px solid lightgrey;
+    border-bottom: 1px solid;
+    @include themify($themes) { 
+      border-color: themed('background')
+    }
   }
 }
 
 .weekCalendar__scaleColumn{
   padding-top: $headerSize !important;
   border: none !important;
-  border-right: 1px solid lightgray !important;
+  border-right: 1px solid !important;
+  @include themify($themes) { 
+    border-color: themed('background') !important;
+  }
+  
 }
 
 .weekCalendar{
