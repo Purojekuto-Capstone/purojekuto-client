@@ -64,7 +64,7 @@ export default function CalendarContainer(props) {
           <WeekCalendar
             firstDay={moment(Date.now()).clone().weekday(0)}
             startTime = {moment({h: 8, m: 0})}
-            endTime = {moment({h: 21, m: 0})}
+            endTime = {moment({h: 20, m: 0})}
             scaleUnit ={15}
             scaleHeaderTitle="Time"
             cellHeight = {50}
