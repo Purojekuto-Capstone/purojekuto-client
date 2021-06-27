@@ -7,6 +7,7 @@ import moment from 'moment';
 import CalendarEvent from '../components/calendar/calendarEvent';
 import CalendarModal from '../components/calendar/calendarModal';
 import CalendarCell from '../components/calendar/calendarCell';
+import CalendarHeader from '../components/calendar/calendarHeader';
 
 export default function CalendarContainer(props) {
   const [calendarView, setCalendarView] = useState(7)
@@ -56,12 +57,12 @@ export default function CalendarContainer(props) {
       </Head>
 
       <Layout>
-        <div onClick={() => changeCalendarView(2)}>2 days</div> <div onClick={() => changeCalendarView(7)}>7 days</div>
+        <div onClick={() => changeCalendarView(1)}>2 days</div> <div onClick={() => changeCalendarView(7)}>7 days</div>
         {loading ? (
           <div>Loading</div>
         ) : (
           <WeekCalendar
-            firstDay={moment(Date.now()).clone().weekday(1)}
+            firstDay={moment(Date.now()).clone().weekday(0)}
             startTime = {moment({h: 8, m: 0})}
             endTime = {moment({h: 21, m: 0})}
             scaleUnit ={15}
@@ -72,11 +73,11 @@ export default function CalendarContainer(props) {
             onIntervalSelect = {onIntervalSelect}
             // onIntervalUpdate = {this.handleEventUpdate}
             // onIntervalRemove = {this.handleEventRemove}
-            // headerCellComponent={CustomHeaderCell}
+            headerCellComponent={CalendarHeader}
             dayCellComponent={CalendarCell}
             modalComponent={CalendarModal}
             eventComponent={CalendarEvent}
-            // useModal={false}
+            useModal={false}
           />
         )}
         

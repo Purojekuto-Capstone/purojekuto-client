@@ -1,0 +1,10 @@
+.calendarModal{
+  .calendarModal__backdrop{
+    background-color: transparent !important;
+  }
+  .calendarModal__content{
+    -webkit-box-shadow: 3px 3px 12px 2px rgba(0,0,0,0.2); 
+    box-shadow: 3px 3px 12px 2px rgba(0,0,0,0.2);
+    width: 250px;
+  }
+}
