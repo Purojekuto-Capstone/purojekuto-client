@@ -2,9 +2,10 @@ import React from 'react';
 import ProyectsJson from '../../data/projects.json';
 
 const listProyect = ({ proyects }) => {
+  console.log(proyects)
   return (
     <>
-      {ProyectsJson.map(({ id, project_name, end_date }) => (
+      {proyects.map(({ id, project_name, end_date }) => (
         <div className="container__content" id={id} key={id}>
           <div className="container__deahtline">
             <div></div>
