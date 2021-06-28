@@ -1,0 +1,20 @@
+.header__cell{
+  display: flex;
+  flex-direction: column;
+
+  .header__weekDay{
+    margin: 0;
+    font-size: 12px;
+    font-weight: normal;
+  }
+
+  .header__day{
+    margin: 0;
+    font-size: 24px;
+    font-weight: 300;
+
+    &.today{
+      font-weight: bold;
+    }
+  }
+}

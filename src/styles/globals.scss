@@ -7,11 +7,11 @@
 @import "./vars";
 @import './Button';
 @import './input';
-@import "./calendar.scss";
 @import "../styles/components/login.scss";
 @import "../styles/components/signup.scss";
 @import "../styles/components/newProject.scss";
 @import "../styles/pages/newProyect.scss";
+@import "./components/calendar/calendar.scss";
 
 :root {
   font-family: $text-font;

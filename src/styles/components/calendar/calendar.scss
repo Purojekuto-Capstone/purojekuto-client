@@ -1,0 +1,104 @@
+@import '../../themes';
+
+@import './calendarCell.scss';
+@import './calendarEvent.scss';
+@import './calendarHeader.scss';
+@import './calendarModal.scss';
+
+$headerSize: 70px;
+
+// utils classes
+
+.headerStyles{
+  border-color: transparent !important;
+  @include themify($themes) { 
+    background-color: themed('backgroundMain');
+    color: themed('text-color');
+  }
+}
+
+// calendars styles
+
+.weekCalendar{
+  height: auto !important;
+}
+
+.headerSize {
+  min-height: $headerSize !important;
+}
+
+.weekCalendar__scaleHeader{
+  @extend .headerSize;
+  @extend .headerStyles;
+  span {
+    display: none;
+  }
+}
+
+.weekCalendar__header{
+  @extend .headerSize;
+
+  .weekCalendar__headerWrapper{
+    @extend .headerStyles;
+  }
+
+  .weekCalendar__headerColumn{
+    border: none;
+    border-bottom: 1px solid;
+    @include themify($themes) { 
+      border-color: themed('background')
+    }
+  }
+}
+
+.weekCalendar__scaleColumn{
+  padding-top: $headerSize !important;
+  border: none !important;
+  border-right: 1px solid !important;
+  @include themify($themes) { 
+    border-color: themed('background') !important;
+  }
+  
+}
+
+.weekCalendar{
+  padding-top: $headerSize !important;
+  margin-left: -5%;
+  width: 104% !important; 
+}
+
+.weekCalendar__scaleCell{
+  position: relative;
+  border-bottom: none !important;
+  @include themify($themes) { 
+    background-color: themed('backgroundMain');
+    color: themed('text-color');
+    border-color: themed('background')
+  }
+
+  span{
+    font-size: 12px;
+    right: 4px;
+    margin-top: 0;
+    position: absolute;
+    top: 8px;
+    line-height: 0;
+    font-weight: 300;
+  }
+}
+
+.calendarBody__cell{
+  @include themify($themes) { 
+    background-color: themed('backgroundMain');
+    color: themed('text-color');
+    border-color: themed('background')
+  }
+}
+
+.calendarBody__column{
+  @include themify($themes) { 
+    background-color: themed('backgroundMain');
+    color: themed('text-color');
+    border-color: themed('background')
+  }
+}

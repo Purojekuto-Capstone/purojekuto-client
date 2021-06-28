@@ -1,20 +1,53 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import Head from 'next/head';
 import Layout from '../components/layout/layout';
 // import Calendar from '@ericz1803/react-google-calendar';
 import WeekCalendar from 'react-week-calendar';
 import moment from 'moment';
-
-
-const API_KEY = 'AIzaSyDUa0GypAaUF8xz3BTqY_p3l_5ykcHLywo';
-let calendars = [
-  {
-    calendarId: 'em8c9s8leob5lputq5cknfdqq8@group.calendar.google.com',
-  },
-];
+import CalendarEvent from '../components/calendar/calendarEvent';
+import CalendarModal from '../components/calendar/calendarModal';
+import CalendarCell from '../components/calendar/calendarCell';
+import CalendarHeader from '../components/calendar/calendarHeader';
 
 export default function CalendarContainer(props) {
-  const [events, setEvents] = useState([])
+  const [calendarView, setCalendarView] = useState(7)
+  const [loading, setLoading] = useState(false)
+  const [events, setEvents] = useState([
+    {
+      start: moment({h: 8, m: 0}),
+      end: moment({h: 10, m: 0}),
+      activity_name: 'Meeting 1:1 coach',
+      color: '#e66d6d'
+    },
+    {
+      start: moment({h: 8, m: 0}),
+      end: moment({h: 10, m: 0}),
+      activity_name: 'Master Introducction for dummys',
+      color: '#e6dd6d'
+    },
+    {
+      start: moment("2021-06-29:08:15"),
+      end: moment("2021-06-29:08:45"),
+      activity_name: 'This is a long event name for a short event',
+      color: '#e66d6d'
+    }
+  ])
+
+  useEffect(() => {}, [calendarView])
+
+  let changeCalendarView = days => {
+    if (days !== calendarView) {
+      setLoading(true)
+      setCalendarView(days)
+      setTimeout(() => {
+        setLoading(false)
+      }, 400);
+    }
+  }
+
+  let onIntervalSelect = data => {
+    console.log(data);
+  }
   
   return (
     <>
@@ -24,22 +57,30 @@ export default function CalendarContainer(props) {
       </Head>
 
       <Layout>
-        <WeekCalendar
-          startTime = {moment({h: 8, m: 0})}
-          endTime = {moment({h: 21, m: 0})}
-          scaleUnit ={60}
-          scaleHeaderTitle="Time"
-          cellHeight = {50}
-          numberOfDays= {7}
-          selectedIntervals = {events}
-          // onIntervalSelect = {this.handleSelect}
-          // onIntervalUpdate = {this.handleEventUpdate}
-          // onIntervalRemove = {this.handleEventRemove}
-          // headerCellComponent={CustomHeaderCell}
-          // dayCellComponent={CustomDayCell}
-          // modalComponent={CustomModal}
-          // eventComponent={CustomEvent}
-        />
+        <div onClick={() => changeCalendarView(1)}>2 days</div> <div onClick={() => changeCalendarView(7)}>7 days</div>
+        {loading ? (
+          <div>Loading</div>
+        ) : (
+          <WeekCalendar
+            firstDay={moment(Date.now()).clone().weekday(0)}
+            startTime = {moment({h: 8, m: 0})}
+            endTime = {moment({h: 21, m: 0})}
+            scaleUnit ={15}
+            scaleHeaderTitle="Time"
+            cellHeight = {50}
+            numberOfDays= {calendarView}
+            selectedIntervals = {events}
+            onIntervalSelect = {onIntervalSelect}
+            // onIntervalUpdate = {this.handleEventUpdate}
+            // onIntervalRemove = {this.handleEventRemove}
+            headerCellComponent={CalendarHeader}
+            dayCellComponent={CalendarCell}
+            modalComponent={CalendarModal}
+            eventComponent={CalendarEvent}
+            useModal={false}
+          />
+        )}
+        
       </Layout>
     </>
   );

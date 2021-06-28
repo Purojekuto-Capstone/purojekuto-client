@@ -1,0 +1,17 @@
+.event__container{
+  padding: 6px;
+  border-radius: 6px;
+  height: 100%;
+  color: white;
+  overflow: hidden;
+  cursor: pointer;
+
+  .event__title{
+    font-weight: 600;
+    overflow: none;
+  }
+
+  .event__time {
+    font-weight: 300;
+  }
+}
