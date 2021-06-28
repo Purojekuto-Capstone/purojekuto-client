@@ -12,6 +12,12 @@
     .layout__header--logo{
         max-width: 230px;
         cursor: pointer;
+        @media (max-width: $md) {
+          max-width: 200px;
+        }
+      @media (max-width: $sm) {
+        max-width: 150px;
+        }
     }
     
     ul {
@@ -27,6 +33,21 @@
             cursor: pointer;
             display: flex;
             align-items: center;
+
+            span{
+              @media (max-width: $sm) {
+                display: none;
+                
+                }
+            }
+
+            @media (max-width: $md) {
+              margin: 10px;
+            }
+          @media (max-width: $sm) {
+            margin: 5px;
+            }
+            
             
             .layout__header--user{
                 background-color: $icon-color ;
@@ -36,9 +57,22 @@
                 font-size: 32px;
                 margin-right: 10px;
                 
+                @media (max-width: $md) {
+                  font-size: 26px;
+                }
+              @media (max-width: $sm) {
+                font-size: 20px;
+                }
+                
             }
             .layout__header--icon{
                 font-size: 32px;
+                @media (max-width: $md) {
+                  font-size: 26px;
+                }
+              @media (max-width: $sm) {
+                font-size: 20px;
+                }
             
             }
         }

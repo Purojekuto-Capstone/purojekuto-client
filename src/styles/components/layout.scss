@@ -5,18 +5,28 @@
   grid-template-rows: 20px auto 50px;
   height: 100vh;
   min-height: 500px;
+  @media (max-width: $md) {
+    grid-template-columns: 82px auto;
+  }
+  @media (max-width: $sm) {
+    grid-template-columns: 10px auto;
+  }
   @include themify($themes) { 
     background: themed('background');
   }
   
 
   &__content{
-    overflow: hidden;
+    overflow-y: hidden;
     grid-column: 2;
     grid-row: 2;
     padding: 1rem;
     margin: 1rem;
     border-radius: 30px;
+    @media (max-width: $md) {
+      padding-left:0px;
+    }
+ 
     box-shadow: 1px 1px 12px 1px rgba(0,0,0,0.1) ;
     @include themify($themes) { 
       background: themed('backgroundMain');

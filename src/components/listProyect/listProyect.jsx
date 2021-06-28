@@ -4,7 +4,7 @@ import ProyectsJson from '../../data/projects.json';
 const listProyect = ({ proyects }) => {
   console.log(proyects)
   return (
-    <>
+    <div className="container__list">
       {proyects.map(({ id, project_name, end_date }) => (
         <div className="container__content" id={id} key={id}>
           <div className="container__deahtline">
@@ -15,7 +15,7 @@ const listProyect = ({ proyects }) => {
           <div className="container__more">..</div>
         </div>
       ))}
-    </>
+    </div>
   );
 };
 
