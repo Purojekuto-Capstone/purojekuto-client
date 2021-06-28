@@ -2,6 +2,7 @@ import Header from '../header/header';
 import Sidebar from '../sideBar/sideBar';
 import { store } from '../../context/store';
 import { useContext, useEffect } from 'react';
+import Downbar from '../sideBar/downbar';
 
 export default function Layout({ children }) {
   const { state } = useContext(store);
@@ -19,6 +20,7 @@ export default function Layout({ children }) {
           <Header />
           {children}
         </main>
+        <Downbar/>
       </div>
     </div>
   );
