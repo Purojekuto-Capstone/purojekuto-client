@@ -90,8 +90,8 @@ aside {
     }
     li:hover {
       transform: translateX(5px);
-      color: $secondary-text-color !important;
-      border-left: 5px solid $secondary-text-color;
+      color: $text-color !important;
+      border-left: 5px solid $text-color;
     }
   }
 }
@@ -157,6 +157,15 @@ footer{
     li:hover {
       
     }
+    
   }
   }
+}
+
+.signout{
+  position: absolute;
+  bottom: 60px;
+  color: $text-color;
+  padding-left: 40px;
+  cursor: pointer;
 }
