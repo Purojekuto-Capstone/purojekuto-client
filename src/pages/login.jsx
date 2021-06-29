@@ -47,7 +47,7 @@ export default function Login() {
                     <input className="login__container--input" type="password" placeholder="  Super password" />
                 </div>
 
-                <button className='login__container--btn' onClick={() => router.push('/login/1234567890')}> 
+                <button className='login__container--btn' onClick={() => router.push('/login/ewogICJ0b2tlbiI6ICIxMjM0NTY3ODkwIiwKICAidXNlcklkIjogInF3ZXJ0eXVpb3AiCn0=')}> 
                     <div className="google-btn">
                         <div className="google-icon-wrapper">
                             <img className="google-icon" src="https://upload.wikimedia.org/wikipedia/commons/5/53/Google_%22G%22_Logo.svg"/>
@@ -62,8 +62,6 @@ export default function Login() {
         
     )
 }
-
-              
         
     
 }

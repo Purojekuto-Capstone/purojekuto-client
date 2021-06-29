@@ -26,8 +26,8 @@ export default function CalendarContainer(props) {
       color: '#e6dd6d'
     },
     {
-      start: moment("2021-06-29:08:15"),
-      end: moment("2021-06-29:08:45"),
+      start: moment("2021-06-29T01:50:51.338Z"),
+      end: moment("2021-06-29T01:50:51.338Z"),
       activity_name: 'This is a long event name for a short event',
       color: '#e66d6d'
     }
@@ -63,8 +63,8 @@ export default function CalendarContainer(props) {
         ) : (
           <WeekCalendar
             firstDay={moment(Date.now()).clone().weekday(0)}
-            startTime = {moment({h: 8, m: 0})}
-            endTime = {moment({h: 20, m: 0})}
+            startTime = {moment({h: 0, m: 0})}
+            endTime = {moment({h: 23, m: 0})}
             scaleUnit ={15}
             scaleHeaderTitle="Time"
             cellHeight = {50}
@@ -77,7 +77,7 @@ export default function CalendarContainer(props) {
             dayCellComponent={CalendarCell}
             modalComponent={CalendarModal}
             eventComponent={CalendarEvent}
-            useModal={false}
+            // useModal={false}
           />
         )}
         
