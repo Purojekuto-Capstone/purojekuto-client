@@ -1,7 +1,8 @@
 import React, { useEffect, useContext } from 'react'
 import { useRouter } from 'next/router'
 import { store } from '../../context/store';
-import { useLocalStorage } from '../../hooks/useLocalStorage'
+// import Loading from '../../components/loading/loading';
+import Loader from '../../components/Loader/loader';
 
 export default function loginAuthRedirect(props) {
   const { state, dispatch } = useContext(store);
@@ -21,12 +22,11 @@ export default function loginAuthRedirect(props) {
         }, 800);
       }
     }
-    
   }, [token])
 
   return (
-    <div>
-      loading...
+    <div className='loader__container full'>
+      <Loader/>
     </div>
   )
 }
