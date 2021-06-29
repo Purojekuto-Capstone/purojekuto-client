@@ -2,7 +2,7 @@ import React, { useEffect, useContext } from 'react'
 import { useRouter } from 'next/router'
 import { store } from '../../context/store';
 // import Loading from '../../components/loading/loading';
-import Loader from '../../components/Loader/loader';
+import Loader from '../../components/loader/loader';
 
 export default function loginAuthRedirect(props) {
   const { state, dispatch } = useContext(store);
