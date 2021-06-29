@@ -1,13 +1,15 @@
 import React, { useEffect, useState } from 'react';
 import Head from 'next/head';
 import Layout from '../components/layout/layout';
-// import Calendar from '@ericz1803/react-google-calendar';
+import Loader from '../components/loader/loader'
 import WeekCalendar from 'react-week-calendar';
 import moment from 'moment';
 import CalendarEvent from '../components/calendar/calendarEvent';
 import CalendarModal from '../components/calendar/calendarModal';
 import CalendarCell from '../components/calendar/calendarCell';
 import CalendarHeader from '../components/calendar/calendarHeader';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faChevronLeft, faChevronRight } from '@fortawesome/free-solid-svg-icons';
 
 export default function CalendarContainer(props) {
   const [calendarView, setCalendarView] = useState(7)
@@ -32,8 +34,9 @@ export default function CalendarContainer(props) {
       color: '#e66d6d'
     }
   ])
+  const [day, setday] = useState(Date.now())
 
-  useEffect(() => {}, [calendarView])
+  useEffect(() => {}, [calendarView, day])
 
   let changeCalendarView = days => {
     if (days !== calendarView) {
@@ -48,6 +51,19 @@ export default function CalendarContainer(props) {
   let onIntervalSelect = data => {
     console.log(data);
   }
+
+
+  let moveWeek = option => {
+    let date = new Date(day)
+    if(option === 'next') {
+      date.setDate(date.getDate() + 7)
+    } else if(option === 'previus') {
+      date.setDate(date.getDate() - 7)
+    } else {
+      date = Date.now()
+    }
+    setday(date)
+  }
   
   return (
     <>
@@ -57,28 +73,48 @@ export default function CalendarContainer(props) {
       </Head>
 
       <Layout>
-        <div onClick={() => changeCalendarView(1)}>2 days</div> <div onClick={() => changeCalendarView(7)}>7 days</div>
+        
+        {/* <div onClick={() => changeCalendarView(1)}>2 days</div> <div onClick={() => changeCalendarView(7)}>7 days</div> */}
         {loading ? (
-          <div>Loading</div>
+          <div>
+            <Loader/>
+          </div>
         ) : (
-          <WeekCalendar
-            firstDay={moment(Date.now()).clone().weekday(0)}
-            startTime = {moment({h: 0, m: 0})}
-            endTime = {moment({h: 23, m: 0})}
-            scaleUnit ={15}
-            scaleHeaderTitle="Time"
-            cellHeight = {50}
-            numberOfDays= {calendarView}
-            selectedIntervals = {events}
-            onIntervalSelect = {onIntervalSelect}
-            // onIntervalUpdate = {this.handleEventUpdate}
-            // onIntervalRemove = {this.handleEventRemove}
-            headerCellComponent={CalendarHeader}
-            dayCellComponent={CalendarCell}
-            modalComponent={CalendarModal}
-            eventComponent={CalendarEvent}
-            // useModal={false}
-          />
+          <>
+            <div className='calendar__header'>
+              <h2>{moment(day).format("MMMM YYYY")}</h2>
+              <div className='calendar__actions'>
+                <span className='text-left' onClick={() => moveWeek('previus')}>
+                  <FontAwesomeIcon icon={faChevronLeft}/>
+                </span>
+                <span className='text-right' onClick={() => moveWeek('today')}>
+                  Today
+                </span>
+                <span className='text-right' onClick={() => moveWeek('next')}>
+                  <FontAwesomeIcon icon={faChevronRight}/>
+                </span>
+              </div>
+            </div>
+            <WeekCalendar
+              firstDay={moment(day).clone().weekday(0)}
+              startTime = {moment({h: 0, m: 0})}
+              endTime = {moment({h: 23, m: 0})}
+              scaleUnit ={15}
+              scaleHeaderTitle="Time"
+              cellHeight = {50}
+              numberOfDays= {calendarView}
+              selectedIntervals = {events}
+              onIntervalSelect = {onIntervalSelect}
+              // onIntervalUpdate = {this.handleEventUpdate}
+              // onIntervalRemove = {this.handleEventRemove}
+              headerCellComponent={CalendarHeader}
+              dayCellComponent={CalendarCell}
+              modalComponent={CalendarModal}
+              eventComponent={CalendarEvent}
+              // useModal={false}
+            />
+          </>
+          
         )}
         
       </Layout>
