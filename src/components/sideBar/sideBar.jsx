@@ -1,19 +1,23 @@
 import React, { useState, useContext } from 'react';
 import Link from 'next/link'
+import {useRouter} from 'next/router';
 import { store } from '../../context/store';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+
 import {
   faCalendarAlt,
   faChartBar,
   faFolder,
   faFolderOpen,
   faAlignJustify,
+  faSignOutAlt,
 } from '@fortawesome/free-solid-svg-icons';
 
 
 const leftNavLayout = () => {
   const [drawerPos, SetDrawerPos] = useState(1);
   const { dispatch } = useContext(store);
+  const router = useRouter()
 
   const handleDrawer = () => {
     if (drawerPos < 2) {
@@ -23,6 +27,10 @@ const leftNavLayout = () => {
       SetDrawerPos(1);
       dispatch({ type: 'MAIN_TRIGGER', payload: 'mainMin' });
     }
+  };
+  let HandleSignOut = () => {
+    dispatch({ type: 'CLEAN_USER' });
+    router.push('/login')
   };
 
   let drawerClass = [];
@@ -67,6 +75,9 @@ const leftNavLayout = () => {
             <span>Calendar</span>
           </li>
           </Link>
+          <li className="signout" onClick={() => HandleSignOut()}>
+            <FontAwesomeIcon  icon={faSignOutAlt} />
+          </li>
         </ul>
       </aside>
     </div>

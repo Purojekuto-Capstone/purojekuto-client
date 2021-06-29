@@ -6,13 +6,15 @@ $themes: (
         background: $bg-light,
         text-color: $text-color,
         backgroundMain: $icon-text-color,
-        backgroundInput: $container-color
+        backgroundInput: $container-color,
+        background-project:$bg-light,
     ),
     dark: (
         background: $bg-dark-color,
         text-color: $icon-text-color,
         backgroundMain:$container-color-color ,
         backgroundInput: $component-dark-color,
+        background-project:$component-dark-color,
     ),
 
 );

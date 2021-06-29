@@ -1,13 +1,40 @@
 @import url(https://fonts.googleapis.com/css?family=Roboto:500);
 
+
+.mainc{
+    @include themify($themes) { 
+        background: themed('background') ;
+      }
+    
+}
 .main__container {
     display: flex;
+    margin: 0;
+    padding: 0;
     justify-content: center;
     align-items: center;
     min-width: 100vw;
     min-height: 100vh;
-    background: $bg-light;font-family: 'Poppins', sans-serif; 
+    font-family: 'Poppins', sans-serif;
+    @include themify($themes) { 
+        color: themed('text-color');
+        background: themed('background') ;
+      }
+    
 
+    
+
+}
+.container-theme{
+    display: flex;
+    justify-content: flex-end;
+    font-size: 32px;
+    padding: 30px 50px 20px 0px;
+    @include themify($themes) { 
+        color: themed('text-color');
+        background: themed('background') ;
+      }
+   
 }
 
 .login__container {
@@ -18,6 +45,10 @@
     background: $container-color ;
     box-shadow: 2px 4px 4px #9D9D9D1A;
     opacity: 1;
+    @include themify($themes) { 
+        color: themed('text-color');
+        background: themed('backgroundMain') ;
+      }
 }
 
 .login__container svg {

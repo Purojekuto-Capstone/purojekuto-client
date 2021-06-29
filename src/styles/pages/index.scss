@@ -1,21 +1,49 @@
 @import '../vars';
 
 .container{
+  width: auto;
+ 
     &__button{
         display: flex;
         justify-content: space-between;
+        align-items: center;
         margin: 20px;
+        h1{
+            padding-right: 20px;
+            @media (max-width: $md) {
+                font-size: 2.45rem;
+              }
+            @media (max-width: $sm) {
+                font-size: 2.15rem;
+              }
+        }
+        button{
+            /* padding-right: 20px; */
+            @media (max-width: $md) {
+                width: 150px;
+                height: 35px;
+              }
+            @media (max-width: $sm) {
+                width: 80px;
+              }
+        }
+        
     }
+   
 
-    &__content{
+    &__content--project{
+     
         font-size: 32px;
-        /* color: $text-color; */
         border-radius: 35px;
-        width: 95%;
+        width: 90%;
+        height: 170px;
         margin: 0 auto;
         display: grid;
         grid-template-columns: 10% 30% 55% 5%;
         align-items: center; 
+        justify-content: center;
+        cursor: pointer;
+        
         @include themify($themes) { 
             color: themed('text-color');
           }
@@ -25,11 +53,21 @@
     &__deahtline{
         
         div{
-           background-color: #CBCBCB;
+           /* background-color: #CBCBCB; */
            border-radius: 50%;
            margin: 20px auto;
            width: 72px;
            height: 72px;
        }
     }
+}
+.container__list{
+ overflow-y: scroll;
+ height: 450px;
+}
+.container__content--project:hover{
+  @include themify($themes) { 
+    color: themed('text-color');
+    background: themed('background-project') ;
+  }
 }
