@@ -8,15 +8,19 @@ import { postProyect } from '../utils/services';
 
 
 const newProyect = () => {
+
   const { register, handleSubmit, watch, formState: { errors } } = useForm();
-  const onSubmit = data => console.log(data);
+  
 
   
-  /* const onSubmit = async (data) => {
-    const response = await postProyect(data);
+  const onSubmit = async (data) => {
+    let projectJson = data;
+    projectJson['user'] = '105807747967363609529'
+    
+    const response = await postProyect(projectJson);
     console.log(response)
 
-  }; */
+  };
 
   const [ flagView, setFlaView] = useState(true)
 
@@ -25,25 +29,35 @@ const newProyect = () => {
     
       <h1 className="container__h1">New Project</h1>
       <h4>New set up a calendar</h4>
-      <p>What kind of project is it?</p>
+      <p>How long does it take?</p>
       <input
         /* {...register("typeProject", {required:true})} */
-        {...register("typeProject")}
+        {...register("work_time")}
         className="login__container--input"
-        placeholder="  Select a type of project"
+        placeholder="  How long does it take?"
+        type="number" 
       />
-      {errors.typeProject && <span>This field is required</span>}
+      {errors.work_time && <span>This field is required</span>}
+      <p>what is you break time?</p>
+      <input
+        {...register("break_time")}
+        className="login__container--input"
+        placeholder="  what is you break time?"
+        type="number" 
+      />
       <p>When will you complete it?</p>
       <input
-      {...register("deadline")}
+      {...register("end_date")}
         className="login__container--input"
-        placeholder="  Enter a deadline"
+        /* placeholder="  Enter a deadline" */
+        type="date"
       ></input>
       <p>Select calendar to work with</p>
       <input
-        {...register("calendar")}
+        {...register("start_date")}
         className="login__container--input"
-        placeholder="  Please, select a calendar"
+        /* placeholder="  Please, select a calendar" */
+        type="date"
       ></input>
      {/*  <Link href="/"> */}
       <button className="btn btn-primary" type="submit">Create Project</button>
@@ -62,10 +76,10 @@ const newProyect = () => {
             </label>
   
             <input
-            {...register("name")}
+            {...register("project_name")}
               id="formName"
               className="input"
-              name="name"
+              name="project_name"
               type="text" /* required */ /* onChange={this.handleChange} */ /* value={this.state.name} */
             />
             
@@ -77,32 +91,18 @@ const newProyect = () => {
             </label>
   
             <input
-            {...register("url")}
+            /* {...register("url")} */
               id="formUrl"
               className="input"
               name="Url"
               type="text"
-              required /* onChange={this.handleChange} */ /* value={this.state.email} */
+              placeholder=" @proyectoname"
+              disabled
+              /* onChange={this.handleChange} */ /* value={this.state.email} */
             />
           </fieldset>
   
-          <fieldset className="input__container">
-            <label
-              htmlFor="formMessage"
-              className="input__label"
-              title="Mensagem:"
-            >
-              description
-            </label>
-  
-            <textarea
-            {...register("message")}
-              id="formMessage"
-              className="form-textarea"
-              name="message"
-              required /* onChange={this.handleChange} */
-            ></textarea>
-          </fieldset>
+         
   
           <div className="input__container">
             <input
