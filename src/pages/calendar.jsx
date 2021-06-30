@@ -11,32 +11,55 @@ import CalendarHeader from '../components/calendar/calendarHeader';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faChevronLeft, faChevronRight } from '@fortawesome/free-solid-svg-icons';
 
+let dummyData = [
+  {   
+      "project": "t9d7kvcalheefj0tgjr3vniisc@group.calendar.google.com",
+      "user": "105807747967363609529",
+      "activity_name": "Actividad 3",
+      "start_date": "2021-06-30T03:50:24.566Z",
+      "end_date": "2021-06-30T04:50:24.566Z",
+      color: '#e6dd6d'
+  },
+  {   
+      "project": "t9d7kvcalheefj0tgjr3vniisc@group.calendar.google.com",
+      "user": "105807747967363609529",
+      "activity_name": "Actividad 4",
+      "start_date": "2021-06-30T03:50:24.566Z",
+      "end_date": "2021-06-30T04:50:24.566Z",
+      color: '#e66d6d'
+  }
+]
+
 export default function CalendarContainer(props) {
   const [calendarView, setCalendarView] = useState(7)
   const [loading, setLoading] = useState(false)
-  const [events, setEvents] = useState([
-    {
-      start: moment({h: 8, m: 0}),
-      end: moment({h: 10, m: 0}),
-      activity_name: 'Meeting 1:1 coach',
-      color: '#e66d6d'
-    },
-    {
-      start: moment({h: 8, m: 0}),
-      end: moment({h: 10, m: 0}),
-      activity_name: 'Master Introducction for dummys',
-      color: '#e6dd6d'
-    },
-    {
-      start: moment("2021-06-29T01:50:51.338Z"),
-      end: moment("2021-06-29T01:50:51.338Z"),
-      activity_name: 'This is a long event name for a short event',
-      color: '#e66d6d'
-    }
-  ])
+  const [events, setEvents] = useState([])
   const [day, setday] = useState(Date.now())
 
-  useEffect(() => {}, [calendarView, day])
+  useEffect(() => {
+    let firstDay = new Date(day)
+    let lastday = new Date(day)
+    lastday.setDate(lastday.getDate() + 7)
+    let dateA = moment(firstDay).clone().weekday(0).toDate()
+    let dateB = moment(firstDay).clone().weekday(6).toDate()
+
+    console.log('today', dateA);
+    console.log('lastDay', dateB);
+
+    // TODO: get events passing day range
+    
+    let events = []
+    dummyData.map(e => {
+      let x = {
+        ...e,
+        start: moment(e.start_date),
+        end: moment(e.end_date)
+      }
+      events.push(x)
+    })
+    setEvents(events)
+
+  }, [calendarView, day])
 
   let changeCalendarView = days => {
     if (days !== calendarView) {
@@ -49,7 +72,7 @@ export default function CalendarContainer(props) {
   }
 
   let onIntervalSelect = data => {
-    console.log(data);
+    console.log('onIntervalSelect',data);
   }
 
 
@@ -104,14 +127,14 @@ export default function CalendarContainer(props) {
               cellHeight = {50}
               numberOfDays= {calendarView}
               selectedIntervals = {events}
-              onIntervalSelect = {onIntervalSelect}
+              // onIntervalSelect = {onIntervalSelect}
               // onIntervalUpdate = {this.handleEventUpdate}
               // onIntervalRemove = {this.handleEventRemove}
               headerCellComponent={CalendarHeader}
               dayCellComponent={CalendarCell}
               modalComponent={CalendarModal}
               eventComponent={CalendarEvent}
-              // useModal={false}
+              useModal={false}
             />
           </>
           

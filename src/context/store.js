@@ -6,7 +6,8 @@ const initialState = {
   theme: typeof window !== 'undefined' && JSON.parse(localStorage.getItem('theme')) || 'light',
   mainClass: '',
   isAuth: typeof window !== 'undefined' && JSON.parse(localStorage.getItem('authenticated')) || false,
-  userId: typeof window !== 'undefined' && JSON.parse(localStorage.getItem('token')) || '',
+  userId: typeof window !== 'undefined' && JSON.parse(localStorage.getItem('user')) || '',
+  token:  typeof window !== 'undefined' && JSON.parse(localStorage.getItem('token')) || ''
 };
 
 const store = createContext(initialState);
