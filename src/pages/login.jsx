@@ -73,25 +73,9 @@ export default function Login() {
                 </tspan>
               </text>
             </svg>
-            {/* TODO: @Antonn we need to change this login, we will use a single button like this => 
-                https://yosoy.dev/wp-content/uploads/2018/11/Google-Sign-In.png  the link will redirect to and endpoint, meanwhile redirect to '/login/1234567890' */}
-            <div className="input__container">
-              <p className="login__container--p">Email</p>
-              <input
-                className="login__container--input"
-                type="email"
-                placeholder="  mail@mail.com"
-              />
-            </div>
-            <div className="input__container">
-              <p className="login__container--p">Password</p>
-              <input
-                className="login__container--input"
-                type="password"
-                placeholder="  Super password"
-              />
-            </div>
-            
+
+              <h1 className="login__container--p">Welcome to the Project Manager`s App</h1>
+              
             <a href='https://purojekuto-backend.herokuapp.com/login'>
                 <button
                 className="login__container--btn"
@@ -117,8 +101,7 @@ export default function Login() {
             
             <p className="login__container--p2">
               {' '}
-              By signing up, I agree to the <span>Privacy Policy</span> and{' '}
-              <span> Terms of service.</span>{' '}
+          
             </p>
           </div>
         </div>
