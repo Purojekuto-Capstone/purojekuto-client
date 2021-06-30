@@ -1,7 +1,6 @@
 import React, { useEffect, useContext } from 'react'
 import { useRouter } from 'next/router'
 import { store } from '../../context/store';
-// import Loading from '../../components/loading/loading';
 import Loader from '../../components/loader/loader';
 
 export default function loginAuthRedirect(props) {
@@ -16,8 +15,8 @@ export default function loginAuthRedirect(props) {
     } else {
       if(token){
         setTimeout(() => {
-          let user = JSON.parse(atob(token))
-          dispatch({ type: 'SET_USER', payload: user })
+          console.log('Token => ',token);
+          dispatch({ type: 'SET_USER', payload: token })
           router.push('/')
         }, 800);
       }

@@ -19,11 +19,7 @@
     @include themify($themes) { 
         color: themed('text-color');
         background: themed('background') ;
-      }
-    
-
-    
-
+    }
 }
 .container-theme{
     display: flex;
@@ -39,11 +35,11 @@
 
 .login__container {
     width: 478px;
-    height: 600px; 
-    margin-top: 30px;
+    height: 450px; 
+    margin-top: 0px;
     border-radius: 48px;
     background: $container-color ;
-    box-shadow: 2px 4px 4px #9D9D9D1A;
+    box-shadow: 2px 4px 4px #0000001a;
     opacity: 1;
     @include themify($themes) { 
         color: themed('text-color');
@@ -59,13 +55,24 @@
     font-size: 57px;
 }
 
+.login__container h1 {
+    display:flex;
+    flex-direction: row;
+    margin-left: 60px;
+    margin-top: 20px;
+    color: $icon-color; 
+    margin-bottom: 45px;
+    font-size: 19px;
+}
+
+
 .input__container {  
 display:flex;
 flex-direction: column;
 justify-self: center;
 }
 
-.login__container--p {
+.login__container--p  {
     justify-self: left;
     font-weight: bold;
     margin-bottom: 5px;
