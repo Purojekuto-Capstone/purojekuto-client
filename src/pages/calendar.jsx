@@ -61,15 +61,15 @@ export default function CalendarContainer(props) {
 
   }, [calendarView, day])
 
-  let changeCalendarView = days => {
-    if (days !== calendarView) {
-      setLoading(true)
-      setCalendarView(days)
-      setTimeout(() => {
-        setLoading(false)
-      }, 400);
-    }
-  }
+  // let changeCalendarView = days => {
+  //   if (days !== calendarView) {
+  //     setLoading(true)
+  //     setCalendarView(days)
+  //     setTimeout(() => {
+  //       setLoading(false)
+  //     }, 400);
+  //   }
+  // }
 
   let onIntervalSelect = data => {
     console.log('onIntervalSelect',data);
@@ -96,7 +96,6 @@ export default function CalendarContainer(props) {
       </Head>
 
       <Layout>
-        
         {/* <div onClick={() => changeCalendarView(1)}>2 days</div> <div onClick={() => changeCalendarView(7)}>7 days</div> */}
         {loading ? (
           <div>

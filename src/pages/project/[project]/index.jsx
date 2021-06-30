@@ -1,8 +1,6 @@
 import React from 'react'
 import { useRouter } from 'next/router'
-import Layout from '../../components/layout/layout'
-
-
+import Layout from '../../../components/layout/layout'
 
 export default function Project(props) {
   const router = useRouter()
@@ -10,9 +8,9 @@ export default function Project(props) {
   
   return (
     <Layout>
-    <div>
-      test {project}
-    </div>
+      <div>
+        test {project}
+      </div>
     </Layout>
   )
 }

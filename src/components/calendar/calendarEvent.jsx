@@ -1,10 +1,13 @@
 import React from 'react'
 import moment from 'moment-timezone';
+import { useRouter } from 'next/router';
 
 export default function CalendarEvent(props) {
+  let router = useRouter()
 
   let handleEventClick = data => {
     console.log(data);
+    router.push(`/project/${data.project}/event/${data.id}`)
   }
 
   return (
