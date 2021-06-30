@@ -102,3 +102,53 @@ $headerSize: 70px;
     border-color: themed('background')
   }
 }
+
+.weekCalendar__content{
+  padding-bottom: 3em;
+}
+
+.calendar__header{
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0 1.2em;
+  padding-bottom: .5em;
+  border-bottom: 1px solid;
+  @include themify($themes) {
+    color: themed('text-color');
+    border-color: themed('background')
+  }
+
+  @media screen and (max-width:414px) {
+    flex-direction: column;
+  }
+
+  .calendar__actions{
+    display: flex;
+    @media screen and (max-width:414px) {
+      width: 100%;
+      justify-content: space-between;
+    }
+  }
+
+  h2{
+    font-size: 2em;
+  }
+
+  span{
+    padding: 6px 12px;
+    margin: 0 4px;
+    border-radius: 6px;
+    cursor: pointer;
+    transition: .4s;
+    border: 1px solid;
+
+    @include themify($themes) {
+      border-color: themed('background')
+    }
+
+    &:hover{
+      transform: scale(1.02);
+    }
+  }
+}

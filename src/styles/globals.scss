@@ -12,6 +12,7 @@
 @import "../styles/components/newProject.scss";
 @import "../styles/pages/newProyect.scss";
 @import "./components/calendar/calendar.scss";
+@import "./components/loader.scss";
 
 :root {
   font-family: $text-font;
@@ -22,21 +23,12 @@
   margin: 0;
   padding: 0;
 }
-/* h1,
-h2,
-h3,
-h4,
-h5,
-h6 {
-    color: $text-color;
-} */
+
 h1 {
   font-family: $heading-font;
   font-weight: 400;
   font-size: 3.15rem;
   line-height: 4rem;
-  
-
 }
 
 .app__wrapper{
@@ -47,28 +39,9 @@ h1 {
   }
 }
 
-/* @media (min-width: 576px) {
-  .container {
-      max-width: 540px;
-  }
+.text-right{
+  text-align: right !important;
 }
-
-@media (min-width: 768px) {
-  .container {
-      max-width: 720px;
-  }
+.text-left{
+  text-align: left !important;
 }
-
-@media (min-width: 992px) {
-  .container {
-      max-width: 960px;
-  }
-}
-
-@media (min-width: 1200px) {
-  .container {
-      max-width: 1140px;
-  }
-}
-
- */

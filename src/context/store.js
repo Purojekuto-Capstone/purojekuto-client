@@ -6,7 +6,8 @@ const initialState = {
   theme: typeof window !== 'undefined' && JSON.parse(localStorage.getItem('theme')) || 'light',
   mainClass: '',
   isAuth: typeof window !== 'undefined' && JSON.parse(localStorage.getItem('authenticated')) || false,
-  userId: typeof window !== 'undefined' && JSON.parse(localStorage.getItem('token')) || '',
+  userId: typeof window !== 'undefined' && JSON.parse(localStorage.getItem('user')) || '',
+  token:  typeof window !== 'undefined' && JSON.parse(localStorage.getItem('token')) || ''
 };
 
 const store = createContext(initialState);
@@ -17,6 +18,8 @@ const ContextProvider = ({ children }) => {
   const [theme, setTheme] = useLocalStorage('theme');
   const [authenticated, setAuthenticated] = useLocalStorage('authenticated');
   const [token, setToken] = useLocalStorage('token');
+  const [userId, setUserId] = useLocalStorage('user');
+
 
   const [state, dispatch] = useReducer((state, action) => {
     switch (action.type) {
@@ -37,19 +40,24 @@ const ContextProvider = ({ children }) => {
           mainClass: action.payload,
         };
       case 'SET_USER':
+        let {token, userId} = action.payload
         setAuthenticated(true)
-        setToken(action.payload)
+        setToken(token)
+        setUserId(userId)
         return {
           ...state,
           isAuth: true,
-          userId: action.payload,
+          token: token,
+          userId: userId,
         };
       case 'CLEAN_USER':
         setAuthenticated(false)
         setToken('')
+        setUserId('')
         return {
           ...state,
           isAuth: false,
+          token: null,
           userId: null,
         };
       default:
