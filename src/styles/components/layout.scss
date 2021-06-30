@@ -10,6 +10,7 @@
   }
   @media (max-width: $sm) {
     grid-template-columns: 10px auto;
+    grid-template-rows: 5px auto 90px;
   }
   @include themify($themes) { 
     background: themed('background');

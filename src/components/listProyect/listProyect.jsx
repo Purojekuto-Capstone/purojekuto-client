@@ -22,6 +22,7 @@ const listProyect = ({ proyects }) => {
           </div>
           <div className="container__name">{activity_name}</div>
           <div className="container__deahtline">{end_date}</div>
+          <div className="container__deahtline">Barra Progreso</div>
           <div className="container__more">..</div>
         </div>
       ))}
