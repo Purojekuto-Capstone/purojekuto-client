@@ -1,0 +1,22 @@
+
+
+.box__container--description {  
+    @include themify($themes) { 
+    color: themed('text-color');
+    background: themed('background') ;
+}
+}
+.box__container--calendar {
+    @include themify($themes) { 
+        color: themed('text-color');
+        background: themed('background') ;
+}
+}
+
+.box__container--statistics {
+    @include themify($themes) { 
+        color: themed('text-color');
+        background: themed('background') ;
+}
+
+}
