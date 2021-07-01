@@ -123,7 +123,7 @@ export default function CalendarContainer(props) {
               endTime = {moment({h: 23, m: 50})}
               scaleUnit ={15}
               scaleHeaderTitle="Time"
-              cellHeight = {50}
+              cellHeight = {30}
               numberOfDays= {calendarView}
               selectedIntervals = {events}
               // onIntervalSelect = {onIntervalSelect}
