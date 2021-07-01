@@ -1,19 +1,27 @@
 import { useContext, useState, useEffect } from 'react';
 import { useRouter } from 'next/router'
 import Layout from '../../components/layout/layout'
-import { getProyect } from '../../utils/services';
+import { getProyect, getActivitys } from '../../utils/services';
 import Projects from '../../data/projects.json';
 import Link from 'next/link';
+import { store } from '../../context/store';
 
 export default function ProjectComponent(props) {
   const router = useRouter()
   const {project} = router.query
   const [product,setProduct] = useState([]);
+  const [events,setEvents] = useState([]);
   const [isLoading,setIsLoading] = useState(true);
+  const { state } = useContext(store)
+  const { isAuth, token } = state
+
+  const config = {
+    headers: { Authorization: `Bearer ${token}` },
+  };
 
   useEffect(() => {
     async function loadProyects() {
-      const response = await getProyect(project);
+      const response = await getProyect(project,config);
 
       if (response.status === 200) {
         setProduct(response.data);
@@ -23,8 +31,24 @@ export default function ProjectComponent(props) {
     loadProyects();
   }, []);
 
+  useEffect(() => {
+    async function loadEvents() {
+      const response = await getActivitys(project,config);
+
+      if (response.status === 200) {
+        setEvents(response.data);
+      }
+      setIsLoading(false);
+    }
+    loadEvents();
+  }, []);
+  
+
   const handleOnCardClick = (id) => {
     router.push(`/project/${id}/event/id`);
+  };
+  const handlebutton = () => {
+    router.push(`/project/${project}/event/new`);
   };
 
   console.log(product)
@@ -57,21 +81,21 @@ export default function ProjectComponent(props) {
     <div className="card-details">
             <div className='container__button'>
               <h1>Projects Events</h1>
-              <Link href="/project/id/event/new">
-                <button className= 'btn btn-primary'>New Event</button>
-              </Link>
+              {/* <Link href="/project/id/event/new"> */}
+                <button onClick={handlebutton} className= 'btn btn-primary'>New Event</button>
+              {/* </Link> */}
             </div>
     </div>
 		<div className="card-text">
     <div className="container__list">
-      {Projects.map(({ project_id, project_name, end_date }) => (
+      {events.map(({ id, summary, end }) => (
         <div className="container__content--project" 
-        id={project_id} key={project_id} onClick={() => handleOnCardClick(project_id)}>
+        id={id} key={id} onClick={() => handleOnCardClick(id)}>
           <div className="container__deahtline">
             <div></div>
           </div>
-          <div className="container__name">{project_name}</div>
-          <div className="container__deahtline">{end_date}</div>
+          <div className="container__name">{summary}</div>
+          <div className="container__deahtline">{end}</div>
           <div className="container__deahtline">Barra Progreso</div>
           <div className="container__more">..</div>
         </div>
