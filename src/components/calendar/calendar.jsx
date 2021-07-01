@@ -1,30 +1,35 @@
-import React, { useContext, useEffect, useState } from 'react';
-import Head from 'next/head';
-import Layout from '../components/layout/layout';
-import Loader from '../components/loader/loader'
+import React, { useEffect, useContext, useState } from 'react'
+import { useRouter } from 'next/router'
+import Head from 'next/head'
+import { store } from '../../context/store'
+//components
+import Layout from '../layout/layout'
+import Loader from '../loader/loader'
+//calendar
 import WeekCalendar from 'react-week-calendar';
-import moment from 'moment';
-import CalendarEvent from '../components/calendar/calendarEvent';
-import CalendarModal from '../components/calendar/calendarModal';
-import CalendarCell from '../components/calendar/calendarCell';
-import CalendarHeader from '../components/calendar/calendarHeader';
+import CalendarEvent from './calendarEvent';
+import CalendarModal from './calendarModal';
+import CalendarCell from './calendarCell';
+import CalendarHeader from './calendarHeader';
+// icons
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faChevronLeft, faChevronRight } from '@fortawesome/free-solid-svg-icons';
-// import { getActivitysCalendar } from '../utils/services';
-import { store } from '../context/store';
+//moment
+import moment from 'moment'
+import { getCalendarActivitysByProjectId } from '../../utils/services'
 
-export default function CalendarContainer(props) {
-  const [calendarView, setCalendarView] = useState(7)
-  const [loading, setLoading] = useState(false)
-  const [events, setEvents] = useState([])
+
+export default function Calendar(props) {
+
+  const { state } = useContext(store)
+  const { token } = state
   const [day, setday] = useState(Date.now())
-  const {state} = useContext(store)
-  let { token } = state
+  const [events, setEvents] = useState([])
+  const [loading, setLoading] = useState(true)
 
   const config = {
     headers: { Authorization: `Bearer ${token}` },
   };
-
 
   useEffect(() => {
     let firstDay = new Date(day)
@@ -33,44 +38,26 @@ export default function CalendarContainer(props) {
     let dateA = moment(firstDay).clone().weekday(0).toISOString()
     let dateB = moment(firstDay).clone().weekday(6).toISOString()
 
-    // getActivitysCalendar(config, dateA, dateB)
-    // .then(res => {
-    //   let events = []
-    //   res.map(e => {
-    //     let x = {
-    //       ...e,
-    //       start: moment(e.start),
-    //       end: moment(e.end)
-    //     }
-    //     events.push(x)
-    //   })
-    //   setEvents(events)
-    //   setLoading(false)
-    // })
-    // .catch(err => {
-    //   console.error(err)
-    // })
-
-    // TODO: get events passing day range
-    
-    
-
-  }, [calendarView, day])
-
-  // let changeCalendarView = days => {
-  //   if (days !== calendarView) {
-  //     setLoading(true)
-  //     setCalendarView(days)
-  //     setTimeout(() => {
-  //       setLoading(false)
-  //     }, 400);
-  //   }
-  // }
-
-  let onIntervalSelect = data => {
-    console.log('onIntervalSelect',data);
-  }
-
+    if(props.projectId) {
+      getCalendarActivitysByProjectId(config, props.projectId , dateA, dateB)
+      .then(res => {
+        let events = []
+        res.map(e => {
+          let x = {
+            ...e,
+            start: moment(e.start),
+            end: moment(e.end)
+          }
+          events.push(x)
+        })
+        setEvents(events)
+        setLoading(false)
+      })
+      .catch(err => {
+        console.error(err)
+      })
+    }
+  }, [day, props])
 
   let moveWeek = option => {
     let date = new Date(day)
@@ -83,21 +70,18 @@ export default function CalendarContainer(props) {
     }
     setday(date)
   }
-  
+
   return (
     <>
       <Head>
-        <title>My calendar | PuroJekuto</title>
+        <title>My project calendar | PuroJekuto</title>
         <meta name="description" content="proyect manager" />
       </Head>
-
-      <Layout>
-        {/* <div onClick={() => changeCalendarView(1)}>2 days</div> <div onClick={() => changeCalendarView(7)}>7 days</div> */}
-        {loading ? (
-          <div>
+      {loading ? (
+          <div className='loader__container'>
             <Loader/>
           </div>
-        ) : (
+        ):(
           <>
             <div className='calendar__header'>
               <h2>{moment(day).format("MMMM YYYY")}</h2>
@@ -120,22 +104,15 @@ export default function CalendarContainer(props) {
               scaleUnit ={15}
               scaleHeaderTitle="Time"
               cellHeight = {50}
-              numberOfDays= {calendarView}
+              numberOfDays= {7}
               selectedIntervals = {events}
-              // onIntervalSelect = {onIntervalSelect}
-              // onIntervalUpdate = {this.handleEventUpdate}
-              // onIntervalRemove = {this.handleEventRemove}
               headerCellComponent={CalendarHeader}
               dayCellComponent={CalendarCell}
-              modalComponent={CalendarModal}
               eventComponent={CalendarEvent}
               useModal={false}
             />
           </>
-          
         )}
-        
-      </Layout>
     </>
-  );
+  )
 }

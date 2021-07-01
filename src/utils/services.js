@@ -43,3 +43,9 @@ export const getActivitys = async (id_project, config) => {
   let response = await axios.get(url, config);
   return response;
 };
+
+export const getCalendarActivitysByProjectId = async (config, project, start, end) => {
+  let url = `${URLACTIVITY}?project_id=${project}&start_date=${start}&end_date=${end}`;
+  let response = await axios.get(url, config);
+  return response.data;
+};
