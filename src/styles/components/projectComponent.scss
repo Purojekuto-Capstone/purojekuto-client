@@ -37,7 +37,10 @@
 		}
 		.card-details{
 			margin-top:30px;
-			color:#3C3C3C;
+			@include themify($themes) { 
+				color: themed('text-color');
+				
+			  }
 			span{		
 				padding:0 30px;
 				i{

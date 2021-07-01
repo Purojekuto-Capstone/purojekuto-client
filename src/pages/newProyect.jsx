@@ -1,24 +1,31 @@
-import React, {useState} from 'react';
+import React, {useState,useContext} from 'react';
 import Layout from '../components/layout/layout';
 import Link from 'next/link';
 import { useForm } from "react-hook-form";
 import { postProyect } from '../utils/services';
+import { store } from '../context/store';
+import { useRouter } from 'next/router';
 
 
 
 
 const newProyect = () => {
-
+  const { state } = useContext(store)
+  const router = useRouter();
+  const { isAuth, token } = state
   const { register, handleSubmit, watch, formState: { errors } } = useForm();
   
-
+  const config = {
+    headers: { Authorization: `Bearer ${token}` },
+  };
   
   const onSubmit = async (data) => {
     let projectJson = data;
     projectJson['user'] = '105807747967363609529'
     
-    const response = await postProyect(projectJson);
+    const response = await postProyect(projectJson,config);
     console.log(response)
+    router.push(`/`);
 
   };
 

@@ -15,16 +15,20 @@ import { useLocalStorage } from '../hooks/useLocalStorage'
 
 export default function Home() {
   const { state } = useContext(store)
-  const { isAuth } = state
+  const { isAuth, token } = state
   const [isLoading,setIsLoading] = useState(true);
   const [proyects,setProyects] = useState([]);
   const router = useRouter()
 
   const [authenticated, setAuthenticated] = useLocalStorage('authenticated');
 
+  const config = {
+    headers: { Authorization: `Bearer ${token}` },
+  };
+
   useEffect(() => {
     async function loadProyects() {
-      const response = await getProyects();
+      const response = await getProyects(config);
 
       if (response.status === 200) {
         setProyects(response.data);
@@ -56,7 +60,7 @@ export default function Home() {
             }
             {
               !isLoading && !proyects.length && (
-                'You dont have proyect, add new proyect'
+                'You dont have proyect, add new project'
               )
             }
             {
