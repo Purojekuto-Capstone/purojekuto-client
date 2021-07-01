@@ -1,10 +1,33 @@
-import React, {useState} from 'react';
+import React, {useState,useContext} from 'react';
 import Layout from '../components/layout/layout';
 import Link from 'next/link';
+import { useForm } from "react-hook-form";
+import { postProyect } from '../utils/services';
+import { store } from '../context/store';
+import { useRouter } from 'next/router';
+
 
 
 
 const newProyect = () => {
+  const { state } = useContext(store)
+  const router = useRouter();
+  const { isAuth, token } = state
+  const { register, handleSubmit, watch, formState: { errors } } = useForm();
+  
+  const config = {
+    headers: { Authorization: `Bearer ${token}` },
+  };
+  
+  const onSubmit = async (data) => {
+    let projectJson = data;
+    projectJson['user'] = '105807747967363609529'
+    
+    const response = await postProyect(projectJson,config);
+    console.log(response)
+    router.push(`/`);
+
+  };
 
   const [ flagView, setFlaView] = useState(true)
 
@@ -13,24 +36,39 @@ const newProyect = () => {
     
       <h1 className="container__h1">New Project</h1>
       <h4>New set up a calendar</h4>
-      <p>What kind of project is it?</p>
+      <p>How long does it take?</p>
       <input
+        /* {...register("typeProject", {required:true})} */
+        {...register("work_time")}
         className="login__container--input"
-        placeholder="  Select a type of project"
-      ></input>
+        placeholder="  How long does it take?"
+        type="number" 
+      />
+      {errors.work_time && <span>This field is required</span>}
+      <p>what is you break time?</p>
+      <input
+        {...register("break_time")}
+        className="login__container--input"
+        placeholder="  what is you break time?"
+        type="number" 
+      />
       <p>When will you complete it?</p>
       <input
+      {...register("end_date")}
         className="login__container--input"
-        placeholder="  Enter a deadline"
+        /* placeholder="  Enter a deadline" */
+        type="date"
       ></input>
       <p>Select calendar to work with</p>
       <input
+        {...register("start_date")}
         className="login__container--input"
-        placeholder="  Please, select a calendar"
+        /* placeholder="  Please, select a calendar" */
+        type="date"
       ></input>
-      <Link href="/">
-      <button className="btn btn-primary">Create Project</button>
-      </Link>
+     {/*  <Link href="/"> */}
+      <button className="btn btn-primary" type="submit">Create Project</button>
+     {/*  </Link> */}
     </div>
   );
   
@@ -45,11 +83,13 @@ const newProyect = () => {
             </label>
   
             <input
+            {...register("project_name")}
               id="formName"
               className="input"
-              name="name"
+              name="project_name"
               type="text" /* required */ /* onChange={this.handleChange} */ /* value={this.state.name} */
             />
+            
           </fieldset>
   
           <fieldset className="input__container">
@@ -58,30 +98,18 @@ const newProyect = () => {
             </label>
   
             <input
+            /* {...register("url")} */
               id="formUrl"
               className="input"
               name="Url"
               type="text"
-              required /* onChange={this.handleChange} */ /* value={this.state.email} */
+              placeholder=" @proyectoname"
+              disabled
+              /* onChange={this.handleChange} */ /* value={this.state.email} */
             />
           </fieldset>
   
-          <fieldset className="input__container">
-            <label
-              htmlFor="formMessage"
-              className="input__label"
-              title="Mensagem:"
-            >
-              description
-            </label>
-  
-            <textarea
-              id="formMessage"
-              className="form-textarea"
-              name="message"
-              required /* onChange={this.handleChange} */
-            ></textarea>
-          </fieldset>
+         
   
           <div className="input__container">
             <input
@@ -103,7 +131,7 @@ const newProyect = () => {
 
   return (
     <Layout>
-      <form className="react-form" /* onSubmit={this.handleSubmit} */>
+      <form className="react-form" onSubmit={handleSubmit(onSubmit)}>
       
       {flagView ? (
          <Link href="/">

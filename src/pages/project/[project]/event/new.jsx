@@ -1,33 +1,74 @@
-import React from 'react'
+import React, {useState,useContext} from 'react';
 import Layout from '../../../../components/layout/layout'
-import Link from 'next/link'
+import Link from 'next/link';
+import { useForm } from "react-hook-form";
+import { postEvent } from '../../../../utils/services';
+import { store } from '../../../../context/store';
+import { useRouter } from 'next/router';
 
 export default function NewEvent(props) {
+  const router = useRouter()
+  const {project} = router.query
+  
+  const { register, handleSubmit, watch, formState: { errors } } = useForm();
+  const { state } = useContext(store)
+  const { isAuth, token } = state
+  /* const onSubmit = data =>{
+    data['user'] = '105807747967363609529';
+    data['project'] = 'ajbo2rim0502o9p45ei98j0ugo@group.calendar.google.com';
+    console.log(data);
+  }  */
+  const config = {
+    headers: { Authorization: `Bearer ${token}` },
+  };
+
+  
+  const onSubmit = async (data) => {
+    let eventJson = data;
+    eventJson['user'] = '105807747967363609529'
+    eventJson['project'] = project
+
+    const response = await postEvent(eventJson,config);
+    console.log(response)
+    router.push(`/project/${project}`);
+
+  };
+  const handleBack = () => {
+    router.push(`/project/${project}`);
+  }
+
+  const [ flagView, setFlaView] = useState(true)
   return (
     <>
       <Layout>
-      <div className="container">
-        <Link href="/" >
+      <form className="container" onSubmit={handleSubmit(onSubmit)}>
+        <div onClick={handleBack} >
           <a>←Back</a>
-          </Link>
+          </div>
           <h1 className="container__h1">New event</h1>
           <p>Name</p>
           <input
+            {...register("activity_name")}
+            type="text"
             className="login__container--input"
             placeholder="  Select a type of project"
           ></input>
           <p>Start</p>
           <input
-            className="login__container--input"
-            placeholder="  Enter a deadline"
-          ></input>
+        {...register("start_date")}
+        className="login__container--input"
+        /* placeholder="  Please, select a calendar" */
+        type="datetime-local"
+      ></input>
           <p>End</p>
           <input
-            className="login__container--input"
-            placeholder="  Please, select a calendar"
-          ></input>
-          <button className="btn btn-primary">Create Project</button>
-        </div>
+      {...register("end_date")}
+        className="login__container--input"
+        /* placeholder="  Enter a deadline" */
+        type="datetime-local"
+      ></input>
+          <button className="btn btn-primary" type="submit">Create Project</button>
+        </form>
       </Layout>
     </>
   )

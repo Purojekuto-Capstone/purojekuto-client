@@ -1,11 +1,45 @@
 import axios from 'axios';
 
 /* const URL = 'https://jsonplaceholder.typicode.com/todos'; */
-const URL =
-  'https://54aa820e-6b12-4517-acca-3f436f42251a.mock.pstmn.io///v1/home';
+const URL = 'https://purojekuto-backend.herokuapp.com/projects/project/';
+const URL2 = 'https://purojekuto-backend.herokuapp.com/projects/';
+const URLACTIVITY =
+  'https://purojekuto-backend.herokuapp.com/projects/activity/';
+const token =
+  'eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJzdWIiOiIxMDA3NDQ5NDUwNzU1NTgwMDI3OTcifQ.m7B8vp8UCFSHgWsVi8-Qas1ciUziHl8wHIJOqPJT5WA';
+const configPrueba = {
+  headers: { Authorization: `Bearer ${token}` },
+};
 
-export const getProyects = async () => {
+export const getProyects = async (config) => {
   let url = URL;
-  let response = await axios.get(url);
+
+  let response = await axios.get(url, config);
+  return response;
+};
+
+export const postProyect = async (data, config) => {
+  let url = URL;
+  let response = await axios.post(url, data, config);
+  return response;
+};
+
+export const getProyect = async (id, config) => {
+  let url = `${URL2}project?project_id=${id}`;
+
+  let response = await axios.get(url, config);
+  return response;
+};
+
+export const postEvent = async (data, config) => {
+  let url = URLACTIVITY;
+  let response = await axios.post(url, data, config);
+  return response;
+};
+
+export const getActivitys = async (id_project, config) => {
+  let url = `${URLACTIVITY}?project_id=${id_project}&start_date=2019-06-30T21:50:24.566000-05:00&end_date=2022-07-03T21:50:24.566000-05:00`;
+
+  let response = await axios.get(url, config);
   return response;
 };

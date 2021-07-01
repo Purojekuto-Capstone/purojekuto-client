@@ -6,22 +6,21 @@ const listProyect = ({ proyects }) => {
   const router = useRouter();
 
   const handleOnCardClick = (id) => {
-    console.log(id)
     router.push(`/project/${id}`);
   };
 
-  console.log(proyects)
 
   return (
     <div className="container__list">
-      {proyects.map(({ id, activity_name, end_date }) => (
+      {proyects.map(({ project_id, project_name, end_date }) => (
         <div className="container__content--project" 
-        id={id} key={id} onClick={() => handleOnCardClick(id)}>
+        id={project_id} key={project_id} onClick={() => handleOnCardClick(project_id)}>
           <div className="container__deahtline">
             <div></div>
           </div>
-          <div className="container__name">{activity_name}</div>
+          <div className="container__name">{project_name}</div>
           <div className="container__deahtline">{end_date}</div>
+          <div className="container__deahtline">Barra Progreso</div>
           <div className="container__more">..</div>
         </div>
       ))}
