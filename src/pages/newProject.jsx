@@ -9,7 +9,7 @@ export default function Login() {
     <Layout>
       <div className="container">
       <Link href="/" >
-        <a>←Back</a>
+        <a className='back-btn'>←Back</a>
         </Link>
         <h1 className="container__h1">New Project</h1>
         <h4>New set up a calendar</h4>

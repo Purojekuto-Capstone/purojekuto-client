@@ -5,6 +5,7 @@ import { faMoon, faSun } from '@fortawesome/free-regular-svg-icons';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import RedirectPage from '../components/redirect/redirect.jsx';
 import { useLocalStorage } from '../hooks/useLocalStorage.jsx';
+import Logo from '../../public/assets/images/Purojekuto-light.png'
 
 export default function Login() {
   const router = useRouter();
@@ -42,49 +43,15 @@ export default function Login() {
 
         <div className={`main__container `}>
           <div className="login__container">
-            <svg
-              xmlns="http://www.w3.org/2000/svg"
-              width="376"
-              height="80"
-              viewBox="0 0 376 80"
-            >
-              <text
-                class="login__container--h1"
-                id="ジPurojekuto_"
-                data-name="ジPurojekuto "
-                transform="translate(0 60)"
-                fill="#f89f26"
-                font-size="57"
-                font-family="PingFangSC-Semibold, PingFang SC"
-                font-weight="600"
-              >
-                <tspan x="0" y="0">
-                  ジ
-                </tspan>
-                <tspan y="0" font-family="Poppins-SemiBold, Poppins">
-                  Puroj
-                </tspan>
-                <tspan
-                  y="0"
-                  font-family="Poppins-Light, Poppins"
-                  font-weight="300"
-                >
-                  ekuto{' '}
-                </tspan>
-              </text>
-            </svg>
 
-              <h1 className="login__container--p">Welcome to the Project Manager`s App</h1>
+            <div className='logo__container'>
+              <img src={Logo} alt='Purojekuto'/>
+            </div>
+
+            <h2 className="login__container--p">Your personal manager app.</h2>
               
             <a href='https://purojekuto-backend.herokuapp.com/login'>
-                <button
-                className="login__container--btn"
-                // onClick={() =>
-                //     router.push(
-                //     '/login/ewogICJ0b2tlbiI6ICIxMjM0NTY3ODkwIiwKICAidXNlcklkIjogInF3ZXJ0eXVpb3AiCn0='
-                //     )
-                // }
-                >
+                <button className="login__container--btn">
                 <div className="google-btn">
                     <div className="google-icon-wrapper">
                     <img

@@ -1,4 +1,4 @@
-import React, { useContext } from 'react';
+import React, { useContext, useEffect, useState } from 'react';
 import Link from 'next/link';
 import { store } from '../../context/store';
 import { useLocalStorage } from '../../hooks/useLocalStorage';
@@ -13,17 +13,16 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import logoForDark from '../../assets/images/Purojekuto-dark.svg';
 import logoForLight from '../../assets/images/Purojekuto-light.svg';
 import {useRouter} from 'next/router';
+import { getUserInfo } from '../../utils/services';
 
 const headerLayout = () => {
   const { dispatch, state } = useContext(store);
-  const router = useRouter()
-
-  const { theme } = state;
+  const [user, setUser] = useState(null)
+  const { theme, token } = state;
+  const config = {
+    headers: { Authorization: `Bearer ${token}` },
+  };
   
-  const [themeLS, setThemeLS] = useLocalStorage('theme');
-  const [authenticated, setAuthenticated] = useLocalStorage('authenticated');
-  const [token, setToken] = useLocalStorage('token');
-
   let handleThemeTrigger = () => {
     if(theme === 'dark') {
       dispatch({ type: 'THEME__TRIGGER', payload: 'light' })
@@ -32,10 +31,16 @@ const headerLayout = () => {
     }
   };
 
-  let HandleSignOut = () => {
-    dispatch({ type: 'CLEAN_USER' });
-    router.push('/login')
-  };
+  useEffect(() => {
+    getUserInfo(config)
+    .then(res => {
+      // console.log('getUserInfo', res);
+      setUser(res)
+    })
+    .catch(err => {
+      console.error(err)
+    })
+  }, [])
 
   return (
     <header className="layout__header">
@@ -59,12 +64,9 @@ const headerLayout = () => {
               icon={theme === 'dark' ? faSun : faMoon}
             />
           </li>
-          <li>
-            <FontAwesomeIcon className="layout__header--icon" icon={faBell} />
-          </li>
-          <li onClick={() => HandleSignOut()}>
-            <FontAwesomeIcon className="layout__header--user" icon={faUser} />
-            <span>Username</span>
+          <li className='user__container'>
+            <img className='profilePicture' src={user ? user.picture : ''} alt={user ? user.name : ''}/>
+            <h4 className='username'>{user ? user.name : ''}</h4>
           </li>
         </ul>
       </nav>

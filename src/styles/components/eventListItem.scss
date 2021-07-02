@@ -1,0 +1,49 @@
+@import '../themes';
+
+.eventItem__container{
+  width: auto;
+  display: flex;
+  justify-content: space-between;
+  padding: 16px;
+  border-radius: 50px;
+  cursor: pointer;
+
+  transition: ease .4s;
+  @include themify($themes) { 
+    color: themed('text-color');
+  }
+
+  &:hover{
+    @include themify($themes) { 
+      color: themed('text-color');
+      background: themed('background-project') ;
+    }
+  }
+
+  .label{
+    margin: 0;
+    width: auto;
+    font-size: 1.3em;
+
+    &.title{
+      width: 40%;
+      font-size: 1.4em ;
+
+      font-weight: 300;
+      text-transform: capitalize;
+    }
+
+    &.type{
+      width: 20%;
+      font-weight: normal;
+    }
+    &.date{
+      width: 25%;
+      font-weight: 300;
+    }
+    &.status{
+      width: 15%;
+      font-weight: bold;
+    }
+  }
+}

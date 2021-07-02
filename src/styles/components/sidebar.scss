@@ -1,4 +1,5 @@
 @import '../_vars';
+@import '../themes';
 
 .sideBar{
   grid-column: 1;
@@ -16,10 +17,13 @@
   border-radius: 50%;
 }
 .navIcon:hover {
-  background-color: $icon-color ;
+  // background-color: $icon-color ;
   border-radius: 35px;
-  transform: rotate(360deg);
   padding: 20px;
+  transition: ease .4s;
+  @include themify($themes) { 
+    color: themed('primary-color');
+  }
   
 }
 
@@ -48,13 +52,13 @@
     }
   }
   .navbar__icon:hover {
-    background-color: $icon-color ;
+    
+    // background-color: $icon-color ;
     border-radius: 35px;
     transform: rotate(360deg);
     padding: 20px;
     
   }
- 
 }
 
 aside {
@@ -93,11 +97,24 @@ aside {
       span{
         margin-left: 24px;
       }
+
+      &.active {
+        svg {
+          border-right: 100px;
+          @include themify($themes) {
+            background: themed('primary-color') ;
+          }
+        }
+
+        .navIcon:hover{
+          color: white;
+        }
+      }
     }
     li:hover {
-      transform: translateX(5px);
-      color: $text-color !important;
-      border-left: 5px solid $text-color;
+      // transform: translateX(5px);
+      // color: $text-color !important;
+      // border-left: 5px solid $text-color;
     }
   }
 }
@@ -139,7 +156,8 @@ footer{
   position: absolute;
   bottom: 10px;
   width: 100%;
-  height: 85px; @include themify($themes) { 
+  height: 85px; 
+  @include themify($themes) { 
     color: themed('text-color');
     background: themed('backgroundMain') ;
   }

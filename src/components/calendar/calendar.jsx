@@ -36,7 +36,7 @@ export default function Calendar(props) {
     let lastday = new Date(day)
     lastday.setDate(lastday.getDate() + 7)
     let dateA = moment(firstDay).clone().weekday(0).toISOString()
-    let dateB = moment(firstDay).clone().weekday(6).toISOString()
+    let dateB = moment(firstDay).clone().weekday(7).toISOString()
 
     if(props.projectId) {
       getCalendarActivitysByProjectId(config, props.projectId , dateA, dateB)
@@ -99,7 +99,7 @@ export default function Calendar(props) {
             </div>
             <WeekCalendar
               firstDay={moment(day).clone().weekday(0)}
-              startTime = {moment({h: 0, m: 0})}
+              startTime = {moment({h: 8, m: 0})}
               endTime = {moment({h: 23, m: 50})}
               scaleUnit ={15}
               scaleHeaderTitle="Time"

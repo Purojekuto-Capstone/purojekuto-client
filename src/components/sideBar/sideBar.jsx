@@ -18,6 +18,7 @@ const leftNavLayout = () => {
   const [drawerPos, SetDrawerPos] = useState(1);
   const { dispatch } = useContext(store);
   const router = useRouter()
+  const path =  router.pathname
 
   const handleDrawer = () => {
     if (drawerPos < 2) {
@@ -58,23 +59,23 @@ const leftNavLayout = () => {
       <aside className={drawerClass.join(' ')}>
         <ul>
         <Link href="/">
-          <li>
+          <li className={path == '/' ? 'active' : ''}>
             <FontAwesomeIcon className="navIcon" icon={faFolderOpen} />
             <span>Folder</span>
           </li>
           </Link>
           <Link href="/statistics">
-          <li>
+          <li className={path == '/statistics' ? 'active' : ''}>
             <FontAwesomeIcon className="navIcon" icon={faChartBar} />
             <span>Statistics</span>
           </li>
           </Link>
-          <Link href="/calendar">
+          {/* <Link href="/calendar">
           <li>
             <FontAwesomeIcon className="navIcon" icon={faCalendarAlt} />
             <span>Calendar</span>
           </li>
-          </Link>
+          </Link> */}
           <li className="signout" onClick={() => HandleSignOut()}>
             <FontAwesomeIcon  icon={faSignOutAlt} />
           </li>

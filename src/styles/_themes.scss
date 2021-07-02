@@ -1,8 +1,10 @@
 @import './vars';
 
 
+
 $themes: (
     light: (
+        primary-color: $icon-color,
         background: $bg-light,
         text-color: $text-color,
         backgroundMain: $icon-text-color,
@@ -10,6 +12,7 @@ $themes: (
         background-project:$bg-light,
     ),
     dark: (
+        primary-color: $icon-dark-color,
         background: $bg-dark-color,
         text-color: $icon-text-color,
         backgroundMain:$container-color-color ,

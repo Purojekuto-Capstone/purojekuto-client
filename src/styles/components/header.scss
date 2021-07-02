@@ -78,5 +78,22 @@
         }
     
     }
+
+    .user__container{
+      cursor:initial;
+      .username {
+        margin: 0;
+        margin-left: 12px;
+        font-weight: bold;
+        @include themify($themes) { 
+          color: themed('text-color');
+        }
+      }
+      .profilePicture{
+        max-width: 52px;
+        max-height: 52px;
+        border-radius: 50%;
+      }
+    }
   }
 
