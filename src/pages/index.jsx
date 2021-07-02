@@ -37,7 +37,7 @@ export default function Home() {
     }
     loadProyects();
   }, []);
-  
+  console.log(proyects)
   if(isAuth) {
     return (
       <>
