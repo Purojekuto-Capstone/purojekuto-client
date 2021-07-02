@@ -1,8 +1,12 @@
-import React from 'react';
+import React , {useState, useEffect, useContext} from 'react';
 import Head from 'next/head';
 import Layout from '../components/layout/layout';
 import { BarChart, Bar, XAxis, YAxis, Tooltip, Legend, CartesianGrid } from 'recharts';
 import { RadialBarChart, RadialBar, ResponsiveContainer } from 'recharts';
+import { getStatistics } from '../utils/services';
+import {store, Store} from '../context/store';
+
+
 const style = {
   top: '50%',
   right: 0,
@@ -13,45 +17,28 @@ const style = {
 const grap = [
   {
     name: '18-24',
-    uv: 31.47,
+    uv: 12,
     pv: 2400,
     fill: '#8884d8',
   },
-  {
-    name: '25-29',
-    uv: 26.69,
-    pv: 4567,
-    fill: '#83a6ed',
-  },
-  {
-    name: '30-34',
-    uv: 15.69,
-    pv: 1398,
-    fill: '#8dd1e1',
-  },
+  
   {
     name: '35-39',
-    uv: 8.22,
+    uv: 10.22,
     pv: 9800,
     fill: '#82ca9d',
   },
   {
     name: '40-49',
-    uv: 8.63,
+    uv: 9,
     pv: 3908,
     fill: '#a4de6c',
   },
   {
     name: '50+',
-    uv: 2.63,
+    uv: 11,
     pv: 4800,
     fill: '#d0ed57',
-  },
-  {
-    name: 'unknow',
-    uv: 6.67,
-    pv: 4800,
-    fill: '#ffc658',
   },
 ];
 
@@ -70,7 +57,21 @@ const data = [{name: 'Proyecto 1', uv: 40, pv: 2400, amt: 2400},
 },];
 
 export default function Statistics() {
-  return (
+  
+  const {state} = useContext(store)
+  const {token} = state
+  const config = {
+    headers: { Authorization: `Bearer ${token}` },
+  };
+  const [
+      data, setData 
+  ] = useState([]) 
+  useEffect( () => {
+    getStatistics(config)
+    .then(response => {console.log(response)})
+    .catch(Error => {})
+    }, [])
+    return (
     <>
       <Head>
         <title>Statistics | PuroJekuto</title>
@@ -79,7 +80,7 @@ export default function Statistics() {
 
       <Layout>
       <div className="box__container--description"> 
-      <BarChart width={600} height={300} data={data}>
+      <BarChart width={500} height={300} data={data}>
         <XAxis dataKey="name" stroke="#F89F29" />
         <YAxis />
         <Tooltip wrapperStyle={{ width: 100, backgroundColor: '#ccc' }} />
@@ -103,8 +104,11 @@ export default function Statistics() {
       </ResponsiveContainer>
   </div>    
       </Layout>
+
     </>
+
   );
+
 }
 
 
