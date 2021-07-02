@@ -49,7 +49,7 @@ export default function Login() {
             </div>
 
             <h2 className="login__container--p">Your personal manager app.</h2>
-              
+             
             <a href='https://purojekuto-backend.herokuapp.com/login'>
                 <button className="login__container--btn">
                 <div className="google-btn">
@@ -64,7 +64,8 @@ export default function Login() {
                     </p>
                 </div>
                 </button>
-            </a>
+                <p className="terms"> By Sign In you need to read and accept <a href="https://termify.io/terms-and-conditions-generator">Terms and Condicions</a> </p>
+                </a>
             
             <p className="login__container--p2">
               {' '}
