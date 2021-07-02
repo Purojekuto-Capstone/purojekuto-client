@@ -1,6 +1,12 @@
 
 
 .box__container--description {  
+    padding-top: 20px;
+    width: 100%;
+    
+    transform: translateX(-50%);
+    margin-left: 50%;
+    transform: translateX(-50%);
     @include themify($themes) { 
     color: themed('text-color');
     background: themed('background') ;

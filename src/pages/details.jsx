@@ -8,7 +8,7 @@ export default function Login() {
     return (
 <Layout>
     <div className="container__details">
-        <h1 className="container__h1">Project Detail</h1>
+        <h1>Project Detail</h1>
         <h4>Projecto 1</h4>
         <p>Descripcion detallada del proyecto</p>
         <p>Fecha de inicio   /   Fecha final</p>

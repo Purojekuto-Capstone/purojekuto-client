@@ -12,30 +12,32 @@
 
 .btn__btn-primary{
     height: 55px ;
-    width: 200px;
     background-color:$icon-color;
     border-style: none;
     border-radius: 20px;
     color: aliceblue;
+    width: 110px; 
+  margin-left: 50%;
+  transform: translateX(-50%);
+    
 }
-
 a {
     margin-top: 10px;
     color:$icon-text-color;
     justify-content:flex-start;
 }
 h1 {
-    justify-content: center;
-    
+    text-align: center;
+    margin-top: 30px;
 }
 
 h4 {
     
     margin-top: 10px;
-    justify-self: center;
+    text-align: center;
 }
 p {
     margin-bottom: 20px;
     margin-top: 20px;
-    justify-self: center;
+    text-align: center;
 }
