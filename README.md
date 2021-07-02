@@ -28,7 +28,10 @@
 <!-- OVERVIEW -->
 ## Overview
 
-![screenshot](https://user-images.githubusercontent.com/16707738/92399059-5716eb00-f132-11ea-8b14-bcacdc8ec97b.png)
+
+
+![Captura de Pantalla 2021-07-01 a la(s) 20 30 24](https://user-images.githubusercontent.com/72485462/124212699-099aae80-dab5-11eb-8706-bd6f9f52c651.png)
+
 
 Introduce your projects by taking a screenshot or a gif. Try to tell visitors a story about your project by answering:
 
