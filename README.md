@@ -1,5 +1,5 @@
 
-<h1 align="center">{PuroJekuto Project Manager}</h1>
+<h1 align="center">PuroJekuto Project Manager</h1>
 
 <div align="center">
    Solution for a challenge from  <a href="" target="_blank">Platzi Master</a>.
