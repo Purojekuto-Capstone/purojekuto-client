@@ -16,15 +16,23 @@ export default function EventDetail(props) {
     headers: { Authorization: `Bearer ${token}` },
   };
   useEffect(() => {
-    async function loadAtivity() {
-      const response = await getProyect(project,config);
+    getProyect(project, config)
+    .then(res => {
+      setActivity(res.data);
+      console.log(res.data);
+    })
+    .catch(err => {
+      console.error(err);
+    })
+    // async function loadAtivity() {
+    //   const response = await getProyect(project,config);
 
-      if (response.status === 200) {
-        setActivity(response.data);
-      }
-    }
-    loadAtivity();
-  }, []);
+    //   if (response.status === 200) {
+    //     setActivity(response.data);
+    //   }
+    // }
+    // loadAtivity();
+  }, [project]);
   return (
     <>
       <Layout>
