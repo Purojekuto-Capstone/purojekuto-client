@@ -1,5 +1,5 @@
 
-<h1 align="center">{PuroJekuto Project Manager}</h1>
+<h1 align="center">PuroJekuto Project Manager</h1>
 
 <div align="center">
    Solution for a challenge from  <a href="" target="_blank">Platzi Master</a>.
@@ -22,28 +22,25 @@
 ## Table of Contents
 
 - [Overview](#overview)
-- [Built With](#React-NextJs-)
+- [Built With](#React-NextJs-Sass)
 - [Features](#features)
 
 <!-- OVERVIEW -->
 ## Overview
 
-![screenshot](https://user-images.githubusercontent.com/16707738/92399059-5716eb00-f132-11ea-8b14-bcacdc8ec97b.png)
 
-Introduce your projects by taking a screenshot or a gif. Try to tell visitors a story about your project by answering:
 
-- Where can I see your demo?
-- What was your experience?
-- What have you learned/improved?
-- Your wisdom? :)
+![Captura de Pantalla 2021-07-01 a la(s) 20 30 24](https://user-images.githubusercontent.com/72485462/124212699-099aae80-dab5-11eb-8706-bd6f9f52c651.png)
 
+
+Purojekuto is a web application that helps project managers and all the people who in their day to day have many activities to manage their calendar, helping them to be more productive, giving them valuable data and tips to improve their workflow
 ### Built With
 
 <!-- This section should list any major frameworks that you built your project using. Here are a few examples.-->
 
 - [React](https://reactjs.org/)
-- [Vue.js](https://vuejs.org/)
-- [Tailwind](https://tailwindcss.com/)
+- [NextJs](https://nextjs.org/)
+- [SASS](https://sass-lang.com/)
 
 ## Features
 

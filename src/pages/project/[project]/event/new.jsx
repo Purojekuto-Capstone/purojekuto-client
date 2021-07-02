@@ -25,7 +25,7 @@ export default function NewEvent(props) {
   
   const onSubmit = async (data) => {
     let eventJson = data;
-    eventJson['user'] = '105807747967363609529'
+    eventJson['activity_id'] = '105807747967363609529'
     eventJson['project'] = project
 
     const response = await postEvent(eventJson,config);
@@ -67,6 +67,23 @@ export default function NewEvent(props) {
         /* placeholder="  Enter a deadline" */
         type="datetime-local"
       ></input>
+      <p>Category</p>
+          <select
+           {...register("activity_category")}
+            className="login__container--input"
+          >
+              <option value="9">software</option>
+              <option value="10">documentacion</option>
+              <option value="11">personal</option>
+              <option value="12">personal</option>
+              <option value="13">personal</option>
+              <option value="14">personal</option>
+              <option value="15">personal</option>
+              <option value="16">personal</option>
+              <option value="17">personal</option>
+              <option value="18">personal</option>
+              <option value="19">personal</option>
+          </select>
           <button className="btn btn-primary" type="submit">Create Project</button>
         </form>
       </Layout>

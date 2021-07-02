@@ -1,8 +1,8 @@
-import React, {useState,useContext} from 'react';
+import React, {useState,useContext, useEffect} from 'react';
 import Layout from '../components/layout/layout';
 import Link from 'next/link';
 import { useForm } from "react-hook-form";
-import { postProyect } from '../utils/services';
+import { postProyect,getCategory } from '../utils/services';
 import { store } from '../context/store';
 import { useRouter } from 'next/router';
 
@@ -14,10 +14,30 @@ const newProyect = () => {
   const router = useRouter();
   const { isAuth, token } = state
   const { register, handleSubmit, watch, formState: { errors } } = useForm();
+  const [category,setCategory] = useState([]);
   
   const config = {
     headers: { Authorization: `Bearer ${token}` },
   };
+
+  useEffect(() => {
+    async function loadCategory() {
+      const response = await getCategory(config);
+
+      if (response.status === 200) {
+        setCategory(response.data);
+      }
+      /* setIsLoading(false); */
+    }
+    loadCategory();
+  }, []);
+
+  /* const PrintCategory  = {
+    for ( project_category_name in category) {
+      console.log(`${property}: ${object[property]}`);
+    }
+  }
+ */
   
   const onSubmit = async (data) => {
     let projectJson = data;
@@ -28,6 +48,7 @@ const newProyect = () => {
     router.push(`/`);
 
   };
+  console.log(category)
 
   const [ flagView, setFlaView] = useState(true)
 
@@ -91,22 +112,23 @@ const newProyect = () => {
             />
             
           </fieldset>
-  
+
           <fieldset className="input__container">
             <label htmlFor="formUrl" className="input__label" title="Url:">
-              Proyect url
+              Type Proyect 
             </label>
   
-            <input
-            /* {...register("url")} */
+            <select
+              {...register("project_category")}
               id="formUrl"
               className="input"
               name="Url"
               type="text"
-              placeholder=" @proyectoname"
-              disabled
-              /* onChange={this.handleChange} */ /* value={this.state.email} */
-            />
+            >
+              <option value="4">software</option>
+              <option value="5">documentacion</option>
+              <option value="6">personal</option>
+            </select>
           </fieldset>
   
          
