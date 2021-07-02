@@ -69,12 +69,12 @@ const leftNavLayout = () => {
             <span>Statistics</span>
           </li>
           </Link>
-          <Link href="/calendar">
+          {/* <Link href="/calendar">
           <li>
             <FontAwesomeIcon className="navIcon" icon={faCalendarAlt} />
             <span>Calendar</span>
           </li>
-          </Link>
+          </Link> */}
           <li className="signout" onClick={() => HandleSignOut()}>
             <FontAwesomeIcon  icon={faSignOutAlt} />
           </li>
