@@ -9,7 +9,6 @@ export default function Layout({ children }) {
   const { theme, mainClass, isAuth, userId } = state;
 
   useEffect(() => {
-    // console.log(isAuth, userId)
   }, [isAuth])
 
   return (

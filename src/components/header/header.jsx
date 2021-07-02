@@ -34,7 +34,6 @@ const headerLayout = () => {
   useEffect(() => {
     getUserInfo(config)
     .then(res => {
-      // console.log('getUserInfo', res);
       setUser(res)
     })
     .catch(err => {

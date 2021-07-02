@@ -13,11 +13,7 @@ export default function NewEvent(props) {
   const { register, handleSubmit, watch, formState: { errors } } = useForm();
   const { state } = useContext(store)
   const { isAuth, token } = state
-  /* const onSubmit = data =>{
-    data['user'] = '105807747967363609529';
-    data['project'] = 'ajbo2rim0502o9p45ei98j0ugo@group.calendar.google.com';
-    console.log(data);
-  }  */
+  
   const config = {
     headers: { Authorization: `Bearer ${token}` },
   };
@@ -51,20 +47,18 @@ export default function NewEvent(props) {
             {...register("activity_name")}
             type="text"
             className="login__container--input"
-            placeholder="  Select a type of project"
+            placeholder="Name of Event"
           ></input>
           <p>Start</p>
           <input
         {...register("start_date")}
         className="login__container--input"
-        /* placeholder="  Please, select a calendar" */
         type="datetime-local"
       ></input>
           <p>End</p>
           <input
       {...register("end_date")}
         className="login__container--input"
-        /* placeholder="  Enter a deadline" */
         type="datetime-local"
       ></input>
       <p>Category</p>

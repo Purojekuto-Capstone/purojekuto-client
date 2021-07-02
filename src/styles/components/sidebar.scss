@@ -17,7 +17,6 @@
   border-radius: 50%;
 }
 .navIcon:hover {
-  // background-color: $icon-color ;
   border-radius: 35px;
   padding: 20px;
   transition: ease .4s;
@@ -53,7 +52,6 @@
   }
   .navbar__icon:hover {
     
-    // background-color: $icon-color ;
     border-radius: 35px;
     transform: rotate(360deg);
     padding: 20px;
@@ -111,11 +109,7 @@ aside {
         }
       }
     }
-    li:hover {
-      // transform: translateX(5px);
-      // color: $text-color !important;
-      // border-left: 5px solid $text-color;
-    }
+    
   }
 }
 .drawerMin {
