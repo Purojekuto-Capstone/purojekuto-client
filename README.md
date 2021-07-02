@@ -33,7 +33,7 @@
 ![Captura de Pantalla 2021-07-01 a la(s) 20 30 24](https://user-images.githubusercontent.com/72485462/124212699-099aae80-dab5-11eb-8706-bd6f9f52c651.png)
 
 
-Introduce your projects by taking a screenshot or a gif. Try to tell visitors a story about your project by answering:
+Here we need to talk about a good history abour purojekuto answering these questions
 
 - Where can I see your demo?
 - What was your experience?
@@ -45,8 +45,8 @@ Introduce your projects by taking a screenshot or a gif. Try to tell visitors a 
 <!-- This section should list any major frameworks that you built your project using. Here are a few examples.-->
 
 - [React](https://reactjs.org/)
-- [Vue.js](https://vuejs.org/)
-- [Tailwind](https://tailwindcss.com/)
+- [NextJs](https://vuejs.org/)
+- [SASS](https://tailwindcss.com/)
 
 ## Features
 
