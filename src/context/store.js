@@ -3,7 +3,7 @@ import { useLocalStorage } from '../hooks/useLocalStorage';
 
 const initialState = {
   isOpen: false,
-  theme: typeof window !== 'undefined' && JSON.parse(localStorage.getItem('theme')) || 'light',
+  theme: typeof window !== 'undefined' && JSON.parse(localStorage.getItem('theme')) || '',
   mainClass: '',
   isAuth: typeof window !== 'undefined' && JSON.parse(localStorage.getItem('authenticated')) || false,
   token:  typeof window !== 'undefined' && JSON.parse(localStorage.getItem('token')) || ''
