@@ -27,17 +27,10 @@ const newProyect = () => {
       if (response.status === 200) {
         setCategory(response.data);
       }
-      /* setIsLoading(false); */
     }
     loadCategory();
   }, []);
 
-  /* const PrintCategory  = {
-    for ( project_category_name in category) {
-      console.log(`${property}: ${object[property]}`);
-    }
-  }
- */
   
   const onSubmit = async (data) => {
     let projectJson = data;
@@ -48,7 +41,6 @@ const newProyect = () => {
     router.push(`/`);
 
   };
-  console.log(category)
 
   const [ flagView, setFlaView] = useState(true)
 
@@ -59,7 +51,6 @@ const newProyect = () => {
       <h4>New set up a calendar</h4>
       <p>How long does it take?</p>
       <input
-        /* {...register("typeProject", {required:true})} */
         {...register("work_time")}
         className="login__container--input"
         placeholder="  How long does it take?"
@@ -77,19 +68,15 @@ const newProyect = () => {
       <input
       {...register("end_date")}
         className="login__container--input"
-        /* placeholder="  Enter a deadline" */
         type="date"
       ></input>
       <p>Select calendar to work with</p>
       <input
         {...register("start_date")}
         className="login__container--input"
-        /* placeholder="  Please, select a calendar" */
         type="date"
       ></input>
-     {/*  <Link href="/"> */}
       <button className="btn btn-primary" type="submit">Create Project</button>
-     {/*  </Link> */}
     </div>
   );
   
@@ -108,7 +95,7 @@ const newProyect = () => {
               id="formName"
               className="input"
               name="project_name"
-              type="text" /* required */ /* onChange={this.handleChange} */ /* value={this.state.name} */
+              type="text"
             />
             
           </fieldset>

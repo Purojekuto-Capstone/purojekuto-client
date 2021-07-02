@@ -13,11 +13,7 @@ export default function NewEvent(props) {
   const { register, handleSubmit, watch, formState: { errors } } = useForm();
   const { state } = useContext(store)
   const { isAuth, token } = state
-  /* const onSubmit = data =>{
-    data['user'] = '105807747967363609529';
-    data['project'] = 'ajbo2rim0502o9p45ei98j0ugo@group.calendar.google.com';
-    console.log(data);
-  }  */
+  
   const config = {
     headers: { Authorization: `Bearer ${token}` },
   };
@@ -51,20 +47,18 @@ export default function NewEvent(props) {
             {...register("activity_name")}
             type="text"
             className="login__container--input"
-            placeholder="  Select a type of project"
+            placeholder="Name of Event"
           ></input>
           <p>Start</p>
           <input
         {...register("start_date")}
         className="login__container--input"
-        /* placeholder="  Please, select a calendar" */
         type="datetime-local"
       ></input>
           <p>End</p>
           <input
       {...register("end_date")}
         className="login__container--input"
-        /* placeholder="  Enter a deadline" */
         type="datetime-local"
       ></input>
       <p>Category</p>
@@ -72,17 +66,17 @@ export default function NewEvent(props) {
            {...register("activity_category")}
             className="login__container--input"
           >
-              <option value="9">software</option>
-              <option value="10">documentacion</option>
-              <option value="11">personal</option>
-              <option value="12">personal</option>
-              <option value="13">personal</option>
-              <option value="14">personal</option>
-              <option value="15">personal</option>
-              <option value="16">personal</option>
-              <option value="17">personal</option>
-              <option value="18">personal</option>
-              <option value="19">personal</option>
+              <option value="9">llamadas</option>
+              <option value="10">trotar</option>
+              <option value="11">escribir</option>
+              <option value="12">programar</option>
+              <option value="13">leer</option>
+              <option value="14">investigar</option>
+              <option value="15">gimnasio</option>
+              <option value="16">reunion</option>
+              <option value="17">practicas</option>
+              <option value="18">planear</option>
+              <option value="19">descansar</option>
           </select>
           <button className="btn btn-primary" type="submit">Create Project</button>
         </form>

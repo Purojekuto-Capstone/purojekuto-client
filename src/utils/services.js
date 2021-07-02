@@ -1,7 +1,7 @@
 import axios from 'axios';
 
 /* const URL = 'https://jsonplaceholder.typicode.com/todos'; */
-const base_url = 'https://purojekuto-backend.herokuapp.com'
+const base_url = 'https://purojekuto-backend.herokuapp.com';
 const URL = 'https://purojekuto-backend.herokuapp.com/projects/project/';
 const URL2 = 'https://purojekuto-backend.herokuapp.com/projects/';
 const URLACTIVITY =
@@ -60,6 +60,12 @@ export const getActivitys = async (id_project, config) => {
   let response = await axios.get(url, config);
   return response;
 };
+export const getActivity = async (id, config) => {
+  let url = `${URLACTIVITY}?project_id=${id}&start_date=2019-06-30T21:50:24.566000-05:00&end_date=2022-07-03T21:50:24.566000-05:00`;
+
+  let response = await axios.get(url, config);
+  return response;
+};
 
 export const getCalendarActivitysByProjectId = async (
   config,
@@ -73,7 +79,7 @@ export const getCalendarActivitysByProjectId = async (
 };
 
 export const getUserInfo = async (config) => {
-  let url = `${base_url}/projects/user/`
-  let res = await axios.get(url, config)
-  return res.data
-}
+  let url = `${base_url}/projects/user/`;
+  let res = await axios.get(url, config);
+  return res.data;
+};

@@ -11,7 +11,7 @@ import {
 
 const downbar = () => {
     return (
-        <footer /* className={drawerClass.join(' ')} */>
+        <footer >
         <ul>
         <Link href="/">
           <li>

@@ -81,17 +81,21 @@
   font-size: 1.3em;
 
   .container__name{
-    width: 50%;
-  padding: 12px;
+    width: 40%;
+    padding: 12px;
+  }
 
+  .container__category{
+    width: 20%;
+    padding: 12px;
   }
   .container__start{
-    width: 25%;
-  padding: 12px;
+    width: 20%;
+    padding: 12px;
 
   }
   .container__deathline{
-    width: 25%;
+    width: 20%;
     padding: 12px;
   }
 }
