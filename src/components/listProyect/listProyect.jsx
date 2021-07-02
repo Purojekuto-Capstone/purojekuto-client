@@ -1,6 +1,7 @@
 import React from 'react';
 import { useRouter } from 'next/router';
 import ProyectsJson from '../../data/projects.json';
+import moment from 'moment';
 
 const listProyect = ({ proyects }) => {
   const router = useRouter();
@@ -15,13 +16,12 @@ const listProyect = ({ proyects }) => {
       {proyects.map(({ project_id, project_name, end_date,start_date }) => (
         <div className="container__content--project" 
         id={project_id} key={project_id} onClick={() => handleOnCardClick(project_id)}>
-          <div className="container__deahtline">
+          {/* <div className="container__deahtline">
             <div></div>
-          </div>
+          </div> */}
           <div className="container__name">{project_name}</div>
-          <div className="container__deahtline">Start: {start_date}</div>
-          <div className="container__deahtline">End: {end_date}</div>
-          <div className="container__more">..</div>
+          <div className="container__start">{moment(start_date).format("D MMM YY")}</div>
+          <div className="container__deathline">{moment(end_date).format("D MMM YY")}</div>
         </div>
       ))}
     </div>

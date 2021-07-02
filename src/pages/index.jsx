@@ -3,13 +3,14 @@ import { useContext, useState, useEffect } from 'react';
 import Layout from '../components/layout/layout';
 import { store } from '../context/store';
 import Loading from '../components/loading/loading';
-import { getProyects } from '../utils/services';
+import { getProyect, getProyects } from '../utils/services';
 import ListProyect from '../components/listProyect/listProyect';
 import Link from 'next/link';
 import { async } from 'q';
 import { useRouter } from 'next/router'
 import Redirect from '../components/redirect/redirect'
 import { useLocalStorage } from '../hooks/useLocalStorage'
+import LoaderComponent from '../components/loader/loader';
 
 
 
@@ -20,23 +21,24 @@ export default function Home() {
   const [proyects,setProyects] = useState([]);
   const router = useRouter()
 
-  const [authenticated, setAuthenticated] = useLocalStorage('authenticated');
-
   const config = {
     headers: { Authorization: `Bearer ${token}` },
   };
 
   useEffect(() => {
-    async function loadProyects() {
-      const response = await getProyects(config);
-
-      if (response.status === 200) {
-        setProyects(response.data);
-      }
-      setIsLoading(false);
+    if(token) {
+      getProyects(config)
+    .then(res => {
+      setProyects(res.data)
+      setTimeout(() => {
+        setIsLoading(false);
+      }, 800);
+    })
+    .catch(err => {
+      console.error(err)
+    })
     }
-    loadProyects();
-  }, []);
+  }, [token]);
   
   if(isAuth) {
     return (
@@ -47,6 +49,7 @@ export default function Home() {
         </Head>
   
         <Layout>
+        
           <div className='container'>
             <div className='container__button'>
               <h1>Projects</h1>
@@ -56,7 +59,7 @@ export default function Home() {
             </div>
   
             {
-              isLoading && <Loading />
+              isLoading && <div className='loader__container' style={{"minHeight": "60vh", "width": "100%"}}><LoaderComponent /></div>
             }
             {
               !isLoading && !proyects.length && (

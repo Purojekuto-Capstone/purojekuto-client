@@ -67,13 +67,33 @@
            @media (max-width: $sm) {
             display: none;
           }
-
        }
     }
 }
 .container__list{
  overflow-y: auto;
- height: 450px;
+ height: auto;
+}
+.container__content--project{
+  display: flex;
+  width: 100%;
+  justify-content: space-between;
+  font-size: 1.3em;
+
+  .container__name{
+    width: 50%;
+  padding: 12px;
+
+  }
+  .container__start{
+    width: 25%;
+  padding: 12px;
+
+  }
+  .container__deathline{
+    width: 25%;
+    padding: 12px;
+  }
 }
 .container__content--project:hover{
   @include themify($themes) { 
