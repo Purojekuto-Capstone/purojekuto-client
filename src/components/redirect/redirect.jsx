@@ -1,4 +1,5 @@
 import { useRouter } from 'next/router';
+import Loader from '../loader/loader'
 
 function RedirectPage(props) {
   const router = useRouter();
@@ -8,7 +9,14 @@ function RedirectPage(props) {
     }, 800);
   }
 
-  return <>Loading...</>;
+  return (
+    <>
+    <div className='loader__container'>
+      <Loader/>
+    </div>
+    </>
+  )
+  
 }
 
 export default RedirectPage;
