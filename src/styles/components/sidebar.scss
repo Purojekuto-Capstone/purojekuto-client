@@ -12,9 +12,15 @@
 }
 
 .navIcon {
-  background-color: $icon-color;
   padding: 20px;
   border-radius: 50%;
+}
+.navIcon:hover {
+  background-color: $icon-color ;
+  border-radius: 35px;
+  transform: rotate(360deg);
+  padding: 20px;
+  
 }
 
 .navbar {
@@ -73,7 +79,7 @@ aside {
       margin-top: 20px;
       display: flex;
       align-items: center;
-      color: $container-color;
+      color: $text-color;
       padding: 12px 0 12px 22px;
       font-weight: 400;
       transition: transform 1s;
@@ -150,13 +156,10 @@ footer{
       margin-top: 20px;
       display: flex;
       align-items: center;
-      color: $container-color;
+      color: $text-color;
       padding: 0px 0 0px 22px;
       cursor: pointer;
       
-    li:hover {
-      
-    }
     
   }
   }

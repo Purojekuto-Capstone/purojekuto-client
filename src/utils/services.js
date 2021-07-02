@@ -8,19 +8,28 @@ const URLACTIVITY =
   'https://purojekuto-backend.herokuapp.com/projects/activity/';
 const token =
   'eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJzdWIiOiIxMDA3NDQ5NDUwNzU1NTgwMDI3OTcifQ.m7B8vp8UCFSHgWsVi8-Qas1ciUziHl8wHIJOqPJT5WA';
+const URLCATEGORY =
+  'https://purojekuto-backend.herokuapp.com/projects/project_category/';
 const configPrueba = {
   headers: { Authorization: `Bearer ${token}` },
 };
-const statistics = 'https://purojekuto-backend.herokuapp.com/projects/metrics/?user_id=104135756986979542409';
+const statistics =
+  'https://purojekuto-backend.herokuapp.com/projects/metrics/?user_id=104135756986979542409';
 
 export const getStatistics = async (config) => {
   let url = URL;
-  let response = await axios.get(url,config);
+  let response = await axios.get(url, config);
   return response.data;
 };
 
 export const getProyects = async (config) => {
   let url = URL;
+
+  let response = await axios.get(url, config);
+  return response;
+};
+export const getCategory = async (config) => {
+  let url = URLCATEGORY;
 
   let response = await axios.get(url, config);
   return response;
@@ -52,7 +61,12 @@ export const getActivitys = async (id_project, config) => {
   return response;
 };
 
-export const getCalendarActivitysByProjectId = async (config, project, start, end) => {
+export const getCalendarActivitysByProjectId = async (
+  config,
+  project,
+  start,
+  end
+) => {
   let url = `${URLACTIVITY}?project_id=${project}&start_date=${start}&end_date=${end}`;
   let response = await axios.get(url, config);
   return response.data;
