@@ -11,6 +11,13 @@ const token =
 const configPrueba = {
   headers: { Authorization: `Bearer ${token}` },
 };
+const statistics = 'https://purojekuto-backend.herokuapp.com/projects/metrics/?user_id=104135756986979542409';
+
+export const getStatistics = async (config) => {
+  let url = URL;
+  let response = await axios.get(url,config);
+  return response.data;
+};
 
 export const getProyects = async (config) => {
   let url = URL;
