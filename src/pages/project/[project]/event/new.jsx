@@ -43,7 +43,7 @@ export default function NewEvent(props) {
       <Layout>
       <form className="container" onSubmit={handleSubmit(onSubmit)}>
         <div onClick={handleBack} >
-          <a>←Back</a>
+          <a className='back-btn'>←Back</a>
           </div>
           <h1 className="container__h1">New event</h1>
           <p>Name</p>

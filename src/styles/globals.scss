@@ -51,3 +51,9 @@ h1 {
 .text-left{
   text-align: left !important;
 }
+
+.back-btn{
+  @include themify($themes) { 
+    color: themed('text-color');
+  }
+}

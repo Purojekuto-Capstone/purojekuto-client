@@ -32,6 +32,7 @@ export default function ProjectDetail(props) {
         getActivitys(project, config)
         .then(res => {
           setEvents(res.data)
+          console.log(res.data);
           setLoading(false)
         })
         .catch(err => {
@@ -61,7 +62,7 @@ export default function ProjectDetail(props) {
             <div className='header__container'>
               <div className='head__container'>
                 <Link href='/'>
-                  <a>←Back</a>
+                  <a className='back-btn'>←Back</a>
                 </Link>
                 <h1 className='title'>{product.project_name}</h1>
               </div>
@@ -98,13 +99,17 @@ export default function ProjectDetail(props) {
             <div className='events__container'>
                 <h2 className='title'>Activities</h2>
                 <div className='events__wrapper'>
-                  {events.map(e => (
+                  {events.length >= 1 ? events.map(e => (
                       <Link href={`/project/${project}/event/${e.id}`}>
                         <a>
                           <EventListItem key={e.id} event={e}/>
                         </a>
                       </Link>
-                    ))}
+                    )) : (
+                      <p style={{"width": "100%", "textAlign": "center","marginTop": "10vh"}}>
+                        Ups, there's no activities on this project, add one.
+                      </p>
+                    )}
                 </div>
             </div>
           </div>

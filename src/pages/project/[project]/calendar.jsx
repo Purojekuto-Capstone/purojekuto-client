@@ -13,7 +13,7 @@ export default function calendar() {
     <>
       <Layout>
         <Link href={`/project/${project}`}>
-          <a>←Back</a>
+          <a className='back-btn'>←Back</a>
         </Link>
         <Calendar projectId={project}/>
       </Layout>

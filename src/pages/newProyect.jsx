@@ -157,11 +157,11 @@ const newProyect = () => {
       
       {flagView ? (
          <Link href="/">
-         <a>←Back</a>
-       </Link>
+          <a className='back-btn'>←Back</a>
+          </Link>
         ) : (
           <a href="#" onClick={()=> handlerNext(true)}>
-            <a>←Back</a>
+            <a className='back-btn'>←Back</a>
           </a>
         )}
 

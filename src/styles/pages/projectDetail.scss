@@ -1,6 +1,8 @@
 @import '../themes';
 
 .projectDetail__container{
+  
+  padding: 0 8px;
   .header__container{
     min-width: 100%;
     display: flex;
@@ -54,6 +56,9 @@
       color: themed('text-color');
       border-color: themed('background');
     }
+    .detail{
+      margin: 0;
+    }
   }
 
   .events__container {
@@ -66,5 +71,7 @@
         color: themed('text-color');
       }
     }
+
+    
   }
 }
