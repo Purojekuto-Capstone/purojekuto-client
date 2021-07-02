@@ -16,6 +16,9 @@
 @import "./components/projectComponent.scss";
 @import "./components/projectTable.scss";
 @import "./components/statistics.scss";
+@import "./pages/projectDetail.scss";
+@import './components/eventListItem.scss';
+
 :root {
   font-family: $text-font;
   font-size: 16px;

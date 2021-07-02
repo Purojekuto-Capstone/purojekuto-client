@@ -100,7 +100,7 @@ export default function Calendar(props) {
             <WeekCalendar
               firstDay={moment(day).clone().weekday(0)}
               startTime = {moment({h: 8, m: 0})}
-              endTime = {moment({h: 23, m: 50})}
+              endTime = {moment({h: 20, m: 0})}
               scaleUnit ={15}
               scaleHeaderTitle="Time"
               cellHeight = {50}

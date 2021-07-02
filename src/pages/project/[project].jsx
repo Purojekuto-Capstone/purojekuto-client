@@ -1,111 +1,115 @@
 import { useContext, useState, useEffect } from 'react';
-import { useRouter } from 'next/router'
-import Layout from '../../components/layout/layout'
+import { useRouter } from 'next/router';
+import Layout from '../../components/layout/layout';
 import { getProyect, getActivitys } from '../../utils/services';
 import Projects from '../../data/projects.json';
 import Link from 'next/link';
 import { store } from '../../context/store';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faCalendarAlt } from '@fortawesome/free-regular-svg-icons';
+import { faPlus } from '@fortawesome/free-solid-svg-icons';
+import Loader from '../../components/loader/loader'
+import EventListItem from '../../components/eventListItem/eventListItem';
 
-export default function ProjectComponent(props) {
-  const router = useRouter()
-  const {project} = router.query
-  const [product,setProduct] = useState([]);
-  const [events,setEvents] = useState([]);
-  const [isLoading,setIsLoading] = useState(true);
-  const { state } = useContext(store)
-  const { isAuth, token } = state
+export default function ProjectDetail(props) {
+  const router = useRouter();
+  const { project } = router.query;
+  const [product, setProduct] = useState([]);
+  const [events, setEvents] = useState([]);
+  const [loading, setLoading] = useState(true);
+  const { state } = useContext(store);
+  const { isAuth, token } = state;
 
   const config = {
     headers: { Authorization: `Bearer ${token}` },
   };
 
   useEffect(() => {
-    async function loadProyects() {
-      const response = await getProyect(project,config);
-
-      if (response.status === 200) {
-        setProduct(response.data);
-      }
-      setIsLoading(false);
+    if(project) {
+      getProyect(project, config)
+      .then(res => {
+        setProduct(res.data)
+        getActivitys(project, config)
+        .then(res => {
+          setEvents(res.data)
+          setLoading(false)
+        })
+        .catch(err => {
+          console.error(err)
+        })
+      })
+      .catch(err => {
+        console.error(err);
+      })
     }
-    loadProyects();
-  }, []);
+  }, [project]);
 
-  useEffect(() => {
-    async function loadEvents() {
-      const response = await getActivitys(project,config);
-
-      if (response.status === 200) {
-        setEvents(response.data);
-      }
-      setIsLoading(false);
-    }
-    loadEvents();
-  }, []);
-  
 
   const handleOnCardClick = (id) => {
     router.push(`/project/${id}/event/id`);
   };
-  const handlebutton = () => {
-    router.push(`/project/${project}/event/new`);
-  };
 
-  console.log(product)
   return (
     <Layout>
-
-<div className="blog-wrapper">
-	<div className="blog-card">
-		<div className="card-details">
-    <h1><strong> {product.project_name} </strong></h1>
-      <span><i className="fa fa-calendar"></i>
-     <strong> Start Date:</strong> {product.start_date}
-      </span><span><i className="fa fa-heart">
-        </i><strong>End Date:</strong> {product.end_date}</span>
-    </div>
-    <div className="card-details">
-      <span><i className="fa fa-calendar"></i>
-      <strong> Work Time:</strong> {product.work_time}
-      </span><span><i className="fa fa-heart">
-        </i><strong>Breack Time:</strong> {product.break_time}</span>
-    </div>
-    <div className="card-details">
-      <span><i className="fa fa-calendar"></i>
-      <strong> Progress Bar:</strong> 
-      </span>
-      <span>
-      ................................
-      </span>
-    </div>
-    <div className="card-details">
-            <div className='container__button'>
-              <h1>Projects Events</h1>
-              {/* <Link href="/project/id/event/new"> */}
-                <button onClick={handlebutton} className= 'btn btn-primary'>New Event</button>
-              {/* </Link> */}
-            </div>
-    </div>
-		<div className="card-text">
-    <div className="container__list">
-      {events.map(({ id, summary, end }) => (
-        <div className="container__content--project" 
-        id={id} key={id} onClick={() => handleOnCardClick(id)}>
-          <div className="container__deahtline">
-            <div></div>
-          </div>
-          <div className="container__name">{summary}</div>
-          <div className="container__deahtline">{end}</div>
-          <div className="container__deahtline">Barra Progreso</div>
-          <div className="container__more">..</div>
+      {loading ? (
+        <div className='loader__container' style={{'minHeight': '70vh'}}>
+          <Loader/>
         </div>
-      ))}
-    </div>
-    </div>
-		
-	</div>
+      ) : (
+        <>
+          <div className='projectDetail__container'>
+            <div className='header__container'>
+              <div className='head__container'>
+                <Link href='/'>
+                  <a>←Back</a>
+                </Link>
+                <h1 className='title'>{product.project_name}</h1>
+              </div>
+              
+              <div className='actions__container'>
+                <Link href={`/project/${project}/event/new`}>
+                  <a className='btn-primary'><FontAwesomeIcon icon={faPlus}/> Add activity</a>
+                </Link>
+                <Link href={`/project/${project}/calendar`}>
+                  <a className='btn-primary'><FontAwesomeIcon icon={faCalendarAlt}/> Calendar</a>
+                </Link>
+              </div>
+            </div>
 
-</div>
+            <div className='details__container'>
+              <div className='detail__group'>
+                <h6 className='label'>Project start date:</h6>
+                <p className='detail'>{product.start_date}</p>
+              </div>
+              <div className='detail__group'>
+                <h6 className='label'>Project end date</h6>
+                <p className='detail'>{product.end_date}</p>
+              </div>
+              <div className='detail__group'>
+                <h6 className='label'>Working hours:</h6>
+                <p className='detail'>{product.work_time}min</p>
+              </div>
+              <div className='detail__group'>
+                <h6 className='label'>Break hours</h6>
+                <p className='detail'>{product.break_time}min</p>
+              </div>
+            </div>
+
+            <div className='events__container'>
+                <h2 className='title'>Activities</h2>
+                <div className='events__wrapper'>
+                  {events.map(e => (
+                      <Link href={`/project/${project}/event/${e.id}`}>
+                        <a>
+                          <EventListItem key={e.id} event={e}/>
+                        </a>
+                      </Link>
+                    ))}
+                </div>
+            </div>
+          </div>
+        </>
+      )}
     </Layout>
-  )
+  );
 }
