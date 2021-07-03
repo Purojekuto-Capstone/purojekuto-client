@@ -178,7 +178,9 @@ justify-self: center;
     letter-spacing: 0.2px;
     font-family: "Roboto";
 }
-
+.terms {
+    background: #838383;
+}
 &:hover {
     box-shadow: 0 0 6px $google-blue;
 }
