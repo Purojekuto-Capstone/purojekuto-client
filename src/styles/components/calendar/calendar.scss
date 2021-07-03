@@ -65,6 +65,12 @@ $headerSize: 70px;
   padding-top: $headerSize !important;
   margin-left: -5%;
   width: 104% !important; 
+
+  @media screen and (max-width:414px) {
+    padding-top: 70px !important;
+    margin-left: -24%;
+    width: 120% !important;
+  }
 }
 
 .weekCalendar__scaleCell{
