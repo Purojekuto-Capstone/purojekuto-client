@@ -106,9 +106,9 @@ export default function ProjectDetail(props) {
                         </a>
                       </Link>
                     )) : (
-                      <p style={{"width": "100%", "textAlign": "center","marginTop": "10vh"}}>
+                      <div className='empty__space '>
                         Ups, there's no activities on this project, add one.
-                      </p>
+                      </div>
                     )}
                 </div>
             </div>

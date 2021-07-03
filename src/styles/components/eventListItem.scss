@@ -7,10 +7,20 @@
   padding: 16px;
   border-radius: 50px;
   cursor: pointer;
+  margin-bottom: 8px;
+
 
   transition: ease .4s;
   @include themify($themes) { 
     color: themed('text-color');
+  }
+
+  @media screen and (max-width: 414px) {
+    flex-direction: column;
+    border-radius: 12px;
+    @include themify($themes) {
+      background: themed('background') ;
+    }
   }
 
   &:hover{
@@ -31,19 +41,32 @@
       text-align: left;
       font-weight: 300;
       text-transform: capitalize;
+      @media screen and (max-width: 414px) {
+        font-weight: bold;
+        width: 100%;
+      }
     }
 
     &.type{
       width: 20%;
       font-weight: normal;
+      @media screen and (max-width: 414px) {
+        width: 100%;
+      }
     }
     &.date{
       width: 25%;
       font-weight: 300;
+      @media screen and (max-width: 414px) {
+        width: 100%;
+      }
     }
     &.status{
       width: 15%;
       font-weight: bold;
+      @media screen and (max-width: 414px) {
+        display: none;
+      }
     }
   }
 }

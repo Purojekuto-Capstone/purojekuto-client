@@ -65,9 +65,10 @@ h1 {
   display: flex;
   justify-content: center;
   align-items: center;
-  min-height: 50vh;
+  min-height: 30vh;
   text-align: center;
   @include themify($themes) { 
     color: themed('text-color');
   }
 }
+
