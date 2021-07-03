@@ -11,6 +11,8 @@ import { useRouter } from 'next/router'
 import Redirect from '../components/redirect/redirect'
 import { useLocalStorage } from '../hooks/useLocalStorage'
 import LoaderComponent from '../components/loader/loader';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faPlus } from '@fortawesome/free-solid-svg-icons';
 
 
 
@@ -51,23 +53,27 @@ export default function Home() {
         <Layout>
         
           <div className='container'>
-            <div className='container__button'>
-              <h1>Projects</h1>
+            <div className='project__header'>
+              <h1 className='title'>Projects</h1>
               <Link href="/newProyect">
-                <button className= 'btn btn-primary'>New</button>
+                <button className='btn btn-primary btn__project--add'><FontAwesomeIcon icon={faPlus}/> Add project</button>
               </Link>
             </div>
-  
+
             {
-              isLoading && <div className='loader__container' style={{"minHeight": "60vh", "width": "100%"}}><LoaderComponent /></div>
-            }
-            {
-              !isLoading && !proyects.length && (
-                'You dont have proyect, add new project'
+              isLoading ? (
+                <div className='loader__container' style={{"minHeight": "60vh", "width": "100%"}}><LoaderComponent /></div>
+              ) : (
+                <>
+                  {proyects.length >= 1 ? (
+                    <ListProyect proyects={proyects}/>
+                  ) : (
+                    <div className='empty__space'>
+                      You don't have any proyect, add new project to start planning
+                    </div>
+                  )}
+                </>
               )
-            }
-            {
-              !isLoading && proyects.length && <ListProyect proyects={proyects} />
             }
           </div>
         </Layout>

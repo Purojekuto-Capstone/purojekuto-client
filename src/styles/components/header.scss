@@ -1,4 +1,5 @@
 @import '../_vars';
+@import '../themes';
 
   .layout__header{
     grid-column: 2;
@@ -7,6 +8,13 @@
     display: flex;
     justify-content: space-between;
     align-items: center;
+    position: sticky;
+    top: 0;
+    padding-top: 1em;
+
+    @include themify($themes) { 
+      background: themed('containerBg');
+    }
 
     .layout__header--logo{
         max-width: 230px;
@@ -92,6 +100,10 @@
         max-width: 52px;
         max-height: 52px;
         border-radius: 50%;
+      }
+
+      @media screen and (max-width: 414px) {
+        display: none;
       }
     }
   }

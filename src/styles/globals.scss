@@ -51,8 +51,22 @@ h1 {
 .text-left{
   text-align: left !important;
 }
+.text-center{
+  text-align: center !important;
+}
 
 .back-btn{
+  @include themify($themes) { 
+    color: themed('text-color');
+  }
+}
+
+.empty__space{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 50vh;
+  text-align: center;
   @include themify($themes) { 
     color: themed('text-color');
   }

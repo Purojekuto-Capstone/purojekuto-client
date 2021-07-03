@@ -1,4 +1,5 @@
-import React from 'react'
+import React, {useEffect, useContext, useState} from 'react'
+import { store } from '../../context/store'
 import Link from 'next/link'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import {
@@ -7,30 +8,56 @@ import {
   faFolder,
   faFolderOpen,
   faAlignJustify,
+  faSignOutAlt,
 } from '@fortawesome/free-solid-svg-icons';
+import { getUserInfo } from '../../utils/services';
 
 const downbar = () => {
+  const { dispatch, state } = useContext(store);
+  const [user, setUser] = useState(null)
+  const { theme, token } = state;
+  const config = {
+    headers: { Authorization: `Bearer ${token}` },
+  };
+
+    useEffect(() => {
+      getUserInfo(config)
+      .then(res => {
+        setUser(res)
+      })
+      .catch(err => {
+        console.error(err)
+      })
+    }, [])
+
     return (
-        <footer >
-        <ul>
-        <Link href="/">
-          <li>
-            <FontAwesomeIcon className="navIcon" icon={faFolderOpen} />
-          </li>
+        <footer className='footer'>
+          <Link href="/">
+            <div>
+              <FontAwesomeIcon className="navIcon" icon={faFolderOpen} />
+            </div>
           </Link>
           <Link href="/statistics">
-          <li>
-            <FontAwesomeIcon className="navIcon" icon={faChartBar} />
+            <div>
+              <FontAwesomeIcon className="navIcon" icon={faChartBar} />
 
-          </li>
+            </div>
           </Link>
-          <Link href="/calendar">
-          <li>
-            <FontAwesomeIcon className="navIcon" icon={faCalendarAlt} />
-          </li>
-          </Link>
-        </ul>
-      </footer>
+          {/* <Link href="/calendar">
+            <div>
+              <FontAwesomeIcon className="navIcon" icon={faCalendarAlt} />
+            </div>
+          </Link> */}
+
+          <div>
+              <FontAwesomeIcon className="navIcon" icon={faSignOutAlt} />
+          </div>
+
+          <div>
+            <img className='profilePicture' src={user ? user.picture : ''} alt={user ? user.name : ''}/>
+          </div>
+
+        </footer>
     )
 }
 

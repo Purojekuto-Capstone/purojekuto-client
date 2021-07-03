@@ -11,9 +11,7 @@ function RedirectPage(props) {
 
   return (
     <>
-    <div className='loader__container'>
       <Loader/>
-    </div>
     </>
   )
   

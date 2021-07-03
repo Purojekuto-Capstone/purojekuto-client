@@ -10,6 +10,7 @@ $themes: (
         backgroundMain: $icon-text-color,
         backgroundInput: $container-color,
         background-project:$bg-light,
+        containerBg: $container-color,
     ),
     dark: (
         primary-color: $icon-dark-color,
@@ -18,6 +19,7 @@ $themes: (
         backgroundMain:$container-color-color ,
         backgroundInput: $component-dark-color,
         background-project:$component-dark-color,
+        containerBg: $container-color-color,
     ),
 
 );
