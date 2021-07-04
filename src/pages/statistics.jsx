@@ -13,7 +13,7 @@ const style = {
   transform: 'translate(0, -50%)',
   lineHeight: '14px',
 };
-/*
+
 const grap = [
   {
       name: 'Proyecto 1',
@@ -38,20 +38,20 @@ const grap = [
   },
   ];
 
-const data = [
-{ 
-  name: 'Proyecto 1',
-  horas: 40
-}, 
-{
-  name: 'Proyecto 2',
-  horas: 30,
-},
-{
-  name: 'Proyecto 3',
-  horas: 20,
-},
-];  */
+// const data = [
+// { 
+//   name: 'Proyecto 1',
+//   horas: 40
+// }, 
+// {
+//   name: 'Proyecto 2',
+//   horas: 30,
+// },
+// {
+//   name: 'Proyecto 3',
+//   horas: 20,
+// },
+// ];  
 
 export default function Statistics() {
   
