@@ -102,7 +102,7 @@ export default function Statistics() {
             label={{ position: 'insideStart', fill: '#fff' }}
             background
             clockWise
-            dataKey="horas"
+            dataKey="hours"
           />
           <Legend iconSize={10} layout="vertical" verticalAlign="middle" wrapperStyle={style} />
         </RadialBarChart>
