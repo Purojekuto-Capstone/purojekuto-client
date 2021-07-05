@@ -17,13 +17,13 @@ const style = {
 const grap = [
   {
       name: 'Proyecto 1',
-      horas: 99,
+      hours: 20,
       fill: '#8884d8',
   },
   
   {
       name: 'Proyecto 2',
-      horas: 60,
+      hours: 15,
       fill: '#82ca9d',
   },
   {
@@ -33,7 +33,7 @@ const grap = [
   },
   {
       name: 'Proyecto 4',
-      horas: 20,
+      hours: 20,
       fill: '#d0ed57',
   },
   ];
@@ -85,7 +85,7 @@ export default function Statistics() {
 
       <Layout>
       <div className="box__container--description"> 
-      <BarChart width={500} height={300} data={data}>
+      <BarChart width={500} height={300} margin-left={100} data={data}>
         <XAxis dataKey="name" stroke="#F89F29" />
         <YAxis />
         <Tooltip wrapperStyle={{ width: 100, backgroundColor: '#ccc' }} />
@@ -96,7 +96,7 @@ export default function Statistics() {
       </div>
   <div className="box__container--calendar"> 
       <ResponsiveContainer width="100%" height="100%">
-        <RadialBarChart cx="50%" cy="50%" innerRadius="10%" outerRadius="80%" barSize={10} data={grap}>
+        <RadialBarChart cx="50%" cy="50%" innerRadius="10%" outerRadius="80%" barSize={10} data={data}>
           <RadialBar
             minAngle={15}
             label={{ position: 'insideStart', fill: '#fff' }}
