@@ -85,17 +85,19 @@ export default function Statistics() {
 
       <Layout>
       <div className="box__container--description"> 
-      <BarChart width={500} height={300} margin-left={100} data={data}>
+      <ResponsiveContainer width="95%" height="100%">
+      <BarChart width={500} height={400} data={data}>
         <XAxis dataKey="name" stroke="#F89F29" />
         <YAxis />
         <Tooltip wrapperStyle={{ width: 100, backgroundColor: '#ccc' }} />
         <Legend width={100} wrapperStyle={{ top: 40, right: 20, backgroundColor: '#f5f5f5', border: '1px solid #d5d5d5', borderRadius: 3, lineHeight: '40px' }} />
         <CartesianGrid stroke="#ccc" strokeDasharray="5 5" />
-        <Bar dataKey="horas" fill="#F89F29" barSize={30} />
+        <Bar dataKey="hours" fill="#F89F29" barSize={30} />
       </BarChart>
-      </div>
+      </ResponsiveContainer>
+      </div> 
   <div className="box__container--calendar"> 
-      <ResponsiveContainer width="100%" height="100%">
+      <ResponsiveContainer width="95%" height="100%">
         <RadialBarChart cx="50%" cy="50%" innerRadius="10%" outerRadius="80%" barSize={10} data={data}>
           <RadialBar
             minAngle={15}
