@@ -45,7 +45,9 @@ export default function EventDetail(props) {
         </Link>
         {/* detalles de evento {project} {event} */}
         {loading ? (
-          <LoaderComponent/>
+          <div className='loader__container'>
+            <LoaderComponent/>
+          </div>
         ) : (
           <>
             <div className="container__details">

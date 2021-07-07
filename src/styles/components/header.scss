@@ -11,6 +11,7 @@
     position: sticky;
     top: 0;
     padding-top: 1em;
+    z-index: 9999;
 
     @include themify($themes) { 
       background: themed('containerBg');
