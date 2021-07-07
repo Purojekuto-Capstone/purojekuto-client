@@ -60,12 +60,13 @@ export const getActivitys = async (id_project, config) => {
   let response = await axios.get(url, config);
   return response;
 };
-export const getActivity = async (id, config) => {
-  let url = `${URLACTIVITY}?project_id=${id}&start_date=2019-06-30T21:50:24.566000-05:00&end_date=2022-07-03T21:50:24.566000-05:00`;
 
-  let response = await axios.get(url, config);
-  return response;
-};
+// export const getActivity = async (id, config) => {
+//   let url = `${URLACTIVITY}?project_id=${id}&start_date=2019-06-30T21:50:24.566000-05:00&end_date=2022-07-03T21:50:24.566000-05:00`;
+
+//   let response = await axios.get(url, config);
+//   return response;
+// };
 
 export const getCalendarActivitysByProjectId = async (
   config,
@@ -83,3 +84,8 @@ export const getUserInfo = async (config) => {
   let res = await axios.get(url, config);
   return res.data;
 };
+
+export const getActivity = async (id, config) => {
+  let res = await axios.get(`${base_url}/projects/activity/${id}`, config)
+  return res.data
+}

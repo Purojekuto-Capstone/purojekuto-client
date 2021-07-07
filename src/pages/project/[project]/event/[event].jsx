@@ -3,7 +3,7 @@ import { useRouter } from 'next/router'
 import Layout from '../../../../components/layout/layout'
 import Link from 'next/link';
 import { store } from '../../../../context/store';
-import { getProyect,getActivity } from '../../../../utils/services';
+import { getProyect, getActivity } from '../../../../utils/services';
 
 export default function EventDetail(props) {
   const router = useRouter()
@@ -16,14 +16,22 @@ export default function EventDetail(props) {
     headers: { Authorization: `Bearer ${token}` },
   };
   useEffect(() => {
-    getProyect(project, config)
+    getActivity(event, config)
     .then(res => {
-      setActivity(res.data);
-      console.log(res.data);
+      console.log('getActivity',res);
     })
     .catch(err => {
-      console.error(err);
+      console.error(err)
     })
+
+    // getProyect(project, config)
+    // .then(res => {
+    //   setActivity(res.data);
+    //   console.log(res.data);
+    // })
+    // .catch(err => {
+    //   console.error(err);
+    // })
     // async function loadAtivity() {
     //   const response = await getProyect(project,config);
 

@@ -2,7 +2,7 @@ import React, {useState,useContext, useEffect} from 'react';
 import Layout from '../components/layout/layout';
 import Link from 'next/link';
 import { useForm } from "react-hook-form";
-import { postProyect,getCategory } from '../utils/services';
+import { postProyect, getCategory } from '../utils/services';
 import { store } from '../context/store';
 import { useRouter } from 'next/router';
 
@@ -33,13 +33,14 @@ const newProyect = () => {
 
   
   const onSubmit = async (data) => {
-    let projectJson = data;
-    projectJson['user'] = '105807747967363609529'
-    
-    const response = await postProyect(projectJson,config);
-    console.log(response)
-    router.push(`/`);
-
+    postProyect(data, config)
+    .then(res => {
+      console.log(res.data);
+      router.push(`/`);
+    })
+    .catch(err => {
+      console.error(err)
+    })
   };
 
   const [ flagView, setFlaView] = useState(true)
@@ -109,12 +110,10 @@ const newProyect = () => {
               {...register("project_category")}
               id="formUrl"
               className="input"
-              name="Url"
-              type="text"
             >
-              <option value="4">software</option>
-              <option value="5">documentacion</option>
-              <option value="6">personal</option>
+              <option value="1">software</option>
+              <option value="2">documentacion</option>
+              <option value="3">personal</option>
             </select>
           </fieldset>
   

@@ -63,20 +63,20 @@ export default function NewEvent(props) {
       ></input>
       <p>Category</p>
           <select
-           {...register("activity_category")}
+            {...register("activity_category")}
             className="login__container--input"
           >
-              <option value="9">llamadas</option>
-              <option value="10">trotar</option>
-              <option value="11">escribir</option>
-              <option value="12">programar</option>
-              <option value="13">leer</option>
-              <option value="14">investigar</option>
-              <option value="15">gimnasio</option>
-              <option value="16">reunion</option>
-              <option value="17">practicas</option>
-              <option value="18">planear</option>
-              <option value="19">descansar</option>
+              <option value="1">llamadas</option>
+              <option value="2">trotar</option>
+              <option value="3">escribir</option>
+              <option value="4">programar</option>
+              <option value="5">leer</option>
+              <option value="6">investigar</option>
+              <option value="7">gimnasio</option>
+              <option value="8">reunion</option>
+              <option value="9">practicas</option>
+              <option value="10">planear</option>
+              <option value="11">descansar</option>
           </select>
           <button className="btn btn-primary" type="submit">Create Project</button>
         </form>
