@@ -1,43 +1,7 @@
-.container__details {   
-    border-radius: 30px;
-    margin-left: 100px;
-    margin-right: 100px;
-    background-color: $bg-light;
-    box-shadow: 4px 4px 4px #0000001a;
+.container__details {
+    
     @include themify($themes) { 
         color: themed('text-color');
-        background: themed('background') ;
     }
 }
 
-.btn__btn-primary{
-    height: 55px ;
-    background-color:$icon-color;
-    border-style: none;
-    border-radius: 20px;
-    color: aliceblue;
-    width: 110px; 
-  margin-left: 50%;
-  transform: translateX(-50%);
-    
-}
-a {
-    margin-top: 10px;
-    color:$icon-text-color;
-    justify-content:flex-start;
-}
-h1 {
-    text-align: center;
-    margin-top: 30px;
-}
-
-h4 {
-    
-    margin-top: 10px;
-    text-align: center;
-}
-p {
-    margin-bottom: 20px;
-    margin-top: 20px;
-    text-align: center;
-}

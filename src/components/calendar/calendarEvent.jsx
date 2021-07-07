@@ -5,10 +5,10 @@ import { useRouter } from 'next/router';
 export default function CalendarEvent(props) {
   let router = useRouter()
 
-  let handleEventClick = data => {
-    console.log(data);
-    router.push(`/project/${data.project}/event/${data.id}`)
-  }
+  // let handleEventClick = data => {
+  //   console.log(data);
+  //   router.push(`/project/${data.project}/event/${data.id}`)
+  // }
 
   return (
     <div className="event__container" style={{backgroundColor: `${props.colorId ? props.colorId : '#e66d6d' }`}} onClick={() => handleEventClick(props)}>

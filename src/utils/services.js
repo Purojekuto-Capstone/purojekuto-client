@@ -85,7 +85,7 @@ export const getUserInfo = async (config) => {
   return res.data;
 };
 
-export const getActivity = async (id, config) => {
-  let res = await axios.get(`${base_url}/projects/activity/${id}`, config)
+export const getActivity = async (project, event, config) => {
+  let res = await axios.get(`${base_url}/projects/activity/?project_id=${project}&activity_id=${event}`, config)
   return res.data
 }
