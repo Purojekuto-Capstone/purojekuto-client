@@ -5,7 +5,7 @@
     padding: 1rem .75rem;
     /* width: 95%; */
     margin-bottom: 15px;
-    font-size: 24px;
+    font-size: 1.4em;
     line-height: 1.25;
     color: #55595c;
     background-clip: padding-box;
@@ -38,6 +38,22 @@
     }
 
     &::placeholder {
-        color: $text-color;
+        color: lightgray;
+        font-weight: 300;
+    }
+}
+
+label{
+    display: block;
+}
+
+.form__container{
+    .input {
+        min-width: 200px;
+        width: 93%;
+    }
+
+    .btn-primary{
+        width: 100%;
     }
 }

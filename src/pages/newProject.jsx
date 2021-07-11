@@ -46,35 +46,34 @@ const newProyect = () => {
   const [ flagView, setFlaView] = useState(true)
 
   const DetailProject = () => (
-    <div className="container">
+    <div className="container form__container">
     
-      <h1 className="container__h1">New Project</h1>
-      <h4>New set up a calendar</h4>
-      <p>How long does it take?</p>
+      <h4 className="regular">Tell us more about your project</h4>
+      <label className='mb-1'>How much time will you invert on it?<i>(weekly).</i></label>
       <input
         {...register("work_time")}
-        className="login__container--input"
-        placeholder="  How long does it take?"
+        className="input"
+        placeholder="How much hours a week?"
         type="number" 
       />
       {errors.work_time && <span>This field is required</span>}
-      <p>what is you break time?</p>
+      <label className='mb-1'>How much time will you rest?<i>(daily)</i></label>
       <input
         {...register("break_time")}
-        className="login__container--input"
-        placeholder="  what is you break time?"
+        className="input"
+        placeholder="How much hours a day?"
         type="number" 
       />
-      <p>When will you complete it?</p>
+      <label className='mb-1'>When will you start it?</label>
       <input
-      {...register("end_date")}
-        className="login__container--input"
+      {...register("start_date")}
+        className="input"
         type="date"
       ></input>
-      <p>Select calendar to work with</p>
+      <label className='mb-1'>When will you end it?</label>
       <input
-        {...register("start_date")}
-        className="login__container--input"
+        {...register("end_date")}
+        className="input"
         type="date"
       ></input>
       <button className="btn btn-primary" type="submit">Create Project</button>
@@ -84,11 +83,11 @@ const newProyect = () => {
   const Project = () => (
     <>
           <h1>New project</h1>
-          <h4>Let’s get started by naming your project.</h4>
+          <h4 className='regular'>Let’s get started, tell us about your project.</h4>
   
           <fieldset className="input__container">
             <label htmlFor="formName" className="input__label" title="Nome:">
-              Proyect name
+              What is your project's name?
             </label>
   
             <input
@@ -97,13 +96,14 @@ const newProyect = () => {
               className="input"
               name="project_name"
               type="text"
+              placeholder="Awasome project"
             />
             
           </fieldset>
 
           <fieldset className="input__container">
             <label htmlFor="formUrl" className="input__label" title="Url:">
-              Type Proyect 
+              What kind of project is it?
             </label>
   
             <select
@@ -111,9 +111,9 @@ const newProyect = () => {
               id="formUrl"
               className="input"
             >
-              <option value="1">software</option>
-              <option value="2">documentacion</option>
-              <option value="3">personal</option>
+              <option value="1">Software</option>
+              <option value="2">Documentation</option>
+              <option value="3">Personal</option>
             </select>
           </fieldset>
   
