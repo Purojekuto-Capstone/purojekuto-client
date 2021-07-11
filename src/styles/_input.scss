@@ -29,7 +29,7 @@
         touch-action: manipulation;
         @include themify($themes) { 
             color: themed('text-color');
-          }
+        }
     }
 
     &:focus {
@@ -45,6 +45,9 @@
 
 label{
     display: block;
+    @include themify($themes) { 
+        color: themed('text-color');
+    }
 }
 
 .form__container{
