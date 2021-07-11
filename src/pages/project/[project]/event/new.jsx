@@ -37,7 +37,7 @@ export default function NewEvent(props) {
   return (
     <>
       <Layout>
-      <form className="container" onSubmit={handleSubmit(onSubmit)}>
+      <form className="container form__container" onSubmit={handleSubmit(onSubmit)}>
           <div onClick={handleBack} >
             <a className='back-btn'>←Back</a>
           </div>
@@ -46,25 +46,25 @@ export default function NewEvent(props) {
           <input
             {...register("activity_name")}
             type="text"
-            className="login__container--input"
+            className="input"
             placeholder="Name of Event"
           ></input>
           <p>Start</p>
           <input
         {...register("start_date")}
-        className="login__container--input"
+        className="input"
         type="datetime-local"
       ></input>
           <p>End</p>
           <input
       {...register("end_date")}
-        className="login__container--input"
+        className="input"
         type="datetime-local"
       ></input>
       <p>Category</p>
           <select
             {...register("activity_category")}
-            className="login__container--input"
+            className="input"
           >
               <option value="1">llamadas</option>
               <option value="2">trotar</option>

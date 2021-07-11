@@ -88,11 +88,11 @@ export default function ProjectDetail(props) {
               </div>
               <div className='detail__group'>
                 <h6 className='label'>Working hours:</h6>
-                <p className='detail'>{product.work_time}min</p>
+                <p className='detail'>{product.work_time}h a week</p>
               </div>
               <div className='detail__group'>
                 <h6 className='label'>Break hours</h6>
-                <p className='detail'>{product.break_time}min</p>
+                <p className='detail'>{product.break_time}h a day</p>
               </div>
             </div>
 
