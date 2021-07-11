@@ -7,12 +7,8 @@
 
 <div align="center">
   <h3>
-    <a href="">
+    <a href="https://purojekuto-master.herokuapp.com/">
       Demo
-    </a>
-    <span> | </span>
-    <a href="https://{ lik del deploy}">
-      Solution
     </a>
   </h3>
 </div>
@@ -45,7 +41,3 @@ Purojekuto is a web application that helps project managers and all the people w
 ## Features
 
 
-## Contact
-
-- Website [your-website.com](https://{your-web-site-link})
-- GitHub [@your-username](https://{github.com/your-usermame})
