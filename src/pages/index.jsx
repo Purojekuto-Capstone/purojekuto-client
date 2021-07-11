@@ -55,7 +55,7 @@ export default function Home() {
           <div className='container'>
             <div className='project__header'>
               <h1 className='title'>Projects</h1>
-              <Link href="/newProyect">
+              <Link href="/newProject">
                 <button className='btn btn-primary btn__project--add'><FontAwesomeIcon icon={faPlus}/> Add project</button>
               </Link>
             </div>
