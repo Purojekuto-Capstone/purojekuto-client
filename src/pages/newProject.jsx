@@ -96,7 +96,7 @@ const newProyect = () => {
               className="input"
               name="project_name"
               type="text"
-              placeholder="Awasome project"
+              placeholder="Awesome project"
             />
             
           </fieldset>
