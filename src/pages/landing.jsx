@@ -21,9 +21,9 @@ export default function Landing(props) {
           Planner</span><br/>
           for <span>Project<br/>
           Managers.</span></h1>
-          <h1 className='headTitle'>The <span className='organge-text'>Project Planner </span>
+          <h1 className='headTitle mobile'>The <span className='organge-text'>Project Planner </span>
           for <span> Project Managers.</span></h1>
-          <p className='description mobile'>
+          <p className='description'>
           <b>Purojekuto</b> lets project managers to <b>centralize all their projects in one place</b>, create and handle projects, add events and <b>sync it with your google calendar account</b>. Take a look at how much time you spend in each project and check your events on our calendar.
           </p>
         </div>

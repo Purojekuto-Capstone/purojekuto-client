@@ -25,7 +25,7 @@ export default function Login() {
   };
 
   if (isAuth) {
-    return <RedirectPage path="/" />;
+    return <RedirectPage path="/projects" />;
   } else {
     return (
       <div

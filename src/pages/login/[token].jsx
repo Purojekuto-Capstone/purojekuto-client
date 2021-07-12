@@ -17,7 +17,7 @@ export default function loginAuthRedirect(props) {
         setTimeout(() => {
           console.log('Token => ',token);
           dispatch({ type: 'SET_USER', payload: token })
-          router.push('/')
+          router.push('/projects')
         }, 800);
       }
     }

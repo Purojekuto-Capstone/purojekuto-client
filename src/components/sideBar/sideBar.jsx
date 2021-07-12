@@ -31,7 +31,7 @@ const leftNavLayout = () => {
   };
   let HandleSignOut = () => {
     dispatch({ type: 'CLEAN_USER' });
-    router.push('/login')
+    router.push('/')
   };
 
   let drawerClass = [];
@@ -58,10 +58,10 @@ const leftNavLayout = () => {
       </nav>
       <aside className={drawerClass.join(' ')}>
         <ul>
-        <Link href="/">
-          <li className={path == '/' ? 'active' : ''}>
+        <Link href="/projects">
+          <li className={path == '/projects' ? 'active' : ''}>
             <FontAwesomeIcon className="navIcon" icon={faFolderOpen} />
-            <span>Folder</span>
+            <span>Projects</span>
           </li>
           </Link>
           <Link href="/statistics">

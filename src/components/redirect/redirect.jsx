@@ -9,10 +9,12 @@ function RedirectPage(props) {
     }, 800);
   }
 
+
+
   return (
-    <>
+    <div style={{width:"100%", display:"flex", justifyContent:"center", alignItems:"center", minHeight:"100vh"}}>
       <Loader/>
-    </>
+    </div>
   )
   
 }

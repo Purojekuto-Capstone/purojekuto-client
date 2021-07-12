@@ -4,8 +4,7 @@
 .mainc{
     @include themify($themes) { 
         background: themed('background') ;
-      }
-    
+    }
 }
 .main__container {
     display: flex;
@@ -26,14 +25,6 @@
     }
 }
 .container-theme{
-    // display: flex;
-    // justify-content: flex-end;
-    // font-size: 32px;
-    // padding: 30px 50px 20px 0px;
-    // @include themify($themes) { 
-    //     color: themed('text-color');
-    //     background: themed('background') ;
-    // }
     display: flex;
     position: absolute;
     top: 24px;
