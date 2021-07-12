@@ -38,7 +38,7 @@ const newProyect = () => {
     postProyect(data, config)
       .then((res) => {
         console.log(res.data);
-        router.push(`/`);
+        router.push(`/projects`);
       })
       .catch((err) => {
         console.error(err);
