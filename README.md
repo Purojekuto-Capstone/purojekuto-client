@@ -1,43 +1,63 @@
 
-<h1 align="center">PuroJekuto Project Manager</h1>
+<h1 align="center">
+  <br>
+  <a href="#"><img src="./public/assets/images/logo.svg" alt="Purojekuto" width="400px"></a>
+</h1>
 
-<div align="center">
-   Solution for a challenge from  <a href="" target="_blank">Platzi Master</a>.
+<p align="center">
+  <a href="#key-features">Key Features</a> •
+  <a href="#specifications">Specifications</a> •
+  <a href="https://purojekuto-master.herokuapp.com/" target="_blank">Demo</a> •
+  <a href="#collaborators">Collaborators</a>
+</p>
+
+<div align="">
+   <p>
+      <b>Purojekuto</b> is the application where project managers can centralize all their projects, we connect with user google calendar to add Calendar and activities base on the their projects. <i>Solution creared for Platzi Master Capstone project.</i>
+   </p>
 </div>
 
 <div align="center">
-  <h3>
-    <a href="https://purojekuto-master.herokuapp.com/">
-      Demo
-    </a>
-  </h3>
+  <img src="./public/assets/gif/intro.gif" alt="Purojekuto" width="100%">
 </div>
 
-<!-- TABLE OF CONTENTS -->
+<div align="center">
+  <i>Take a look of our cool demo our <a href="https://purojekuto-master.herokuapp.com/">here.</a> 🤖
+  </i>
+</div>
 
-## Table of Contents
+<br>
+<hr>
 
-- [Overview](#overview)
-- [Built With](#React-NextJs-Sass)
-- [Features](#features)
+## Key Features
 
-<!-- OVERVIEW -->
-## Overview
+- Login with your google acount.
+- Create project three kind of projects (Software, Documentation and Personal).
+- Setup a start day and deathline to each project.
+- Setup how many hours you want to invest a week for each project.
+- Setup your break times by project.
+- Create different types of events like coding, research, meeting, break, etc.
+- See your events by project in our application calendar.
+- Take a look at your statistics of invested hours by project
+- Dark mode.
 
+<br>
+<hr>
 
-
-![Captura de Pantalla 2021-07-01 a la(s) 20 30 24](https://user-images.githubusercontent.com/72485462/124212699-099aae80-dab5-11eb-8706-bd6f9f52c651.png)
-
-
-Purojekuto is a web application that helps project managers and all the people who in their day to day have many activities to manage their calendar, helping them to be more productive, giving them valuable data and tips to improve their workflow
-### Built With
-
-<!-- This section should list any major frameworks that you built your project using. Here are a few examples.-->
+## Specifications 
+<p>The application was made with <b>React and NextJs as core</b>, Sass as preprocessor, React context API and localStorage to persist data between components, Axios for https request, React Hook Form for inputs validation.</p>
 
 - [React](https://reactjs.org/)
 - [NextJs](https://nextjs.org/)
 - [SASS](https://sass-lang.com/)
 
-## Features
+<br>
+<hr>
+
+## Collaborators
+
+- [@thomasnrggo](https://github.com/thomasnrggo)
+- [@antuansabe](https://github.com/antuansabe)
+- [@tanamix22](https://github.com/tanamix22)
 
 
