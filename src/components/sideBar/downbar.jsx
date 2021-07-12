@@ -30,6 +30,11 @@ const downbar = () => {
       });
   }, []);
 
+  let HandleSignOut = () => {
+    dispatch({ type: 'CLEAN_USER' });
+    router.push('/')
+  };
+
   return (
     <footer className="footer">
       <Link href="/">
@@ -42,7 +47,7 @@ const downbar = () => {
           <FontAwesomeIcon className="navIcon" icon={faChartBar} />
         </div>
       </Link>
-      <div>
+      <div onClick={() => HandleSignOut()}>
         <FontAwesomeIcon className="navIcon" icon={faSignOutAlt} />
       </div>
 
