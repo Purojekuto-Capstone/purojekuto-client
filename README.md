@@ -38,6 +38,5 @@ Purojekuto is a web application that helps project managers and all the people w
 - [NextJs](https://nextjs.org/)
 - [SASS](https://sass-lang.com/)
 
-## Features
 
 
