@@ -1,7 +1,7 @@
 
 <h1 align="center">
   <br>
-  <a href="#"><img src="./public/assets/images/logo.svg" alt="Purojekuto" width="400px"></a>
+  <a href="#"><img src="./public/assets/images/Purojekuto-light.svg" alt="Purojekuto" width="400px"></a>
 </h1>
 
 <p align="center">
