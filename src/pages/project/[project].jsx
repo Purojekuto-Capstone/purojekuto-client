@@ -61,7 +61,7 @@ export default function ProjectDetail(props) {
           <div className='projectDetail__container'>
             <div className='header__container'>
               <div className='head__container'>
-                <Link href='/'>
+                <Link href='/projects'>
                   <a className='back-btn'>←Back</a>
                 </Link>
                 <h1 className='title'>{product.project_name}</h1>

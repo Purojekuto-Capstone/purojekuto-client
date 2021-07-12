@@ -11,7 +11,7 @@ export default function loginAuthRedirect(props) {
 
   useEffect(() => {
     if(isAuth) {
-      router.push('/')
+      router.push('/projects')
     } else {
       if(token){
         setTimeout(() => {
