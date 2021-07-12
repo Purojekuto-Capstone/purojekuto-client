@@ -46,7 +46,7 @@ export default function Projects() {
     return (
       <>
         <Head>
-          <title>PuroJekuto</title>
+          <title>Projects | PuroJekuto</title>
           <meta name="descriptio" content="proyect manager" />
         </Head>
   

@@ -10,7 +10,6 @@ import CalendarCell from '../components/calendar/calendarCell';
 import CalendarHeader from '../components/calendar/calendarHeader';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faChevronLeft, faChevronRight } from '@fortawesome/free-solid-svg-icons';
-// import { getActivitysCalendar } from '../utils/services';
 import { store } from '../context/store';
 
 export default function CalendarContainer(props) {
@@ -30,42 +29,7 @@ export default function CalendarContainer(props) {
     let firstDay = new Date(day)
     let lastday = new Date(day)
     lastday.setDate(lastday.getDate() + 7)
-    let dateA = moment(firstDay).clone().weekday(0).toISOString()
-    let dateB = moment(firstDay).clone().weekday(6).toISOString()
-
-    // getActivitysCalendar(config, dateA, dateB)
-    // .then(res => {
-    //   let events = []
-    //   res.map(e => {
-    //     let x = {
-    //       ...e,
-    //       start: moment(e.start),
-    //       end: moment(e.end)
-    //     }
-    //     events.push(x)
-    //   })
-    //   setEvents(events)
-    //   setLoading(false)
-    // })
-    // .catch(err => {
-    //   console.error(err)
-    // })
-
-    // TODO: get events passing day range
-    
-    
-
   }, [calendarView, day])
-
-  // let changeCalendarView = days => {
-  //   if (days !== calendarView) {
-  //     setLoading(true)
-  //     setCalendarView(days)
-  //     setTimeout(() => {
-  //       setLoading(false)
-  //     }, 400);
-  //   }
-  // }
 
   let onIntervalSelect = data => {
     console.log('onIntervalSelect',data);
@@ -92,7 +56,6 @@ export default function CalendarContainer(props) {
       </Head>
 
       <Layout>
-        {/* <div onClick={() => changeCalendarView(1)}>2 days</div> <div onClick={() => changeCalendarView(7)}>7 days</div> */}
         {loading ? (
           <div>
             <Loader/>
@@ -122,9 +85,6 @@ export default function CalendarContainer(props) {
               cellHeight = {50}
               numberOfDays= {calendarView}
               selectedIntervals = {events}
-              // onIntervalSelect = {onIntervalSelect}
-              // onIntervalUpdate = {this.handleEventUpdate}
-              // onIntervalRemove = {this.handleEventRemove}
               headerCellComponent={CalendarHeader}
               dayCellComponent={CalendarCell}
               modalComponent={CalendarModal}
