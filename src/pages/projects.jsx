@@ -13,12 +13,10 @@ import { useLocalStorage } from '../hooks/useLocalStorage'
 import LoaderComponent from '../components/loader/loader';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faPlus } from '@fortawesome/free-solid-svg-icons';
-import Projects from './projects';
-import Landing from './landing';
 
 
 
-export default function Home() {
+export default function Projects() {
   const { state } = useContext(store)
   const { isAuth, token } = state
   const [isLoading,setIsLoading] = useState(true);
@@ -43,21 +41,50 @@ export default function Home() {
     })
     }
   }, [token]);
-
-  return(
-    <Landing/>
-  )
   
-  // if(isAuth) {
-  //   return (
-  //     <Projects/>
-  //   );
-  // } else {
-  //   return (
-  //     <>
-  //       <Redirect path={'/login'}/>
-  //     </>
-  //   )
-  // }
+  if(isAuth) {
+    return (
+      <>
+        <Head>
+          <title>PuroJekuto</title>
+          <meta name="descriptio" content="proyect manager" />
+        </Head>
+  
+        <Layout>
+        
+          <div className='container'>
+            <div className='project__header'>
+              <h1 className='title'>Projects</h1>
+              <Link href="/newProject">
+                <button className='btn btn-primary btn__project--add'><FontAwesomeIcon icon={faPlus} className='mr-1'/> Add project</button>
+              </Link>
+            </div>
+
+            {
+              isLoading ? (
+                <div className='loader__container' style={{"minHeight": "60vh", "width": "100%"}}><LoaderComponent /></div>
+              ) : (
+                <>
+                  {proyects.length >= 1 ? (
+                    <ListProject proyects={proyects}/>
+                  ) : (
+                    <div className='empty__space'>
+                      You don't have any proyect, add new project to start planning
+                    </div>
+                  )}
+                </>
+              )
+            }
+          </div>
+        </Layout>
+      </>
+    );
+  } else {
+    return (
+      <>
+        <Redirect path={'/login'}/>
+      </>
+    )
+  }
   
 }

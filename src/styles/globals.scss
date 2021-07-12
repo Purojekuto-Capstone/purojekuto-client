@@ -4,7 +4,7 @@
 @import "./components/header.scss";
 @import "./components/sidebar.scss";
 @import "./vars";
-@import './Button';
+@import './button';
 @import './input';
 @import "../styles/components/login.scss";
 @import "../styles/components/signup.scss";
@@ -17,7 +17,7 @@
 @import "./components/statistics.scss";
 @import "./pages/projectDetail.scss";
 @import './components/eventListItem.scss';
-
+@import "./pages/landing.scss";
 @import "./components/details.scss";
 :root {
   font-family: $text-font;

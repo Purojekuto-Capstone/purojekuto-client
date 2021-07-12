@@ -1,0 +1,73 @@
+@import "../vars";
+
+.landing__container {
+  background:#F0F4F9;
+  min-width: 100%;
+  min-height: 100vh;
+
+  .landingHeader__container {
+    display: flex;
+    justify-content: space-between;
+    padding: 1.5em;
+  }
+
+  .ladingBody__container{
+    display: grid;
+    grid-template-columns: 1fr 2fr;
+    grid-template-rows: repeat(5, 1fr);
+
+    margin: 0 auto;
+    width: 100%;
+    max-width: 1180px;
+    min-height: 80vh;
+
+    // justify-content: center;
+    align-items: center;
+
+    .title__container{
+      grid-column: 1 / 2;
+      grid-row: 1 / 6;
+
+      .headTitle{
+        font-size: 4em;
+        font-weight: 300;
+        line-height: 1em;
+
+        span{
+          font-weight: bold;
+        }
+        margin-bottom: .3em;
+      }
+
+      .description{
+        font-weight: normal;
+      }
+    }
+
+    .mockup__container{
+      grid-column: 2 / 3;
+      grid-row: 1 / 6;
+      
+
+      .mockup{
+        max-width: 100%;
+      }
+    }
+  }
+
+  .landing__btn{
+    cursor: pointer;
+    border: 1px solid #F89F26;
+    color: #F89F26;
+    text-transform: capitalize;
+    transition: ease .4s;
+    &:hover{
+      background: #F89F26;
+      color: white;
+    }
+  }
+
+  .organge-text{
+    color: #F89F26;
+  }
+}
