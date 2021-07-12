@@ -4,7 +4,7 @@ import Layout from '../components/layout/layout';
 import { store } from '../context/store';
 import Loading from '../components/loading/loading';
 import { getProyect, getProyects } from '../utils/services';
-import ListProyect from '../components/listProyect/listProyect';
+import ListProject from '../components/listProject/listProject';
 import Link from 'next/link';
 import { async } from 'q';
 import { useRouter } from 'next/router'
@@ -66,7 +66,7 @@ export default function Home() {
               ) : (
                 <>
                   {proyects.length >= 1 ? (
-                    <ListProyect proyects={proyects}/>
+                    <ListProject proyects={proyects}/>
                   ) : (
                     <div className='empty__space'>
                       You don't have any proyect, add new project to start planning

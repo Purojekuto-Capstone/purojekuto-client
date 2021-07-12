@@ -3,7 +3,7 @@ import { useRouter } from 'next/router';
 import ProyectsJson from '../../data/projects.json';
 import moment from 'moment';
 
-const listProyect = ({ proyects }) => {
+const listProject = ({ proyects }) => {
   const router = useRouter();
 
   const handleOnCardClick = (id) => {
@@ -29,4 +29,4 @@ const listProyect = ({ proyects }) => {
   );
 };
 
-export default listProyect;
+export default listProject;
